@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beställ AI Box</title>
+<meta name="description" content="Beställ AI Box S eller M. Köp en gång från 49 000 kr exkl. moms, eller leasa i 12, 24 eller 36 månader. Installation i hela Sverige inom två veckor, betalning mot faktura.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="canonical" href="https://ai-box.se/bestall/">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="AI Box, till startsidan">AI <span>Box</span></a>
+    <nav class="nav" aria-label="Huvudmeny">
+      <a href="../#hastighet">Hastighet</a><a href="../#boxarna">Priser</a><a href="../#fragor">Frågor</a><a href="../#dataskydd">Dataskydd</a><a href="../#om">Om oss</a><a href="../bestall/">Beställ</a>
+    </nav>
+    <a class="btn primary" href="../#prova">Prova</a>
+  </div>
+</header>
+
+<main class="wrap page" id="main">
+  <p class="kicker">Beställning</p>
+  <h1>Beställ <em>AI Box.</em></h1>
+  <p class="lead">Välj box, köp eller leasing, och fyll i uppgifterna om er verksamhet. Vi bekräftar pris och installationsdag
+    innan något är bindande.</p>
+
+  <div class="order">
+    <form id="order" class="formbox" novalidate>
+      <fieldset>
+        <legend>1. Välj box</legend>
+        <label class="choice"><input type="radio" name="box" value="AI Box S" checked>
+          <span><b>AI Box S</b><small>För en person, eller ett litet team som turas om</small></span>
+          <span class="pr">49 000 kr</span></label>
+        <label class="choice"><input type="radio" name="box" value="AI Box M">
+          <span><b>AI Box M</b><small>Upp till åtta personer samtidigt, plus AI-agenter</small></span>
+          <span class="pr">89 000 kr</span></label>
+        <label class="short">Antal boxar<input type="text" name="antal" inputmode="numeric" value="1"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Köpa eller leasa</legend>
+        <label class="choice"><input type="radio" name="satt" value="Köp" checked>
+          <span><b>Köpa</b><small>Engångspris, ni äger boxen. Billigast räknat över tre år.</small></span></label>
+        <label class="choice"><input type="radio" name="satt" value="Leasa">
+          <span><b>Leasa</b><small>I 12, 24 eller 36 månader. Lika privat som en köpt box: vi kommer inte åt den eller era uppgifter. När leasingtiden är slut kan ni förlänga, börja en ny leasing eller skicka tillbaka boxen; disken raderas då på plats inför er.</small></span></label>
+        <label class="short" id="tid-l">Leasingtid<select name="tid"><option value="36" selected>36 månader</option><option value="24">24 månader</option><option value="12">12 månader</option></select></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Er verksamhet</legend>
+        <div class="fields">
+          <label>Företag eller organisation<input type="text" name="foretag" autocomplete="organization" required></label>
+          <label>Organisationsnummer<input type="text" name="orgnr" placeholder="556xxx-xxxx" required></label>
+          <label>Kontaktperson<input type="text" name="kontakt" autocomplete="name" required></label>
+          <label>E-post för faktura<input type="email" name="epost" autocomplete="email" required></label>
+          <label><span>Telefon <span class="opt">(valfritt)</span></span><input type="tel" name="telefon" autocomplete="tel"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Installation</legend>
+        <p class="hint">Vi kör ut boxen, kopplar in den och visar personalen i en timme, var ni än finns i Sverige.</p>
+        <div class="fields">
+          <label>Installationsadress<input type="text" name="adress" autocomplete="street-address" required></label>
+          <label><span>Önskad vecka <span class="opt">(valfritt)</span></span><input type="text" name="vecka" placeholder="t.ex. vecka 48"></label>
+        </div>
+        <label><span>Något vi bör veta? <span class="opt">(valfritt)</span></span>
+          <textarea name="ovrigt" placeholder="T.ex. vad ni vill använda den till, eller vilka system den ska kopplas till"></textarea></label>
+      </fieldset>
+
+      <div class="send">
+        <label class="check"><input type="checkbox" name="ok" required>
+          <span>Jag beställer för verksamhetens räkning. Så behandlar vi uppgifterna: <a href="../integritet/">integritet</a>.</span></label>
+        <button class="btn primary" type="submit">Skicka beställningen <span class="arr" aria-hidden="true">→</span></button>
+        <p id="msg" class="msg" role="status"></p>
+        <p class="fine">Beställningen skickas som ett mejl från ert eget e-postprogram till info@ai-box.se. Vi svarar med en
+          bekräftelse med pris, villkor och installationsdag. Först när ni har godkänt den är beställningen bindande.</p>
+      </div>
+    </form>
+
+    <aside class="summary" aria-label="Sammanställning">
+      <h2>Er beställning</h2>
+      <dl>
+        <dt>Box</dt><dd id="s-box">AI Box S</dd>
+        <dt>Antal</dt><dd id="s-antal">1</dd>
+        <dt id="s-pris-t">Pris</dt><dd id="s-pris">49 000 kr</dd>
+        <dt>Installation</dt><dd>Hos er, inom två veckor</dd>
+      </dl>
+      <p class="small" id="s-not">Engångspris exkl. moms. Ni äger boxen.</p>
+      <ul>
+        <li>Installation och genomgång i hela Sverige</li>
+        <li>Uppdateringar i minst fem år, som gör den bättre med tiden</li>
+        <li>Tre års garanti</li>
+        <li>Faktura, 10 dagar netto</li>
+        <li>För företag och offentliga verksamheter</li>
+      </ul>
+      <p class="small">Vill ni prova först? <a href="../#prova">Prova den</a>.</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="who">
+      <b>Jakup Güven AB</b>
+      <span>Org.nr 559582-8921 · Malmö</span>
+      <span><a href="mailto:info@ai-box.se">info@ai-box.se</a></span>
+      <span><a href="../integritet/">Integritetspolicy</a> · <a href="https://jakupguven.se/privacy/">Appens integritetspolicy</a></span>
+    </div>
+    <nav aria-label="Sidfot">
+      <a href="../#hastighet">Hastighet</a><a href="../#boxarna">Priser</a><a href="../#fragor">Frågor</a><a href="../#dataskydd">Dataskydd</a><a href="../#om">Om oss</a><a href="../bestall/">Beställ</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var PRICE = { "AI Box S": { kop: 49000, lease: { 36: 1950, 24: 2600, 12: 4700 } }, "AI Box M": { kop: 89000, lease: { 36: 3500, 24: 4700, 12: 8500 } } };
+  var f = document.getElementById("order"), msg = document.getElementById("msg");
+  function val(n) { var e = f.elements[n]; return e ? (e.value || "").trim() : ""; }
+  function kr(n) { return n.toLocaleString("sv-SE") + " kr"; }
+  function count() { var n = parseInt(val("antal"), 10); return n > 0 && n < 100 ? n : 1; }
+  function priceText() {
+    var p = PRICE[val("box")], n = count(), m = +val("tid") || 36;
+    return val("satt") === "Leasa"
+      ? kr(p.lease[m] * n) + "/mån i " + m + " mån (" + kr(p.lease[m] * n * m) + " totalt)"
+      : kr(p.kop * n);
+  }
+  function summary() {
+    var lease = val("satt") === "Leasa";
+    document.getElementById("tid-l").hidden = !lease;
+    document.getElementById("s-box").textContent = val("box");
+    document.getElementById("s-antal").textContent = count();
+    document.getElementById("s-pris-t").textContent = lease ? "Leasing" : "Pris";
+    document.getElementById("s-pris").textContent = priceText();
+    document.getElementById("s-not").textContent = lease
+      ? "Exkl. moms. När leasingtiden är slut kan ni förlänga, börja en ny leasing eller skicka tillbaka boxen."
+      : "Engångspris exkl. moms. Ni äger boxen.";
+  }
+  f.addEventListener("input", summary); f.addEventListener("change", summary);
+  var q = new URLSearchParams(location.search);
+  if (q.get("box") === "m") f.elements.box.value = "AI Box M";
+  if (q.get("satt") === "leasa" || q.get("satt") === "hyra") f.elements.satt.value = "Leasa";
+  if (["12", "24", "36"].indexOf(q.get("tid")) >= 0) f.elements.tid.value = q.get("tid");
+  summary();
+
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var miss = ["foretag", "orgnr", "kontakt", "epost", "adress"].filter(function (n) { return !val(n); });
+    if (miss.length) { msg.className = "msg err"; msg.textContent = "Fyll i företag, organisationsnummer, kontaktperson, e-post och installationsadress."; f.elements[miss[0]].focus(); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val("epost"))) { msg.className = "msg err"; msg.textContent = "E-postadressen ser inte rätt ut."; f.elements.epost.focus(); return; }
+    if (!f.elements.ok.checked) { msg.className = "msg err"; msg.textContent = "Kryssa i att ni beställer för verksamhetens räkning."; return; }
+    var lines = [
+      "Beställning av AI Box", "",
+      "Box: " + val("box"), "Antal: " + count(), "Köpa eller leasa: " + val("satt") + (val("satt") === "Leasa" ? ", " + val("tid") + " månader" : ""), "Pris exkl. moms: " + priceText(), "",
+      "Företag: " + val("foretag"), "Org.nr: " + val("orgnr"), "Kontaktperson: " + val("kontakt"),
+      "E-post för faktura: " + val("epost"), "Telefon: " + (val("telefon") || "-"), "",
+      "Installationsadress: " + val("adress"), "Önskad vecka: " + (val("vecka") || "-"), "Övrigt: " + (val("ovrigt") || "-"), "",
+      "Jag beställer för verksamhetens räkning."
+    ];
+    location.href = "mailto:info@ai-box.se?subject=" + encodeURIComponent("Beställning: " + val("box") + " – " + val("foretag")) +
+      "&body=" + encodeURIComponent(lines.join("\n"));
+    msg.className = "msg ok";
+    msg.textContent = "Ert e-postprogram öppnas med beställningen ifylld. Skicka mejlet så hör vi av oss.";
+  });
+})();
+</script>
+</body>
+</html>

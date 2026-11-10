@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="sv" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Box – lokal AI för känsliga uppgifter, utan moln</title>
+<meta name="description" content="AI Box är en lokal AI-server hos er: en AI i klass med de marknadsledande molntjänsterna, men patientdata, avtal och kunduppgifter lämnar aldrig lokalen. GDPR utan molnleverantör. Från 49 000 kr exkl. moms. Prova den själv.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/vendor/three-r128.min.js" defer></script>
+<script src="assets/box3d.js" defer></script>
+<script src="assets/replay.js" defer></script>
+<script src="assets/countup.js" defer></script>
+<script src="assets/typer.js" defer></script>
+<meta property="og:title" content="AI Box – frontier-AI under skrivbordet">
+<meta property="og:description" content="En egen AI i klass med de marknadsledande molntjänsterna, i en box hos er. Inget lämnar lokalen.">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ai-box.se/">
+<link rel="canonical" href="https://ai-box.se/">
+<script>document.documentElement.classList.remove("no-js");</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "name": "Jakup Güven AB", "url": "https://ai-box.se/", "email": "info@ai-box.se",
+      "address": { "@type": "PostalAddress", "addressLocality": "Malmö", "addressCountry": "SE" }, "vatID": "SE559582892101" },
+    { "@type": "Product", "name": "AI Box S", "brand": "AI Box",
+      "description": "Lokal AI-server för en person eller ett litet team. Språkmodellen körs hos er; inget lämnar boxen.",
+      "offers": { "@type": "Offer", "price": "49000", "priceCurrency": "SEK", "availability": "https://schema.org/InStock",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "49000", "priceCurrency": "SEK", "valueAddedTaxIncluded": false } } },
+    { "@type": "Product", "name": "AI Box M", "brand": "AI Box",
+      "description": "Lokal AI-server för upp till åtta personer samtidigt och AI-agenter. Språkmodellen körs hos er; inget lämnar boxen.",
+      "offers": { "@type": "Offer", "price": "89000", "priceCurrency": "SEK", "availability": "https://schema.org/InStock",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "89000", "priceCurrency": "SEK", "valueAddedTaxIncluded": false } } }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Hoppa till innehållet</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="AI Box, till början">AI <span>Box</span></a>
+    <nav class="nav" aria-label="Huvudmeny">
+      <a href="#hastighet">Hastighet</a>
+      <a href="#boxarna">Priser</a>
+      <a href="#fragor">Frågor</a>
+      <a href="#dataskydd">Dataskydd</a>
+      <a href="#om">Om oss</a>
+      <a href="bestall/">Beställ</a>
+    </nav>
+    <a class="btn primary" href="#prova">Prova</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="kicker who">För vårdgivare, advokatbyråer, revisorer – alla med tystnadsplikt eller känsliga uppgifter</p>
+      <h1>Frontier-AI <em>under skrivbordet.</em></h1>
+      <p class="lead">AI Box är en helhetslösning, dator och AI-program i ett, som ger er AI i klass med de marknadsledande
+        molntjänsterna med integriteten inbyggd från start. Den står hos er tillsammans med all er data. Köp den en gång och använd den så mycket ni vill, med tre års garanti och kontinuerliga uppdateringar.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#prova">Prova <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn" href="#boxarna">Se priser</a>
+      </div>
+      <p class="note">Från 49 000 kr exkl. moms, engångssumma. Eller leasa från 1 950 kr i månaden. Inga avgifter per användare eller per fråga.</p>
+    </div>
+
+    <div class="boxstage" role="img" aria-label="AI Box, en svart dator med ett varmt statusljus">
+    <canvas id="box3d" aria-hidden="true"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="head">
+    <p class="kicker">AI som ni kan lita på</p>
+    <div class="probs" data-typer>
+      <ul class="probs-list">
+        <li data-who="Vårdcentral">Vi vill att AI:n sammanfattar journalen inför varje besök, men patientsekretessen hindrar oss från att klistra in den i en AI-tjänst på nätet.</li>
+        <li data-who="Advokatbyrå">Vi vill att AI:n granskar tusen sidor avtal före budfristen, men sekretessavtalet i affären tillåter inte att handlingarna laddas upp hos någon annan.</li>
+        <li data-who="Revisionsbyrå">Vi vill att AI:n går igenom alla kundens verifikationer i stället för ett stickprov, men vår tystnadsplikt gäller allt vi ser i deras böcker.</li>
+        <li data-who="Verkstadsföretag">Vi vill att AI:n räknar på offerter utifrån våra ritningar, men ritningarna är det vi lever på.</li>
+        <li data-who="Utvecklare">Jag vill att AI:n skriver om transaktionslagret i vår applikation, men affärslogiken är hemlig, och mina tokens skulle ta slut innan den kommit halvvägs.</li>
+      </ul>
+    </div>
+    <h2>AI Box håller allt ni visar den <em>för sig själv.</em></h2>
+    <p class="lead muted">De flesta AI-tjänster skickar era texter till någon annans dator. AI Box är datorn. Den står hos er
+      och svarar bara er.</p>
+  </div>
+  <div class="three">
+    <div>
+      <span class="num">i.</span>
+      <h3>Det stannar hos er</h3>
+      <p>Språkmodellen körs på boxen. Dokument, frågor, svar och historik sparas på boxen och skickas inte till något moln,
+        någon leverantör eller någon tredje part. Inte heller till oss.</p>
+    </div>
+    <div>
+      <span class="num">ii.</span>
+      <h3>Ingen taxameter</h3>
+      <p>Ni betalar för boxen, inte per användare, per fråga eller per ord. Låt den läsa varje avtal, varje journalanteckning
+        och varje ärende. En fråga till kostar ingenting.</p>
+    </div>
+    <div>
+      <span class="num">iii.</span>
+      <h3>Ni äger den</h3>
+      <p>När ni köper boxen är den er. Den behöver inget konto hos oss och ingen licensserver, och den kör vidare även
+        om vi skulle försvinna. Uppdateringar i minst fem år, installerade när ni vill, och med dem blir den bättre.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec speedsec" id="hastighet">
+  <div class="wrap">
+  <div class="head">
+    <p class="kicker">Hastighet</p>
+    <h2>Snabbare än du <em>hinner läsa.</em></h2>
+    <p class="lead muted">En människa läser ungefär fyra ord i sekunden. Båda boxarna skriver många gånger fortare.</p>
+  </div>
+  </div>
+  <div class="proof" id="snabb">
+    <div class="wrap">
+    <div class="stat">
+      <div class="n"><span data-count="0.26" data-dec="2">0,26</span><small>s</small></div>
+      <p class="t"><strong>till första ordet.</strong> En kvarts sekund efter att du frågat är den igång.</p>
+    </div>
+    <div class="stat">
+      <div class="n"><span data-count="1700">1 700</span></div>
+      <p class="t"><strong>ord i sekunden läser den.</strong> Ett <span class="nw">20-sidigt</span> avtal är genomläst på ungefär fem sekunder.</p>
+    </div>
+    <div class="stat">
+      <div class="n"><span data-count="124">124</span></div>
+      <p class="t"><strong>ord i sekunden skriver den.</strong> Trettio gånger fortare än du hinner läsa.</p>
+    </div>
+    <p class="fine">Bästa uppmätta värden på AI Box M med en person som frågar. Första ordet räknas från att frågan skickas
+      tills AI:n börjar tänka högt i chatten. Se det själv här under.</p>
+    </div>
+  </div>
+  <div class="wrap">
+  <div class="demo" data-replay data-autoplay data-qs="mail,doc,follow,sql,raid" data-first="mail">
+    <div class="pick formbox">
+      <fieldset><legend>Box</legend><div data-r="boxes" class="pills boxpills"></div></fieldset>
+      <fieldset data-r="fs-n"><legend>Hur många frågar?</legend><div data-r="ns" class="pills"></div></fieldset>
+      <fieldset data-r="fs-q"><legend>Fråga</legend><div data-r="qs" class="qlist"></div>
+        <a class="more" href="hastighet/">Fler frågor, även tekniska <span class="arr" aria-hidden="true">→</span></a></fieldset>
+    </div>
+    <section class="run" aria-label="Uppspelning">
+      <div class="clock"><small>Tid sedan frågan ställdes</small><span data-r="clock">00:00,0</span></div>
+      <div class="lanes" data-r="lanes" hidden></div>
+      <p class="qline"><span data-r="qwho">Fråga</span>: <b data-r="qtext"></b></p>
+      <div class="steps2">
+        <div class="st" data-r="st-read"><span data-r="st-read-l">Läser</span><div class="bar"><i data-r="bar-read"></i></div></div>
+        <div class="st" data-r="st-think"><span>Tänker högt</span><div class="bar"><i data-r="bar-think"></i></div></div>
+        <div class="st" data-r="st-write"><span data-r="st-write-l">Skriver</span><div class="bar"><i data-r="bar-write"></i></div></div>
+      </div>
+      <div class="answer" data-r="answer" aria-live="off"><p class="think" data-r="think"></p><p class="ans" data-r="ans"></p></div>
+      <div class="runbtns">
+        <button class="btn primary" data-r="play" type="button">Ställ frågan</button>
+        <button class="btn" data-r="skip" type="button" disabled>Visa hela svaret</button>
+      </div>
+      <div class="stats">
+        <div><span>Första ordet</span><b data-r="s-first">–</b></div>
+        <div><span>Skrev svaret på</span><b data-r="s-write">–</b></div>
+        <div><span data-r="s-total-l">Totalt</span><b data-r="s-total">–</b></div>
+      </div>
+      <p class="fine" data-r="fine"></p>
+    </section>
+  </div>
+  <div class="speedtab">
+  <h3 class="speed-h">Siffrorna för båda boxarna</h3>
+  <table class="speed">
+    <thead><tr><th></th><th>AI Box S</th><th>AI Box M</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Första ordet</th><td>0,39 s</td><td>0,26 s</td></tr>
+      <tr><th scope="row">Läser</th><td>600<small>ord i sekunden</small></td><td>1 700<small>ord i sekunden</small></td></tr>
+      <tr><th scope="row">Skriver</th><td>53<small>ord i sekunden</small></td><td>124<small>ord i sekunden</small></td></tr>
+      <tr><th scope="row">Skriver en A4-sida</th><td>ca 9 s</td><td>ca 4 s</td></tr>
+      <tr><th scope="row">Åtta frågar samtidigt</th><td>–<small>turas om</small></td><td>42<small>ord i sekunden var</small></td></tr>
+    </tbody>
+  </table>
+  <p class="fine">Bästa uppmätta värden i våra egna mätningar, november 2026, en person om inget annat står. Ord räknade
+    som svenska ord. Boxarna blir snabbare med uppdateringarna.</p>
+  </div>
+  </div>
+</section>
+
+<section class="wrap sec rule">
+  <div class="head">
+    <p class="kicker">Vad den gör</p>
+    <h2>Det ni gör i dag, <em>på en bråkdel av tiden.</em></h2>
+  </div>
+  <div class="uses">
+    <div class="use">
+      <span class="tag">Läsa</span>
+      <p class="ask">Sammanfatta avtalet och peka ut det vi borde fråga motparten om.</p>
+      <p>Ladda upp PDF:er och Word-filer direkt i chatten. Ställ följdfrågor utan att dokumentet läses om.</p>
+    </div>
+    <div class="use">
+      <span class="tag">Skriva</span>
+      <p class="ask">Skriv ett vänligt svar till patienten om att provsvaret dröjer en vecka.</p>
+      <p>Brev, mejl, remissvar, rapporter och översättningar. Ni läser igenom och skickar.</p>
+    </div>
+    <div class="use">
+      <span class="tag">Tala</span>
+      <p class="ask">Gör om min diktering till en strukturerad anteckning.</p>
+      <p>Diktera på svenska i appen. Talet blir text på boxen, och du granskar texten innan den används.</p>
+    </div>
+    <div class="use">
+      <span class="tag">Egna uppdrag</span>
+      <p class="ask">Gå igenom de här tjugo ärendena och lista vilka som saknar underskrift.</p>
+      <p>Ge den ett uppdrag i flera steg, så arbetar den sig igenom det. Era egna program kan också använda boxen via OpenAI- och
+        Anthropic-kompatibla API:er.</p>
+    </div>
+    <div class="use wide">
+      <span class="tag">Kopplas in i era system</span>
+      <p class="ask">Koppla in dig i vår mejl och vårt bokningssystem och påminn morgondagens patienter.</p>
+      <p>Be den koppla in sig i det ni redan använder: e-posten, kalendern, journal- eller ärendesystemet, ekonomiprogrammet.
+        Har systemet ett API använder den det. Har det inget klickar den sig fram i programmet precis som en anställd skulle göra.
+        Allt sker på boxen, och ni bestämmer vad den får röra.</p>
+    </div>
+  </div>
+  <ul class="also" aria-label="Mer i chatten">
+    <li>Appar för iPhone och Android</li><li>Webbläsaren på datorn</li><li>OpenAI- och Anthropic-kompatibla API:er</li><li>Sök i tidigare chattar</li><li>Minns det du ber den komma ihåg</li>
+    <li>Webbsökning som ni kan stänga av</li><li>Återkommande uppgifter på schema</li>
+  </ul>
+</section>
+
+
+<section class="sec rule" id="boxarna">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Boxarna</p>
+      <h2>Två storlekar. <em>Samma AI.</em></h2>
+      <p class="lead muted">Välj efter hur många som ska fråga samtidigt. Båda kör samma språkmodell och samma program.</p>
+    </div>
+    <div class="boxes">
+      <div class="card">
+        <div class="name"><h3>AI Box <em>S</em></h3></div>
+        <p class="for">För en person, eller ett litet team som turas om.</p>
+        <div class="price">49 000 kr<small>engångspris, exkl. moms</small></div>
+        <ul>
+          <li><strong>En åt gången</strong>, med full fart</li>
+          <li>Skriver 53 ord i sekunden</li>
+          <li>Läser 600 ord i sekunden</li>
+        </ul>
+        <a class="btn primary" href="bestall/?box=s">Beställ AI Box S <span class="arr" aria-hidden="true">→</span></a>
+        <p class="lease"><a href="bestall/?box=s&amp;satt=leasa">Leasa</a> från 1 950 kr/mån i 36 mån, eller 2 600 kr i 24 mån, 4 700 kr i 12 mån.</p>
+      </div>
+      <div class="card hl">
+        <div class="name"><h3>AI Box <em>M</em></h3><span class="badge">För hela kontoret</span></div>
+        <p class="for">För upp till åtta personer samtidigt, och AI-agenter som arbetar i bakgrunden.</p>
+        <div class="price">89 000 kr<small>engångspris, exkl. moms</small></div>
+        <ul>
+          <li><strong>Upp till 8 samtidigt</strong></li>
+          <li>Skriver 124 ord i sekunden</li>
+          <li>Läser 1 700 ord i sekunden</li>
+        </ul>
+        <a class="btn primary" href="bestall/?box=m">Beställ AI Box M <span class="arr" aria-hidden="true">→</span></a>
+        <p class="lease"><a href="bestall/?box=m&amp;satt=leasa">Leasa</a> från 3 500 kr/mån i 36 mån, eller 4 700 kr i 24 mån, 8 500 kr i 12 mån.</p>
+      </div>
+    </div>
+    <div class="incl" aria-label="Ingår i båda">
+      <div><strong>Installation på plats</strong><span>I hela Sverige. Vi kör ut boxen, kopplar in den och visar personalen i en timme.</span></div>
+      <div><strong>Blir bättre med tiden</strong><span>Uppdateringar i minst fem år ingår: snabbare, smartare och med nya funktioner. Inget tvingande abonnemang.</span></div>
+      <div><strong>Tre års garanti</strong><span>Support på mejl vardagar ingår också.</span></div>
+      <div><strong>Leverans inom två veckor</strong><span>Från beställning till installerad box.</span></div>
+      <div><strong>Betalning mot faktura</strong><span>Tio dagar netto. Vi säljer till företag och offentliga verksamheter.</span></div>
+      <div><strong>Ni bestämmer när den uppdateras</strong><span>Inget installeras förrän ni valt det.</span></div>
+    </div>
+    <p class="buy-why"><strong style="color:var(--ink);font-weight:500">Köpa eller leasa?</strong> Köper ni är boxen er
+      från första dagen och kostar inget mer. Leasar ni betalar ni varje månad, och boxen är vår under leasingtiden. Köp lönar sig:
+      över tre år sparar ni 21 200 kr på S och 37 000 kr på M.</p>
+  </div>
+</section>
+
+<section id="prova" class="trial" aria-labelledby="prova-h">
+  <div class="wrap sec">
+    <div class="intro">
+      <div>
+        <p class="kicker">Prova själv</p>
+        <h2 id="prova-h">Chatta med en <em>riktig box.</em></h2>
+        <p class="lead muted">Ingen demofilm och inget säljsamtal. Berätta vem du är, så läser vi
+          förfrågan och mejlar en kod. Sedan chattar du med en av våra egna boxar, här på sidan.</p>
+        <p class="fine">Skriv inga riktiga patient- eller kunduppgifter i provet: det är vår box, inte er egen.
+          Mer om hur vi hanterar uppgifterna i vår
+          <a href="integritet/">integritetspolicy</a>.</p>
+      </div>
+      <div class="formbox">
+        <form id="req" novalidate>
+          <label>Namn <input name="name" autocomplete="name" required maxlength="80"></label>
+          <label>Företag eller verksamhet <input name="company" autocomplete="organization" maxlength="120"></label>
+          <label>E-post <input name="email" type="email" autocomplete="email" required maxlength="200"></label>
+          <label>Vad vill du prova? (frivilligt)
+            <textarea name="purpose" maxlength="1000"></textarea></label>
+          <label>Språk i mejlet
+            <select name="lang"><option value="sv">Svenska</option><option value="en">English</option></select></label>
+          <div class="hp" aria-hidden="true"><label>Webbplats <input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button class="btn primary" type="submit">Skicka mig en kod</button>
+          <p class="msg" id="req-msg" role="status"></p>
+        </form>
+        <form id="code" class="have-code" method="post" target="trialframe">
+          <div class="row">
+            <label>Har du redan en kod?
+              <input name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXXX-XXXXX"
+                     maxlength="20" required></label>
+            <button class="btn" type="submit">Starta provet</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel" id="panel">
+      <iframe name="trialframe" id="trialframe" title="AI Box, provet" allow="clipboard-write"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads allow-modals allow-top-navigation-by-user-activation"></iframe>
+      <div class="status"><span id="st-q"></span><span id="st-end"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="head">
+    <p class="kicker">Box eller moln</p>
+    <h2>Samma kvalitet. <em>Annan adress.</em></h2>
+    <p class="lead muted">AI Box svarar i klass med de marknadsledande molntjänsterna. Skillnaden är var era texter tar vägen.</p>
+  </div>
+  <table class="cmp">
+    <thead><tr><th></th><th>AI Box</th><th>AI i molnet</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Var era texter behandlas</th><td>På boxen, hos er</td><td>I leverantörens datacenter, ofta utanför Sverige</td></tr>
+      <tr><th scope="row">Vem som kan komma åt dem</th><td>Ni</td><td>Leverantören, dess underleverantörer och ibland myndigheter i andra länder</td></tr>
+      <tr><th scope="row">Biträdesavtal och överföringsanalys (TIA)</th><td>Behövs inte för AI:n</td><td>Krävs, och ni ansvarar för dem</td></tr>
+      <tr><th scope="row">Kostnad</th><td>En gång</td><td>Varje månad, per användare</td></tr>
+      <tr><th scope="row">Hur mycket ni får använda den</th><td>Obegränsat</td><td>Per användare, per ord eller med tak</td></tr>
+      <tr><th scope="row">Om leverantören slutar</th><td>Boxen kör vidare</td><td>Tjänsten upphör</td></tr>
+      <tr><th scope="row">Uppdateringar</th><td>När ni väljer</td><td>När leverantören väljer</td></tr>
+    </tbody>
+  </table>
+  <aside class="notfor" aria-labelledby="notfor-h">
+    <h3 id="notfor-h">Vem ska <em>inte</em> köpa AI Box?</h3>
+    <p>Får era uppgifter ligga i en molntjänst, och använder ni AI bara då och då? Då räcker molnet, och det blir
+      billigare. AI Box lönar sig när uppgifterna inte får lämna lokalen, eller när hela kontoret använder AI varje dag.
+      Det säger vi hellre nu än efteråt.</p>
+  </aside>
+</section>
+
+<section class="wrap sec rule" id="fragor">
+  <div class="head">
+    <p class="kicker">Vanliga frågor</p>
+    <h2>Det ni <em>undrar över.</em></h2>
+  </div>
+  <span id="dataskydd" aria-hidden="true"></span>
+  <div class="qtabs" role="tablist" aria-label="Frågor efter roll">
+    <button role="tab" id="t-led" aria-controls="q-led" aria-selected="true">Ledning</button>
+    <button role="tab" id="t-pers" aria-controls="q-pers" aria-selected="false" tabindex="-1">Personal</button>
+    <button role="tab" id="t-it" aria-controls="q-it" aria-selected="false" tabindex="-1">IT</button>
+    <button role="tab" id="t-dp" aria-controls="q-dp" aria-selected="false" tabindex="-1">Dataskydd</button>
+  </div>
+
+  <div class="qgroup" id="q-led" role="tabpanel" aria-labelledby="t-led">
+    <h3 class="gh">Ledning</h3>
+    <details><summary>Är den lika bra som de stora AI-tjänsterna i molnet?</summary>
+      <div class="a"><p>Ja. Språkmodellen på boxen är i klass med de marknadsledande molntjänsterna för det arbete ett kontor gör:
+        läsa, sammanfatta, skriva, översätta, räkna och resonera. Prova själv, med era egna frågor.</p></div></details>
+    <details><summary>Vad kostar det, egentligen?</summary>
+      <div class="a"><p>AI Box S kostar 49 000 kr och AI Box M 89 000 kr, exklusive moms, en gång. Installation, genomgång,
+        uppdateringar i minst fem år och tre års garanti ingår. Inga avgifter per användare, per fråga eller per ord.
+        Vill ni hellre betala per månad går det att leasa i 12, 24 eller 36 månader. Längst leasingtid ger lägst månadskostnad:
+        1 950 kr för S och 3 500 kr för M i 36 månader.</p></div></details>
+    <details><summary>Varför inte bara köpa en molntjänst?</summary>
+      <div class="a"><p>Om ni inte har känsliga uppgifter och bara använder AI ibland kan en molntjänst vara billigare. Boxen är för er
+        som har uppgifter som inte får lämna lokalen, eller där många använder AI varje dag. Boxen kostar lika mycket hur mycket
+        ni än använder den, medan en molntjänst tar betalt per användare eller per fråga.</p></div></details>
+    <details><summary>Vad händer om boxen går sönder?</summary>
+      <div class="a"><p>Under garantitiden, de första tre åren, lagar eller byter vi den på plats hos er.</p></div></details>
+    <details><summary>Vilken AI-modell kör den?</summary>
+      <div class="a"><p>En öppen språkmodell som körs med vårt eget program. När bättre modeller kommer får ni dem som
+        uppdatering.</p></div></details>
+    <details><summary>Hur snabbt kan vi ha den?</summary>
+      <div class="a"><p>Inom två veckor från beställning står den installerad hos er, var ni än finns i Sverige.</p></div></details>
+  </div>
+
+  <div class="qgroup" id="q-pers" role="tabpanel" aria-labelledby="t-pers" hidden>
+    <h3 class="gh">Personal</h3>
+    <details><summary>Hur använder jag den?</summary>
+      <div class="a"><p>I appen på mobilen (iPhone och Android) eller i webbläsaren på datorn. Varje enhet paras ihop med boxen en gång,
+        med en kod. Sedan är det en chatt som vilken annan.</p></div></details>
+    <details><summary>Förstår den svenska?</summary>
+      <div class="a"><p>Ja, både i skrift och i tal. Du kan skriva och diktera på svenska och få svar på svenska, eller på något annat språk.</p></div></details>
+    <details><summary>Kan jag ladda upp dokument?</summary>
+      <div class="a"><p>Ja. PDF- och Word-filer och andra textfiler, direkt i chatten. Följdfrågor om samma dokument besvaras utan att det läses om.</p></div></details>
+    <details><summary>Fungerar den hemifrån?</summary>
+      <div class="a"><p>Ja. På kontoret går trafiken direkt till boxen. Hemifrån går den krypterad hela vägen från appen till
+        boxen: direkt när det går, annars via en förmedlingsserver som inte kan läsa innehållet.</p></div></details>
+    <details><summary>Kan jag lita på svaren?</summary>
+      <div class="a"><p>Behandla det den skriver som ett utkast från en duktig kollega: läs igenom innan du använder det. Den fattar
+        inga beslut och ställer inga diagnoser.</p></div></details>
+  </div>
+
+  <div class="qgroup" id="q-it" role="tabpanel" aria-labelledby="t-it" hidden>
+    <h3 class="gh">IT</h3>
+    <details><summary>Vad behöver boxen?</summary>
+      <div class="a"><p>Ström och en nätverkskabel. Det är en tornarbetsstation som står på golvet eller i ett serverskåp. Ingen skärm
+        behövs.</p></div></details>
+    <details><summary>Vilka portar och vilken trafik?</summary>
+      <div class="a"><p>Inga inkommande portar och ingen portöppning. Boxen hämtar adress med DHCP och öppnar bara utgående krypterade
+        förbindelser: för fjärråtkomst via tunneln, för uppdateringar när ni installerar dem och för webbsökning om ni har
+        den påslagen. Inget av era dokument eller samtal skickas ut.</p></div></details>
+    <details><summary>Kan våra egna program använda den?</summary>
+      <div class="a"><p>Ja. Boxen har OpenAI- och Anthropic-kompatibla API:er, så de flesta program och AI-verktyg
+        som kan prata med en molntjänst kan prata med boxen i stället. Behöver ni en särskild koppling till ert system hjälper vi
+        till med den.</p></div></details>
+    <details><summary>Hur uppdateras den?</summary>
+      <div class="a"><p>Med signerade uppdateringar som ni installerar när det passar er, eller automatiskt om ni själva slår på det.
+        Uppdateringar ingår i minst fem år. Vi arbetar hela tiden med att göra AI:n snabbare och bättre, och de förbättringarna
+        kommer till er box med uppdateringarna: den ni köper i dag blir bättre med tiden.</p></div></details>
+    <details><summary>Hur styr vi vem som kommer åt den?</summary>
+      <div class="a"><p>Bara enheter som parats ihop med boxen kommer åt den. Ni bestämmer vilka, och kan ta bort en enhet när som helst.</p></div></details>
+    <details><summary>Kan ni komma åt boxen på distans?</summary>
+      <div class="a"><p>Bara om ni släpper in oss. Behöver ni hjälp slår ni själva på underhållsläge på boxen och godkänner vår
+        anslutning. Annars kommer vi inte åt den, och support sker på plats hos er.</p></div></details>
+  </div>
+
+  <div class="qgroup" id="q-dp" role="tabpanel" aria-labelledby="t-dp" hidden>
+    <h3 class="gh">Dataskydd</h3>
+    <details><summary>Lämnar några uppgifter boxen?</summary>
+      <div class="a"><p>Nej, inget innehåll. Dokument, frågor, svar och historik behandlas och sparas på boxen. Har ni webbsökning påslagen går bara
+        själva sökorden ut, och varje sökning syns i chatten. Ni kan stänga av webbsökning helt.</p></div></details>
+    <details><summary>Behöver vi ett biträdesavtal med er?</summary>
+      <div class="a"><p>Inte för AI:n. Den körs på er egen box, och ingen molnleverantör eller
+        underleverantör finns i kedjan. Vid support, på plats eller på distans när ni slagit på underhållsläge, kan vi komma
+        att se uppgifter på boxen. För det erbjuder vi ett personuppgiftsbiträdesavtal (PUB-avtal) som gäller just supporten.</p></div></details>
+    <details><summary>Hur förhåller det sig till sekretess och patientdata?</summary>
+      <div class="a"><p>Uppgifterna lämnar inte lokalen och lämnas inte ut till någon leverantör, så när
+        personalen använder AI:n röjs inget till tredje part. Åtkomsten styrs av vilka enheter ni parat ihop med boxen. Boxen
+        ersätter inte ert journalsystem; journalen förs där som i dag, enligt patientdatalagen.</p></div></details>
+    <details><summary>Kan vi radera uppgifter?</summary>
+      <div class="a"><p>Ja. Allt ligger på boxen, så det som raderas där är borta. Det finns ingen kopia hos oss eller i något moln.</p></div></details>
+  </div>
+</section>
+
+<section class="wrap sec rule" id="om">
+  <div class="about">
+    <div class="head" style="margin:0">
+      <p class="kicker">Om oss</p>
+      <h2>Vi bygger <em>hela</em> boxen.</h2>
+    </div>
+    <div class="p">
+      <p><strong>AI Box kommer från Jakup Güven AB i Malmö.</strong> Vi väljer själva ut maskinvaran i varje box och skriver
+        programmet som kör AI:n, skräddarsytt för just den maskinen. Det är därför en box som får plats under ett skrivbord kan
+        svara lika snabbt som tjänster som körs i stora datacenter.</p>
+      <p>Vi tror att den som har tystnadsplikt eller affärshemligheter ska kunna använda den bästa AI:n utan att lämna ifrån sig något.</p>
+      <p>Kontakta oss på <a href="mailto:info@ai-box.se">info@ai-box.se</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec rule closing">
+  <div class="wrap">
+    <h2>Prova den med <em>era egna frågor.</em></h2>
+    <p class="lead muted">En riktig box säger mer än den här sidan. Eller mejla oss, så kommer vi och visar den hos er, var ni än finns i Sverige.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#prova">Prova <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn" href="mailto:info@ai-box.se?subject=Visning%20av%20AI%20Box">Boka en visning</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong style="color:var(--ink);font-weight:500">AI Box</strong> säljs och installeras av Jakup Güven AB<br>
+      Org.nr 559582-8921 · Malmö · <a href="mailto:info@ai-box.se">info@ai-box.se</a><br>
+      Den här sidan använder inga kakor och ingen besöksstatistik. <a href="integritet/">Integritetspolicy</a>
+    </div>
+    <nav aria-label="Sidfot">
+      <a href="#hastighet">Hastighet</a>
+      <a href="#boxarna">Priser</a>
+      <a href="#fragor">Frågor</a>
+      <a href="#dataskydd">Dataskydd</a>
+      <a href="#om">Om oss</a>
+      <a href="bestall/">Beställ</a>
+    </nav>
+    <p class="en" lang="en"><strong>In English.</strong> AI Box is a computer on your premises that runs its own AI, on a par with
+      the leading cloud services. Documents and conversations never leave it. Buy it once (AI Box S SEK 49,000, M SEK 89,000, ex VAT) and use it as
+      much as you like, with a three-year warranty and updates for at least five years that keep improving it. Everything it writes is a draft for
+      a person to check. Try a real box at ai-box.se/#prova. Contact: <a href="mailto:info@ai-box.se">info@ai-box.se</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Tabs for the questions; without JS every group shows.
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".qtabs [role=tab]"));
+  function pick(t, focus) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute("aria-selected", on); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) t.focus();
+  }  function fromHash() { if (location.hash === "#dataskydd") pick(document.getElementById("t-dp")); }
+  window.addEventListener("hashchange", fromHash); fromHash();
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { pick(t); });
+    t.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
+})();
+
+(function () {
+  // The trial form. A local preview talks to a trial server on localhost:8100.
+  var API = location.hostname === "localhost" ? "http://localhost:8100" : "https://trial.ai-box.se";
+  var $ = function (id) { return document.getElementById(id); };
+  var req = $("req"), code = $("code"), panel = $("panel"), frame = $("trialframe"), box = document.querySelector(".formbox");
+  code.action = API + "/trial/start";
+
+  function say(text, kind) { var m = $("req-msg"); m.textContent = text; m.className = "msg " + (kind || ""); }
+
+  req.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = req.elements;
+    if (f.name.value.trim().length < 2 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) {
+      say("Fyll i namn och en giltig e-postadress.", "err"); return;
+    }
+    var body = {};
+    ["name", "company", "email", "purpose", "lang", "website"].forEach(function (k) { body[k] = f[k].value; });
+    var btn = req.querySelector("button"); btn.disabled = true; say("Skickar…");
+    fetch(API + "/trial/api/request", { method: "POST", headers: { "Content-Type": "application/json" },
+                                        body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return [r.status, d]; }); })
+      .then(function (x) {
+        if (x[1].ok) { say("Tack! Vi läser din förfrågan och mejlar en kod till dig.", "ok"); req.reset(); return; }
+        btn.disabled = false;
+        say(x[0] === 429 ? "Många förfrågningar just nu. Försök igen senare, eller mejla oss."
+                         : "Kontrollera namn och e-postadress.", "err");
+      })
+      .catch(function () { btn.disabled = false; say("Det gick inte att skicka. Mejla info@ai-box.se i stället.", "err"); });
+  });
+
+  function open() {
+    panel.classList.add("on");
+    box.style.display = "none";
+    panel.scrollIntoView({ block: "start" });
+  }
+
+  code.addEventListener("submit", function () { open(); setTimeout(status, 4000); });
+
+  function status() {
+    fetch(API + "/trial/api/status", { credentials: "include", cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (s) {
+        if (s.state === "active" || s.state === "grace") {
+          if (!panel.classList.contains("on")) { frame.src = API + "/trial/start"; open(); }
+          $("st-q").textContent = s.limit ? "Frågor: " + s.used + " av " + s.limit : "";
+          var left = Math.max(0, Math.ceil((s.ends * 1000 - Date.now()) / 60000));
+          $("st-end").textContent = left > 1440 ? "Provet slutar " + new Date(s.ends * 1000).toLocaleDateString("sv-SE",
+                                    { day: "numeric", month: "long" }) : left + " min kvar";
+        } else if (s.state === "over") {
+          $("st-q").textContent = ""; $("st-end").textContent = "Provet är slut.";
+        }
+      })
+      .catch(function () {});
+  }
+
+  window.addEventListener("message", function (e) {
+    if (e.origin !== API || !e.data || !e.data.trial) return;
+    if (e.data.trial === "unknown" || e.data.trial === "nocode") { box.style.display = ""; }
+    status();
+  });
+
+  var kod = new URLSearchParams(location.search).get("kod");
+  if (kod) {
+    code.elements.code.value = kod;
+    history.replaceState(null, "", location.pathname + "#prova");
+    open();
+    frame.addEventListener("load", function () { panel.scrollIntoView({ block: "start" }); }, { once: true });
+    code.submit();
+    setTimeout(status, 4000);
+  } else {
+    status();
+  }
+  setInterval(function () { if (panel.classList.contains("on")) status(); }, 15000);
+})();
+</script>
+</body>
+</html>

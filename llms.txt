@@ -1,0 +1,27 @@
+# AI Box
+
+> AI Box is a local AI server that stands on the customer's premises and runs its own AI, on a par with the leading
+> cloud services. Documents and conversations never leave the building. Sold and installed by Jakup Güven AB, Malmö,
+> Sweden, to businesses and public organisations.
+
+Also described as: lokal AI, AI på egen server, on-premise AI, AI utan moln, GDPR-säker AI, AI för vården.
+
+- AI Box S: 49,000 SEK ex VAT once (or lease: 1,950 SEK/month over 36 months, 2,600 over 24, 4,700 over 12; at the end renew, start a new lease or return the box). For one person or a small
+  team taking turns. Writes ~53 Swedish words a second, reads ~600 words a second, first word in 0.39 s (best measured,
+  one person).
+- AI Box M: 89,000 SEK ex VAT once (or lease: 3,500 SEK/month over 36 months, 4,700 over 24, 8,500 over 12; same lease terms). Up to 8 people at once
+  plus AI agents. Writes ~124 words a second, reads ~1,700 words a second, first word in 0.26 s (best measured, one person).
+- Included: on-site installation and walkthrough anywhere in Sweden, updates for at least five years (the box keeps getting faster and better with them), three-year warranty, email support,
+  delivery within two weeks, invoice payment.
+- Data: processed and stored on the box; no cloud provider, no sub-processor and no account with the vendor. Devices connect
+  peer to peer, encrypted end to end; when no direct path exists, through a relay that cannot read the content. The vendor reaches the box only when the
+  customer turns on maintenance mode and accepts the session. With web search on, only the search terms leave the box.
+  No processor agreement is needed for the AI; one is offered for support (on site or remote).
+- Use: chat apps for iPhone and Android, the browser, Swedish speech to text, document upload, OpenAI- and Anthropic-compatible APIs.
+- For: health care, law firms, accountants and any business with a duty of confidentiality or trade secrets. It does not
+  replace a patient record system.
+- Try a real box in the browser: https://ai-box.se/#prova
+- Order (buy or lease, by email, confirmed before binding): https://ai-box.se/bestall/
+- Speed replay (simulated, at measured rates): https://ai-box.se/hastighet/
+- Contact: info@ai-box.se
+- Not for: businesses that may put their data in a cloud service and use AI only now and then; the cloud is cheaper.

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hur snabb är AI Box?</title>
+<meta name="description" content="Se i en uppspelning hur snabbt AI Box S och M svarar på dokument, mejl och tekniska frågor, och hur M svarar åtta personer samtidigt.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="canonical" href="https://ai-box.se/hastighet/">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="AI Box, till startsidan">AI <span>Box</span></a>
+    <nav class="nav" aria-label="Huvudmeny">
+      <a href="../#hastighet">Hastighet</a><a href="../#boxarna">Priser</a><a href="../#fragor">Frågor</a><a href="../#dataskydd">Dataskydd</a><a href="../#om">Om oss</a><a href="../bestall/">Beställ</a>
+    </nav>
+    <a class="btn primary" href="../#prova">Prova</a>
+  </div>
+</header>
+
+<main class="wrap page" id="main">
+  <p class="kicker">Hastighet</p>
+  <h1>Hur snabb är <em>AI Box?</em></h1>
+  <p class="lead">Välj box och fråga och se hur lång tid svaret tar, från att frågan ställs till sista ordet. På AI Box M
+    kan ni också se åtta personer fråga samtidigt.</p>
+  <p class="sim-note"><b>Simulerad uppspelning.</b> Ingen AI körs på den här sidan. Svaren är skrivna i förväg och spelas upp
+    i den takt boxarna har i våra mätningar. Vill ni se den riktiga AI:n, <a href="../#prova">prova den</a>.</p>
+
+  <div class="demo" data-replay data-autoplay>
+    <div class="pick formbox">
+      <fieldset><legend>Box</legend><div data-r="boxes" class="pills boxpills"></div></fieldset>
+      <fieldset data-r="fs-n"><legend>Hur många frågar?</legend><div data-r="ns" class="pills"></div></fieldset>
+      <fieldset data-r="fs-q"><legend>Fråga</legend><div data-r="qs" class="qlist"></div></fieldset>
+    </div>
+    <section class="run" aria-label="Uppspelning">
+      <div class="clock"><small>Tid sedan frågan ställdes</small><span data-r="clock">00:00,0</span></div>
+      <div class="lanes" data-r="lanes" hidden></div>
+      <p class="qline"><span data-r="qwho">Fråga</span>: <b data-r="qtext"></b></p>
+      <div class="steps2">
+        <div class="st" data-r="st-read"><span data-r="st-read-l">Läser</span><div class="bar"><i data-r="bar-read"></i></div></div>
+        <div class="st" data-r="st-think"><span>Tänker högt</span><div class="bar"><i data-r="bar-think"></i></div></div>
+        <div class="st" data-r="st-write"><span data-r="st-write-l">Skriver</span><div class="bar"><i data-r="bar-write"></i></div></div>
+      </div>
+      <div class="answer" data-r="answer" aria-live="off"><p class="think" data-r="think"></p><p class="ans" data-r="ans"></p></div>
+      <div class="runbtns">
+        <button class="btn primary" data-r="play" type="button">Ställ frågan</button>
+        <button class="btn" data-r="skip" type="button" disabled>Visa hela svaret</button>
+      </div>
+      <div class="stats">
+        <div><span>Första ordet</span><b data-r="s-first">–</b></div>
+        <div><span>Skrev svaret på</span><b data-r="s-write">–</b></div>
+        <div><span data-r="s-total-l">Totalt</span><b data-r="s-total">–</b></div>
+      </div>
+      <p class="fine" data-r="fine"></p>
+    </section>
+  </div>
+
+  
+  <div class="ctas">
+    <a class="btn primary" href="../bestall/">Beställ AI Box <span class="arr" aria-hidden="true">→</span></a>
+    <a class="btn" href="../#boxarna">Se priser</a>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="who">
+      <b>Jakup Güven AB</b>
+      <span>Org.nr 559582-8921 · Malmö</span>
+      <span><a href="mailto:info@ai-box.se">info@ai-box.se</a></span>
+      <span><a href="../integritet/">Integritetspolicy</a> · <a href="https://jakupguven.se/privacy/">Appens integritetspolicy</a></span>
+    </div>
+    <nav aria-label="Sidfot">
+      <a href="../#hastighet">Hastighet</a><a href="../#boxarna">Priser</a><a href="../#fragor">Frågor</a><a href="../#dataskydd">Dataskydd</a><a href="../#om">Om oss</a><a href="../bestall/">Beställ</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/replay.js"></script>
+</body>
+</html>
