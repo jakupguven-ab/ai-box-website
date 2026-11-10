@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How fast is AI Box?</title>
+<meta name="description" content="See in a replay how fast AI Box S and M answer documents, emails and technical questions, and how M answers eight people at once.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="canonical" href="https://ai-box.se/en/speed/">
+<link rel="alternate" hreflang="sv" href="https://ai-box.se/hastighet/">
+<link rel="alternate" hreflang="en" href="https://ai-box.se/en/speed/">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="AI Box, to the home page">AI <span>Box</span></a>
+    <nav class="nav" aria-label="Main menu">
+      <a href="../#speed">Speed</a><a href="../#boxes">Prices</a><a href="../#questions">Questions</a><a href="../#data-protection">Data protection</a><a href="../#about">About us</a><a href="../order/">Order</a>
+    </nav>
+    <div class="acts">
+      <a class="lang" href="../../hastighet/" hreflang="sv" lang="sv" title="På svenska">SV</a>
+      <a class="btn primary" href="../#try">Try it</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap page" id="main">
+  <p class="kicker">Speed</p>
+  <h1>How fast is <em>AI Box?</em></h1>
+  <p class="lead">Choose a box and a question and see how long the answer takes, from the question being asked to the last word. On AI Box M
+    you can also watch eight people ask at the same time.</p>
+  <p class="sim-note"><b>Simulated replay.</b> No AI runs on this page. The answers are written in advance and played back
+    at the rate the boxes reach in our measurements. To see the real AI, <a href="../#try">try it</a>.</p>
+
+  <div class="demo" data-replay data-autoplay>
+    <div class="pick formbox">
+      <fieldset><legend>Box</legend><div data-r="boxes" class="pills boxpills"></div></fieldset>
+      <fieldset data-r="fs-n"><legend>How many are asking?</legend><div data-r="ns" class="pills"></div></fieldset>
+      <fieldset data-r="fs-q"><legend>Question</legend><div data-r="qs" class="qlist"></div></fieldset>
+    </div>
+    <section class="run" aria-label="Replay">
+      <div class="clock"><small>Time since the question was asked</small><span data-r="clock">00:00.0</span></div>
+      <div class="lanes" data-r="lanes" hidden></div>
+      <p class="qline"><span data-r="qwho">Question</span>: <b data-r="qtext"></b></p>
+      <div class="steps2">
+        <div class="st" data-r="st-read"><span data-r="st-read-l">Reading</span><div class="bar"><i data-r="bar-read"></i></div></div>
+        <div class="st" data-r="st-think"><span>Thinking aloud</span><div class="bar"><i data-r="bar-think"></i></div></div>
+        <div class="st" data-r="st-write"><span data-r="st-write-l">Writing</span><div class="bar"><i data-r="bar-write"></i></div></div>
+      </div>
+      <div class="answer" data-r="answer" aria-live="off"><p class="think" data-r="think"></p><p class="ans" data-r="ans"></p></div>
+      <div class="runbtns">
+        <button class="btn primary" data-r="play" type="button">Ask the question</button>
+        <button class="btn" data-r="skip" type="button" disabled>Show the whole answer</button>
+      </div>
+      <div class="stats">
+        <div><span>First word</span><b data-r="s-first">–</b></div>
+        <div><span>Wrote the answer in</span><b data-r="s-write">–</b></div>
+        <div><span data-r="s-total-l">Total</span><b data-r="s-total">–</b></div>
+      </div>
+      <p class="fine" data-r="fine"></p>
+    </section>
+  </div>
+
+  <div class="ctas">
+    <a class="btn primary" href="../order/">Order AI Box <span class="arr" aria-hidden="true">→</span></a>
+    <a class="btn" href="../#boxes">See prices</a>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="who">
+      <b>Jakup Güven AB</b>
+      <span>Reg. no. 559582-8921 · Malmö, Sweden</span>
+      <span><a href="mailto:info@ai-box.se">info@ai-box.se</a></span>
+      <span><a href="../../integritet/#english">Privacy policy</a> · <a href="https://jakupguven.se/privacy/">The app’s privacy policy</a></span>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../#speed">Speed</a><a href="../#boxes">Prices</a><a href="../#questions">Questions</a><a href="../#data-protection">Data protection</a><a href="../#about">About us</a><a href="../order/">Order</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../../assets/replay.js"></script>
+</body>
+</html>

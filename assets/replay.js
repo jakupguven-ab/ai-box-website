@@ -3,10 +3,12 @@
 (function () {
   var root = document.querySelector("[data-replay]");
   if (!root) return;
+  var EN = document.documentElement.lang === "en";
+  function L(sv, en) { return EN ? en : sv; }
 
   var BOXES = {
-    s: { name: "AI Box S", who: "En person åt gången", rate: 96, wait: { doc: 15100, follow: 560, short: 390 } },
-    m: { name: "AI Box M", who: "Upp till åtta samtidigt", rate: 223, wait: { doc: 5300, follow: 460, short: 260 },
+    s: { name: "AI Box S", who: L("En person åt gången", "One person at a time"), rate: 96, wait: { doc: 15100, follow: 560, short: 390 } },
+    m: { name: "AI Box M", who: L("Upp till åtta samtidigt", "Up to eight at once"), rate: 223, wait: { doc: 5300, follow: 460, short: 260 },
       many: { n: 8, rate: 76, first: function (i) { return 300 + 120 * i; } } }
   };
   var TPW = 1.8;
@@ -53,6 +55,42 @@
       a: "Visitors must sign in at reception and wear their visitor badge where it can be seen." }
   ];
 
+
+  // English text for the same replays; timings, rates and token counts stay as measured.
+  var QS_EN = {
+    doc: { kind: "Document · a contract of 15–20 pages", q: "Summarise this contract.",
+      t: "The user wants a summary of the contract. I'll go through term, renewal, liability, price, personal data and dispute resolution, and look for unclear points. Clause 7.3 on early termination refers to a material breach without defining it. That should be mentioned.",
+      a: "The contract runs for 24 months from the start date and renews automatically for 12 months unless it is terminated no later than three months before it expires. The supplier is responsible for maintenance and responds to fault reports within two working days. The price is adjusted annually by the consumer price index. Liability is capped at twelve months' fees. Personal data is processed under a separate processor agreement. Disputes are settled in the general courts, with Malmö District Court as the first instance. Clause 7.3 on early termination is unclear and should be reviewed before you sign." },
+    follow: { kind: "Follow-up · same contract, already read", q: "What applies on termination?",
+      t: "Termination: clauses 12.1 and 7.3.",
+      a: "The notice period is three months before the end of the contract period, under clause 12.1, and notice must be given in writing. Early termination is only possible for a material breach under clause 7.3, but the contract does not say who decides what counts as material. That is the point I would raise with the other side." },
+    mail: { kind: "Short question · email", q: "Reply to a customer who wants to move their appointment.",
+      t: "A friendly, short reply. Thank them, confirm it's fine, suggest two times and ask the customer to reply with the one that suits. Mention that the old appointment is cancelled.",
+      a: "Hi Anna,\nThank you for getting in touch. We're happy to move your appointment. We have free slots on Tuesday at 10.30 and on Thursday at 14.00. Reply to this email with the time that suits you best, and we'll confirm right away. Your current appointment is cancelled once you have chosen a new one.\nKind regards\nReception" },
+    sql: { kind: "Technical · SQL", q: "Write an SQL query showing the ten customers who have bought the most this year.",
+      t: "The tables are probably called customers and orders. Sum the amounts per customer from the start of the year, sort descending, take ten. Mention the difference for SQL Server.",
+      a: "SELECT c.name, SUM(o.amount) AS total\nFROM orders o\nJOIN customers c ON c.id = o.customer_id\nWHERE o.order_date >= DATE_TRUNC('year', CURRENT_DATE)\nGROUP BY c.name\nORDER BY total DESC\nLIMIT 10;\n\nThe query sums the amounts per customer from the start of the year and shows the ten largest. On SQL Server, replace the condition with YEAR(o.order_date) = YEAR(GETDATE()) and LIMIT 10 with SELECT TOP 10." },
+    csv: { kind: "Technical · troubleshooting", q: "Why do I get KeyError: 'date' when I read my CSV file in Python?",
+      t: "KeyError means the column doesn't exist under exactly that name. Most common: semicolons as the separator from Excel, or a BOM at the start of the file that makes the first column called something else. Show how to see the column names.",
+      a: "The column doesn't exist under exactly that name. Two common causes: the file comes from Excel and uses semicolons as the separator, so the whole row becomes a single column, or the file starts with an invisible BOM character that ends up in the first column name.\n\nimport pandas as pd\ndf = pd.read_csv(\"export.csv\", sep=\";\", encoding=\"utf-8-sig\")\nprint(df.columns.tolist())\n\nPrint the column names first, and you'll see what it is actually called." },
+    excel: { kind: "Technical · Excel", q: "Write an Excel formula for a due date 30 days after the invoice date, but never on a weekend.",
+      t: "Invoice date in A2. Count 30 days ahead; if it lands on a weekend it should move to the next weekday. WORKDAY from the day before with 1 gives the next weekday, or the same day if it already is one.",
+      a: "=WORKDAY(A2+30-1,1)\n\nThe formula counts 30 days from the invoice date in A2. If the day falls on a Saturday or Sunday, it moves to the following Monday. To skip public holidays too, put a list of holidays in, say, H2:H20 and write =WORKDAY(A2+30-1,1,H2:H20)." },
+    ps: { kind: "Technical · script", q: "Write a PowerShell script that deletes log files older than 30 days.",
+      t: "Get .log files recursively, filter on LastWriteTime, delete. Start with -WhatIf so nothing is deleted by mistake.",
+      a: "Get-ChildItem \"C:\\Logs\" -Filter *.log -Recurse |\n  Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-30) } |\n  Remove-Item -WhatIf\n\nRun it as it stands first: -WhatIf shows which files would be deleted without touching them. If the list looks right, remove -WhatIf and run it again." },
+    raid: { kind: "Technical · explanation", q: "Explain the difference between RAID 1 and RAID 5 to someone who isn't technical.",
+      t: "Avoid jargon. RAID 1: two identical copies. RAID 5: spread out with check data, survives one disk. Mention that neither is a backup.",
+      a: "RAID 1 is like writing everything in two identical notebooks at once: if one is lost, you still have the other. It is simple and safe, but you only get half the space.\nRAID 5 spreads the data over at least three disks and keeps a little extra check data. If one disk fails, its contents can be worked out from the others. You get more space, but it takes time to rebuild.\nNeither is a backup: if someone deletes a file, it disappears from every disk at once." },
+    list: { kind: "Short question · planning", q: "Make a checklist for closing for the holidays.",
+      t: "A checklist in order: communication first, then on-call, finances, backups, equipment and finally locks and alarm.",
+      a: "Checklist before closing for the holidays:\n1. Set auto-replies on email and phone with the reopening date.\n2. Tell customers with open cases at least two weeks ahead.\n3. Decide who is on call and how to reach them.\n4. Pay invoices that fall due during the closure.\n5. Back up, and check that restoring works.\n6. Switch off equipment that doesn't need to be on.\n7. Lock up, set the alarm and leave a key with whoever is on call." },
+    en: { kind: "Short question · translation", q: "Translate this into Swedish: Visitors must sign in at reception and wear their visitor badge where it can be seen.",
+      t: "Short, formal instruction. Keep the tone.",
+      a: "Besökare anmäler sig i receptionen och bär besöksbricka synligt." }
+  };
+  if (EN) QS.forEach(function (x) { var e = QS_EN[x.id]; if (e) { x.kind = e.kind; x.q = e.q; x.t = e.t; x.a = e.a; } });
+
   var pickIds = (root.getAttribute("data-qs") || "").split(",").filter(Boolean);
   var SHOWN = pickIds.length ? QS.filter(function (x) { return pickIds.indexOf(x.id) >= 0; }) : QS;
   var MANY = QS.filter(function (x) { return x.many; }); // eight-at-once always uses the full set
@@ -63,8 +101,8 @@
   function $(name) { return root.querySelector('[data-r="' + name + '"]'); }
 
   function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
-  function clock(ms) { var s = ms / 1000, m = Math.floor(s / 60), r = s - m * 60; return ((m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r.toFixed(1)).replace(".", ","); }
-  function secs(ms) { return (ms / 1000).toFixed(ms < 1000 ? 2 : 1).replace(".", ",") + " s"; }
+  function clock(ms) { var s = ms / 1000, m = Math.floor(s / 60), r = s - m * 60; var x = (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r.toFixed(1); return EN ? x : x.replace(".", ","); }
+  function secs(ms) { var x = (ms / 1000).toFixed(ms < 1000 ? 2 : 1); return (EN ? x : x.replace(".", ",")) + " s"; }
   function byId(id) { return QS.filter(function (x) { return x.id === id; })[0]; }
   function split(text) { var w = text.split(/(\s+)/); return { w: w, n: w.filter(function (x) { return /\S/.test(x); }).length }; }
   function stream(start, tokens, rate, seed) { // token arrival times, in small uneven bursts
@@ -87,6 +125,7 @@
 
   function upTo(s, t) { var k = 0; for (var i = 0; i < s.times.length && s.times[i] <= t; i++) k = s.cum[i]; return k; }
   function words(W, k) { var out = "", c = 0; for (var j = 0; j < W.w.length && c < k; j++) { out += W.w[j]; if (/\S/.test(W.w[j])) c++; } return out; }
+  var SHOWST = { "läser": L("läser", "reading"), "tänker": L("tänker", "thinking"), "skriver": L("skriver", "writing"), "klar": L("klar", "done") };
   function state(p, t) { return t < 0 ? "" : t < p.read ? "läser" : t < p.think.end ? "tänker" : t < p.end ? "skriver" : "klar"; }
 
   function show(t) { // t < 0 = idle
@@ -107,14 +146,14 @@
     $("st-read").className = "st" + (st === "läser" ? " on" : "");
     $("st-think").className = "st" + (st === "tänker" ? " on" : "");
     $("st-write").className = "st" + (st === "skriver" ? " on" : "");
-    $("st-write-l").textContent = "Skriver" + (idle ? "" : " · " + anW + " ord");
+    $("st-write-l").textContent = L("Skriver", "Writing") + (idle ? "" : " · " + anW + L(" ord", " words"));
     $("s-first").textContent = !idle && t >= p.read ? secs(p.read) : "–";
     $("s-write").textContent = done ? secs(p.end - p.think.end) : "–";
-    $("s-total-l").textContent = plans.length > 1 ? "Alla åtta klara" : "Totalt";
+    $("s-total-l").textContent = plans.length > 1 ? L("Alla åtta klara", "All eight done") : L("Totalt", "Total");
     $("s-total").textContent = all ? secs(end) : "–";
-    $("play").textContent = all ? "Spela igen" : plans.length > 1 ? "Ställ alla åtta frågorna" : "Ställ frågan";
+    $("play").textContent = all ? L("Spela igen", "Play again") : plans.length > 1 ? L("Ställ alla åtta frågorna", "Ask all eight questions") : L("Ställ frågan", "Ask the question");
     $("play").disabled = playing && !all; $("skip").disabled = !playing || all;
-    $("skip").textContent = plans.length > 1 ? "Visa alla svar" : "Visa hela svaret";
+    $("skip").textContent = plans.length > 1 ? L("Visa alla svar", "Show all answers") : L("Visa hela svaret", "Show the whole answer");
     showLanes(t);
   }
   function showLanes(t) {
@@ -124,15 +163,15 @@
       el.querySelector("i.r").style.width = Math.min(now, p.read) / end * 100 + "%";
       var k = el.querySelector("i.k"); k.style.left = p.read / end * 100 + "%"; k.style.width = Math.max(0, Math.min(now, p.think.end) - p.read) / end * 100 + "%";
       var w = el.querySelector("i.w"); w.style.left = p.think.end / end * 100 + "%"; w.style.width = Math.max(0, now - p.think.end) / end * 100 + "%";
-      el.querySelector(".t").textContent = st === "klar" ? secs(p.end) : st;
+      el.querySelector(".t").textContent = st === "klar" ? secs(p.end) : (SHOWST[st] || st);
       el.className = "lane" + (i === S.sel ? " sel" : "") + (st && st !== "klar" ? " on" : "");
     });
   }
   function select(i) {
     S.sel = i; var q = plans[i].q;
-    $("qwho").textContent = plans.length > 1 ? "Person " + (i + 1) : "Fråga";
+    $("qwho").textContent = plans.length > 1 ? "Person " + (i + 1) : L("Fråga", "Question");
     $("qtext").textContent = q.q;
-    $("st-read-l").textContent = q.wait === "doc" ? "Läser dokumentet" : q.wait === "follow" ? "Läser frågan (avtalet redan läst)" : "Läser frågan";
+    $("st-read-l").textContent = q.wait === "doc" ? L("Läser dokumentet", "Reading the document") : q.wait === "follow" ? L("Läser frågan (avtalet redan läst)", "Reading the question (contract already read)") : L("Läser frågan", "Reading the question");
   }
   function buildLanes() {
     var box = $("lanes"); box.innerHTML = ""; box.hidden = plans.length < 2;
@@ -155,8 +194,10 @@
     if (S.sel >= plans.length) S.sel = 0;
     select(S.sel); buildLanes(); render();
     $("fine").textContent = S.n > 1
-      ? "Simulerad uppspelning. Åtta personer ställer var sin fråga i samma ögonblick på AI Box M; klicka på en person för att se svaret. Siffrorna för åtta samtidigt är uppskattade utifrån våra mätningar med flera användare."
-      : "Simulerad uppspelning: svaren är skrivna i förväg och spelas upp i den takt boxen har i våra bästa mätningar, en person åt gången. Första ordet räknas från när AI:n börjar tänka högt i chatten. Hur länge den tänker är uppskattat.";
+      ? L("Simulerad uppspelning. Åtta personer ställer var sin fråga i samma ögonblick på AI Box M; klicka på en person för att se svaret. Siffrorna för åtta samtidigt är uppskattade utifrån våra mätningar med flera användare.",
+          "Simulated replay. Eight people each ask a question at the same moment on AI Box M; click a person to see the answer. The figures for eight at once are estimated from our measurements with several users.")
+      : L("Simulerad uppspelning: svaren är skrivna i förväg och spelas upp i den takt boxen har i våra bästa mätningar, en person åt gången. Första ordet räknas från när AI:n börjar tänka högt i chatten. Hur länge den tänker är uppskattat.",
+          "Simulated replay: the answers are written in advance and played back at the rate the box reaches in our best measurements, one person at a time. The first word is counted from when the AI starts thinking aloud in the chat. How long it thinks is estimated.");
     show(-1);
   }
   function pill(group, value, label, sub, on, pick) {
@@ -176,7 +217,7 @@
     var mm = BOXES[S.box].many;
     $("fs-n").hidden = !mm;
     if (mm) [1, mm.n].forEach(function (n) {
-      ns.appendChild(pill("n", n, n === 1 ? "En person" : n + " samtidigt", n === 1 ? "Välj en fråga" : "Var sin fråga", S.n === n,
+      ns.appendChild(pill("n", n, n === 1 ? L("En person", "One person") : n + L(" samtidigt", " at once"), n === 1 ? L("Välj en fråga", "Pick a question") : L("Var sin fråga", "A question each"), S.n === n,
         function () { S.n = n; S.sel = 0; reset(); }));
     });
     $("fs-q").hidden = S.n > 1;

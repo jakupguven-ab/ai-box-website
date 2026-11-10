@@ -3,7 +3,7 @@
 (function () {
   var els = [].slice.call(document.querySelectorAll("[data-count]"));
   if (!els.length || !("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  function fmt(v, dec) { return v.toLocaleString("sv-SE", { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
+  function fmt(v, dec) { return v.toLocaleString(document.documentElement.lang === "en" ? "en-GB" : "sv-SE", { minimumFractionDigits: dec, maximumFractionDigits: dec }); }
   els.forEach(function (el) {
     var to = parseFloat(el.getAttribute("data-count")), dec = +(el.getAttribute("data-dec") || 0), done = false;
     el.textContent = fmt(0, dec);

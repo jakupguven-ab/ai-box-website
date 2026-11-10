@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order AI Box</title>
+<meta name="description" content="Order AI Box S or M. Buy once from SEK 49,000 ex VAT, or lease for 12, 24 or 36 months. Installation anywhere in Sweden within two weeks, payment by invoice.">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="canonical" href="https://ai-box.se/en/order/">
+<link rel="alternate" hreflang="sv" href="https://ai-box.se/bestall/">
+<link rel="alternate" hreflang="en" href="https://ai-box.se/en/order/">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="AI Box, to the home page">AI <span>Box</span></a>
+    <nav class="nav" aria-label="Main menu">
+      <a href="../#speed">Speed</a><a href="../#boxes">Prices</a><a href="../#questions">Questions</a><a href="../#data-protection">Data protection</a><a href="../#about">About us</a><a href="../order/">Order</a>
+    </nav>
+    <div class="acts">
+      <a class="lang" href="../../bestall/" hreflang="sv" lang="sv" title="På svenska">SV</a>
+      <a class="btn primary" href="../#try">Try it</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap page" id="main">
+  <p class="kicker">Ordering</p>
+  <h1>Order <em>AI Box.</em></h1>
+  <p class="lead">Choose a box, buy or lease, and fill in the details of your organisation. We confirm the price and installation day
+    before anything is binding.</p>
+
+  <div class="order">
+    <form id="order" class="formbox" novalidate>
+      <fieldset>
+        <legend>1. Choose a box</legend>
+        <label class="choice"><input type="radio" name="box" value="AI Box S" checked>
+          <span><b>AI Box S</b><small>For one person, or a small team taking turns</small></span>
+          <span class="pr">SEK 49,000</span></label>
+        <label class="choice"><input type="radio" name="box" value="AI Box M">
+          <span><b>AI Box M</b><small>Up to eight people at once, plus AI agents</small></span>
+          <span class="pr">SEK 89,000</span></label>
+        <label class="short">Number of boxes<input type="text" name="antal" inputmode="numeric" value="1"></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Buy or lease</legend>
+        <label class="choice"><input type="radio" name="satt" value="Buy" checked>
+          <span><b>Buy</b><small>One-off price, you own the box. Cheapest over three years.</small></span></label>
+        <label class="choice"><input type="radio" name="satt" value="Lease">
+          <span><b>Lease</b><small>For 12, 24 or 36 months. As private as a bought box: we cannot reach it or your data. When the lease ends you can extend it, start a new lease or return the box; the disk is then wiped on site in front of you.</small></span></label>
+        <label class="short" id="tid-l">Lease term<select name="tid"><option value="36" selected>36 months</option><option value="24">24 months</option><option value="12">12 months</option></select></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Your organisation</legend>
+        <div class="fields">
+          <label>Company or organisation<input type="text" name="foretag" autocomplete="organization" required></label>
+          <label>Company registration number<input type="text" name="orgnr" placeholder="556xxx-xxxx" required></label>
+          <label>Contact person<input type="text" name="kontakt" autocomplete="name" required></label>
+          <label>Email for invoices<input type="email" name="epost" autocomplete="email" required></label>
+          <label><span>Phone <span class="opt">(optional)</span></span><input type="tel" name="telefon" autocomplete="tel"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Installation</legend>
+        <p class="hint">We deliver the box, connect it and show your staff for an hour, wherever you are in Sweden.</p>
+        <div class="fields">
+          <label>Installation address<input type="text" name="adress" autocomplete="street-address" required></label>
+          <label><span>Preferred week <span class="opt">(optional)</span></span><input type="text" name="vecka" placeholder="e.g. week 48"></label>
+        </div>
+        <label><span>Anything we should know? <span class="opt">(optional)</span></span>
+          <textarea name="ovrigt" placeholder="E.g. what you want to use it for, or which systems it should connect to"></textarea></label>
+      </fieldset>
+
+      <div class="send">
+        <label class="check"><input type="checkbox" name="ok" required>
+          <span>I am ordering on behalf of the organisation. How we handle the data: <a href="../../integritet/#english">privacy</a>.</span></label>
+        <button class="btn primary" type="submit">Send the order <span class="arr" aria-hidden="true">→</span></button>
+        <p id="msg" class="msg" role="status"></p>
+        <p class="fine">The order is sent as an email from your own email program to info@ai-box.se. We reply with a
+          confirmation of price, terms and installation day. Only once you have accepted it is the order binding.</p>
+      </div>
+    </form>
+
+    <aside class="summary" aria-label="Summary">
+      <h2>Your order</h2>
+      <dl>
+        <dt>Box</dt><dd id="s-box">AI Box S</dd>
+        <dt>Quantity</dt><dd id="s-antal">1</dd>
+        <dt id="s-pris-t">Price</dt><dd id="s-pris">SEK 49,000</dd>
+        <dt>Installation</dt><dd>On your premises, within two weeks</dd>
+      </dl>
+      <p class="small" id="s-not">One-off price ex VAT. You own the box.</p>
+      <ul>
+        <li>Installation and walkthrough anywhere in Sweden</li>
+        <li>Updates for at least five years, which make it better over time</li>
+        <li>Three-year warranty</li>
+        <li>Invoice, 10 days net</li>
+        <li>For businesses and public organisations</li>
+      </ul>
+      <p class="small">Want to try it first? <a href="../#try">Try it</a>.</p>
+    </aside>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="who">
+      <b>Jakup Güven AB</b>
+      <span>Reg. no. 559582-8921 · Malmö, Sweden</span>
+      <span><a href="mailto:info@ai-box.se">info@ai-box.se</a></span>
+      <span><a href="../../integritet/#english">Privacy policy</a> · <a href="https://jakupguven.se/privacy/">The app’s privacy policy</a></span>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../#speed">Speed</a><a href="../#boxes">Prices</a><a href="../#questions">Questions</a><a href="../#data-protection">Data protection</a><a href="../#about">About us</a><a href="../order/">Order</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var PRICE = { "AI Box S": { kop: 49000, lease: { 36: 1950, 24: 2600, 12: 4700 } }, "AI Box M": { kop: 89000, lease: { 36: 3500, 24: 4700, 12: 8500 } } };
+  var f = document.getElementById("order"), msg = document.getElementById("msg");
+  function val(n) { var e = f.elements[n]; return e ? (e.value || "").trim() : ""; }
+  function kr(n) { return "SEK " + n.toLocaleString("en-GB"); }
+  function count() { var n = parseInt(val("antal"), 10); return n > 0 && n < 100 ? n : 1; }
+  function lease() { return val("satt") === "Lease"; }
+  function priceText() {
+    var p = PRICE[val("box")], n = count(), m = +val("tid") || 36;
+    return lease()
+      ? kr(p.lease[m] * n) + "/month for " + m + " months (" + kr(p.lease[m] * n * m) + " in total)"
+      : kr(p.kop * n);
+  }
+  function summary() {
+    document.getElementById("tid-l").hidden = !lease();
+    document.getElementById("s-box").textContent = val("box");
+    document.getElementById("s-antal").textContent = count();
+    document.getElementById("s-pris-t").textContent = lease() ? "Lease" : "Price";
+    document.getElementById("s-pris").textContent = priceText();
+    document.getElementById("s-not").textContent = lease()
+      ? "Ex VAT. When the lease ends you can extend it, start a new lease or return the box."
+      : "One-off price ex VAT. You own the box.";
+  }
+  f.addEventListener("input", summary); f.addEventListener("change", summary);
+  var q = new URLSearchParams(location.search);
+  if (q.get("box") === "m") f.elements.box.value = "AI Box M";
+  if (["leasa", "hyra", "lease"].indexOf(q.get("satt")) >= 0) f.elements.satt.value = "Lease";
+  if (["12", "24", "36"].indexOf(q.get("tid")) >= 0) f.elements.tid.value = q.get("tid");
+  summary();
+
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var miss = ["foretag", "orgnr", "kontakt", "epost", "adress"].filter(function (n) { return !val(n); });
+    if (miss.length) { msg.className = "msg err"; msg.textContent = "Please fill in company, registration number, contact person, email and installation address."; f.elements[miss[0]].focus(); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val("epost"))) { msg.className = "msg err"; msg.textContent = "The email address does not look right."; f.elements.epost.focus(); return; }
+    if (!f.elements.ok.checked) { msg.className = "msg err"; msg.textContent = "Please tick that you are ordering on behalf of the organisation."; return; }
+    var lines = [
+      "AI Box order", "",
+      "Box: " + val("box"), "Quantity: " + count(), "Buy or lease: " + val("satt") + (lease() ? ", " + val("tid") + " months" : ""), "Price ex VAT: " + priceText(), "",
+      "Company: " + val("foretag"), "Reg. no.: " + val("orgnr"), "Contact person: " + val("kontakt"),
+      "Email for invoices: " + val("epost"), "Phone: " + (val("telefon") || "-"), "",
+      "Installation address: " + val("adress"), "Preferred week: " + (val("vecka") || "-"), "Other: " + (val("ovrigt") || "-"), "",
+      "I am ordering on behalf of the organisation."
+    ];
+    location.href = "mailto:info@ai-box.se?subject=" + encodeURIComponent("Order: " + val("box") + " – " + val("foretag")) +
+      "&body=" + encodeURIComponent(lines.join("\n"));
+    msg.className = "msg ok";
+    msg.textContent = "Your email program opens with the order filled in. Send the email and we will be in touch.";
+  });
+})();
+</script>
+</body>
+</html>

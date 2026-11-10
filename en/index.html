@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Box – local AI for sensitive work, no cloud</title>
+<meta name="description" content="AI Box is a local AI server on your premises: AI on a par with the leading cloud services, while patient data, contracts and client records never leave the building. GDPR without a cloud provider. From SEK 49,000 ex VAT. Try it yourself.">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<script src="../assets/vendor/three-r128.min.js" defer></script>
+<script src="../assets/box3d.js" defer></script>
+<script src="../assets/replay.js" defer></script>
+<script src="../assets/countup.js" defer></script>
+<script src="../assets/typer.js" defer></script>
+<meta property="og:title" content="AI Box – frontier AI under the desk">
+<meta property="og:description" content="Your own AI on a par with the leading cloud services, in a box on your premises. Nothing leaves the building.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ai-box.se/en/">
+<link rel="canonical" href="https://ai-box.se/en/">
+<link rel="alternate" hreflang="sv" href="https://ai-box.se/">
+<link rel="alternate" hreflang="en" href="https://ai-box.se/en/">
+<link rel="alternate" hreflang="x-default" href="https://ai-box.se/">
+<script>document.documentElement.classList.remove("no-js");</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "name": "Jakup Güven AB", "url": "https://ai-box.se/", "email": "info@ai-box.se",
+      "address": { "@type": "PostalAddress", "addressLocality": "Malmö", "addressCountry": "SE" }, "vatID": "SE559582892101" },
+    { "@type": "Product", "name": "AI Box S", "brand": "AI Box",
+      "description": "Local AI server for one person or a small team. The language model runs on your premises; nothing leaves the box.",
+      "offers": { "@type": "Offer", "price": "49000", "priceCurrency": "SEK", "availability": "https://schema.org/InStock",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "49000", "priceCurrency": "SEK", "valueAddedTaxIncluded": false } } },
+    { "@type": "Product", "name": "AI Box M", "brand": "AI Box",
+      "description": "Local AI server for up to eight people at once and AI agents. The language model runs on your premises; nothing leaves the box.",
+      "offers": { "@type": "Offer", "price": "89000", "priceCurrency": "SEK", "availability": "https://schema.org/InStock",
+        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "89000", "priceCurrency": "SEK", "valueAddedTaxIncluded": false } } }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="AI Box, back to top">AI <span>Box</span></a>
+    <nav class="nav" aria-label="Main menu">
+      <a href="#speed">Speed</a>
+      <a href="#boxes">Prices</a>
+      <a href="#questions">Questions</a>
+      <a href="#data-protection">Data protection</a>
+      <a href="#about">About us</a>
+      <a href="order/">Order</a>
+    </nav>
+    <div class="acts">
+      <a class="lang" href="../" hreflang="sv" lang="sv" title="På svenska">SV</a>
+      <a class="btn primary" href="#try">Try it</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="kicker who">For healthcare providers, law firms, accountants – anyone bound by confidentiality or handling sensitive data</p>
+      <h1>Frontier AI <em>under the desk.</em></h1>
+      <p class="lead">AI Box is a complete solution, computer and AI software in one, that gives you AI on a par with the leading
+        cloud services, with privacy built in from the start. It stands on your premises, together with all your data. Buy it once and use it as much as you like, with a three-year warranty and continuous updates.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#try">Try it <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn" href="#boxes">See prices</a>
+      </div>
+      <p class="note">From SEK 49,000 ex VAT, one-off. Or lease from SEK 1,950 a month. No fees per user or per question.</p>
+    </div>
+
+    <div class="boxstage" role="img" aria-label="AI Box, a black computer with a warm status light">
+    <canvas id="box3d" aria-hidden="true"></canvas>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="head">
+    <p class="kicker">AI you can trust</p>
+    <div class="probs" data-typer>
+      <ul class="probs-list">
+        <li data-who="Health clinic">We want the AI to summarise the patient record before every visit, but patient confidentiality stops us from pasting it into an online AI service.</li>
+        <li data-who="Law firm">We want the AI to review a thousand pages of contracts before the bid deadline, but the deal’s NDA does not allow the documents to be uploaded anywhere else.</li>
+        <li data-who="Accounting firm">We want the AI to go through every one of the client’s vouchers instead of a sample, but our duty of confidentiality covers everything we see in their books.</li>
+        <li data-who="Engineering firm">We want the AI to price quotes from our drawings, but the drawings are what we live on.</li>
+        <li data-who="Developer">I want the AI to rewrite the transaction layer of our application, but the business logic is proprietary, and my tokens would run out before it got halfway.</li>
+      </ul>
+    </div>
+    <h2>AI Box keeps everything you show it <em>to itself.</em></h2>
+    <p class="lead muted">Most AI services send your text to someone else’s computer. AI Box is the computer. It stands on your
+      premises and answers only to you.</p>
+  </div>
+  <div class="three">
+    <div>
+      <span class="num">i.</span>
+      <h3>It stays with you</h3>
+      <p>The language model runs on the box. Documents, questions, answers and history are stored on the box and are not sent to
+        any cloud, any vendor or any third party. Not to us either.</p>
+    </div>
+    <div>
+      <span class="num">ii.</span>
+      <h3>No meter running</h3>
+      <p>You pay for the box, not per user, per question or per word. Let it read every contract, every note in the record
+        and every case. One more question costs nothing.</p>
+    </div>
+    <div>
+      <span class="num">iii.</span>
+      <h3>You own it</h3>
+      <p>When you buy the box, it is yours. It needs no account with us and no licence server, and it keeps running even
+        if we were to disappear. Updates for at least five years, installed when you choose, and they make it better.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec speedsec" id="speed">
+  <div class="wrap">
+  <div class="head">
+    <p class="kicker">Speed</p>
+    <h2>Faster than you <em>can read.</em></h2>
+    <p class="lead muted">A person reads about four words a second. Both boxes write many times faster.</p>
+  </div>
+  </div>
+  <div class="proof" id="fast">
+    <div class="wrap">
+    <div class="stat">
+      <div class="n"><span data-count="0.26" data-dec="2">0.26</span><small>s</small></div>
+      <p class="t"><strong>to the first word.</strong> A quarter of a second after you ask, it is under way.</p>
+    </div>
+    <div class="stat">
+      <div class="n"><span data-count="1700">1,700</span></div>
+      <p class="t"><strong>words a second it reads.</strong> A <span class="nw">20-page</span> contract is read in about five seconds.</p>
+    </div>
+    <div class="stat">
+      <div class="n"><span data-count="124">124</span></div>
+      <p class="t"><strong>words a second it writes.</strong> Thirty times faster than you can read.</p>
+    </div>
+    <p class="fine">Best measured values on AI Box M with one person asking, words counted in Swedish. The first word is
+      counted from when the question is sent until the AI starts thinking aloud in the chat. See it for yourself below.</p>
+    </div>
+  </div>
+  <div class="wrap">
+  <div class="demo" data-replay data-autoplay data-qs="mail,doc,follow,sql,raid" data-first="mail">
+    <div class="pick formbox">
+      <fieldset><legend>Box</legend><div data-r="boxes" class="pills boxpills"></div></fieldset>
+      <fieldset data-r="fs-n"><legend>How many are asking?</legend><div data-r="ns" class="pills"></div></fieldset>
+      <fieldset data-r="fs-q"><legend>Question</legend><div data-r="qs" class="qlist"></div>
+        <a class="more" href="speed/">More questions, technical ones too <span class="arr" aria-hidden="true">→</span></a></fieldset>
+    </div>
+    <section class="run" aria-label="Replay">
+      <div class="clock"><small>Time since the question was asked</small><span data-r="clock">00:00.0</span></div>
+      <div class="lanes" data-r="lanes" hidden></div>
+      <p class="qline"><span data-r="qwho">Question</span>: <b data-r="qtext"></b></p>
+      <div class="steps2">
+        <div class="st" data-r="st-read"><span data-r="st-read-l">Reading</span><div class="bar"><i data-r="bar-read"></i></div></div>
+        <div class="st" data-r="st-think"><span>Thinking aloud</span><div class="bar"><i data-r="bar-think"></i></div></div>
+        <div class="st" data-r="st-write"><span data-r="st-write-l">Writing</span><div class="bar"><i data-r="bar-write"></i></div></div>
+      </div>
+      <div class="answer" data-r="answer" aria-live="off"><p class="think" data-r="think"></p><p class="ans" data-r="ans"></p></div>
+      <div class="runbtns">
+        <button class="btn primary" data-r="play" type="button">Ask the question</button>
+        <button class="btn" data-r="skip" type="button" disabled>Show the whole answer</button>
+      </div>
+      <div class="stats">
+        <div><span>First word</span><b data-r="s-first">–</b></div>
+        <div><span>Wrote the answer in</span><b data-r="s-write">–</b></div>
+        <div><span data-r="s-total-l">Total</span><b data-r="s-total">–</b></div>
+      </div>
+      <p class="fine" data-r="fine"></p>
+    </section>
+  </div>
+  <div class="speedtab">
+  <h3 class="speed-h">The numbers for both boxes</h3>
+  <table class="speed">
+    <thead><tr><th></th><th>AI Box S</th><th>AI Box M</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">First word</th><td>0.39 s</td><td>0.26 s</td></tr>
+      <tr><th scope="row">Reads</th><td>600<small>words a second</small></td><td>1,700<small>words a second</small></td></tr>
+      <tr><th scope="row">Writes</th><td>53<small>words a second</small></td><td>124<small>words a second</small></td></tr>
+      <tr><th scope="row">Writes an A4 page</th><td>about 9 s</td><td>about 4 s</td></tr>
+      <tr><th scope="row">Eight asking at once</th><td>–<small>take turns</small></td><td>42<small>words a second each</small></td></tr>
+    </tbody>
+  </table>
+  <p class="fine">Best measured values in our own measurements, November 2026, one person unless stated otherwise. Words
+    counted as Swedish words. The boxes get faster with the updates.</p>
+  </div>
+  </div>
+</section>
+
+<section class="wrap sec rule">
+  <div class="head">
+    <p class="kicker">What it does</p>
+    <h2>What you do today, <em>in a fraction of the time.</em></h2>
+  </div>
+  <div class="uses">
+    <div class="use">
+      <span class="tag">Read</span>
+      <p class="ask">Summarise the contract and point out what we should ask the other side about.</p>
+      <p>Upload PDFs and Word files straight into the chat. Ask follow-up questions without the document being read again.</p>
+    </div>
+    <div class="use">
+      <span class="tag">Write</span>
+      <p class="ask">Write a friendly reply to the patient saying the test result will take another week.</p>
+      <p>Letters, emails, consultation responses, reports and translations. You read it through and send it.</p>
+    </div>
+    <div class="use">
+      <span class="tag">Speak</span>
+      <p class="ask">Turn my dictation into a structured note.</p>
+      <p>Dictate in Swedish in the app. Speech becomes text on the box, and you review the text before it is used.</p>
+    </div>
+    <div class="use">
+      <span class="tag">Tasks of its own</span>
+      <p class="ask">Go through these twenty cases and list the ones missing a signature.</p>
+      <p>Give it a task in several steps, and it works its way through. Your own software can also use the box through OpenAI- and
+        Anthropic-compatible APIs.</p>
+    </div>
+    <div class="use wide">
+      <span class="tag">Connects to your systems</span>
+      <p class="ask">Connect to our email and booking system and remind tomorrow’s patients.</p>
+      <p>Ask it to connect to what you already use: email, calendar, patient record or case system, accounting software.
+        If the system has an API, it uses it. If not, it clicks its way through the program just as an employee would.
+        Everything happens on the box, and you decide what it may touch.</p>
+    </div>
+  </div>
+  <ul class="also" aria-label="More in the chat">
+    <li>Apps for iPhone and Android</li><li>The browser on your computer</li><li>OpenAI- and Anthropic-compatible APIs</li><li>Search earlier chats</li><li>Remembers what you ask it to</li>
+    <li>Web search you can switch off</li><li>Recurring tasks on a schedule</li>
+  </ul>
+</section>
+
+
+<section class="sec rule" id="boxes">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">The boxes</p>
+      <h2>Two sizes. <em>The same AI.</em></h2>
+      <p class="lead muted">Choose by how many will ask at the same time. Both run the same language model and the same software.</p>
+    </div>
+    <div class="boxes">
+      <div class="card">
+        <div class="name"><h3>AI Box <em>S</em></h3></div>
+        <p class="for">For one person, or a small team taking turns.</p>
+        <div class="price">SEK 49,000<small>one-off price, ex VAT</small></div>
+        <ul>
+          <li><strong>One at a time</strong>, at full speed</li>
+          <li>Writes 53 words a second</li>
+          <li>Reads 600 words a second</li>
+        </ul>
+        <a class="btn primary" href="order/?box=s">Order AI Box S <span class="arr" aria-hidden="true">→</span></a>
+        <p class="lease"><a href="order/?box=s&amp;satt=leasa">Lease</a> from SEK 1,950/month over 36 months, or SEK 2,600 over 24, SEK 4,700 over 12.</p>
+      </div>
+      <div class="card hl">
+        <div class="name"><h3>AI Box <em>M</em></h3><span class="badge">For the whole office</span></div>
+        <p class="for">For up to eight people at once, and AI agents working in the background.</p>
+        <div class="price">SEK 89,000<small>one-off price, ex VAT</small></div>
+        <ul>
+          <li><strong>Up to 8 at once</strong></li>
+          <li>Writes 124 words a second</li>
+          <li>Reads 1,700 words a second</li>
+        </ul>
+        <a class="btn primary" href="order/?box=m">Order AI Box M <span class="arr" aria-hidden="true">→</span></a>
+        <p class="lease"><a href="order/?box=m&amp;satt=leasa">Lease</a> from SEK 3,500/month over 36 months, or SEK 4,700 over 24, SEK 8,500 over 12.</p>
+      </div>
+    </div>
+    <div class="incl" aria-label="Included with both">
+      <div><strong>Installation on site</strong><span>Anywhere in Sweden. We deliver the box, connect it and show your staff for an hour.</span></div>
+      <div><strong>Gets better over time</strong><span>Updates for at least five years are included: faster, smarter and with new features. No compulsory subscription.</span></div>
+      <div><strong>Three-year warranty</strong><span>Email support on weekdays is included too.</span></div>
+      <div><strong>Delivery within two weeks</strong><span>From order to installed box.</span></div>
+      <div><strong>Payment by invoice</strong><span>Ten days net. We sell to businesses and public organisations.</span></div>
+      <div><strong>You decide when it updates</strong><span>Nothing is installed until you have chosen it.</span></div>
+    </div>
+    <p class="buy-why"><strong style="color:var(--ink);font-weight:500">Buy or lease?</strong> If you buy, the box is yours
+      from day one and costs nothing more. If you lease, you pay every month, and the box is ours during the lease. Buying pays off:
+      over three years you save SEK 21,200 on S and SEK 37,000 on M.</p>
+  </div>
+</section>
+
+<section id="try" class="trial" aria-labelledby="try-h">
+  <span id="prova" aria-hidden="true"></span>
+  <div class="wrap sec">
+    <div class="intro">
+      <div>
+        <p class="kicker">Try it yourself</p>
+        <h2 id="try-h">Chat with a <em>real box.</em></h2>
+        <p class="lead muted">No demo video and no sales call. Tell us who you are, we read the
+          request and email you a code. Then you chat with one of our own boxes, right here on the page.</p>
+        <p class="fine">Don’t enter real patient or client data in the trial: it is our box, not your own.
+          More on how we handle the data in our
+          <a href="../integritet/#english">privacy policy</a>.</p>
+      </div>
+      <div class="formbox">
+        <form id="req" novalidate>
+          <label>Name <input name="name" autocomplete="name" required maxlength="80"></label>
+          <label>Company or organisation <input name="company" autocomplete="organization" maxlength="120"></label>
+          <label>Email <input name="email" type="email" autocomplete="email" required maxlength="200"></label>
+          <label>What would you like to try? (optional)
+            <textarea name="purpose" maxlength="1000"></textarea></label>
+          <label>Language of the email
+            <select name="lang"><option value="en" selected>English</option><option value="sv">Svenska</option></select></label>
+          <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button class="btn primary" type="submit">Send me a code</button>
+          <p class="msg" id="req-msg" role="status"></p>
+        </form>
+        <form id="code" class="have-code" method="post" target="trialframe">
+          <div class="row">
+            <label>Already have a code?
+              <input name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXXX-XXXXX"
+                     maxlength="20" required></label>
+            <button class="btn" type="submit">Start the trial</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel" id="panel">
+      <iframe name="trialframe" id="trialframe" title="AI Box, the trial" allow="clipboard-write"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads allow-modals allow-top-navigation-by-user-activation"></iframe>
+      <div class="status"><span id="st-q"></span><span id="st-end"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <div class="head">
+    <p class="kicker">Box or cloud</p>
+    <h2>The same quality. <em>A different address.</em></h2>
+    <p class="lead muted">AI Box answers on a par with the leading cloud services. The difference is where your text goes.</p>
+  </div>
+  <table class="cmp">
+    <thead><tr><th></th><th>AI Box</th><th>Cloud AI</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Where your text is processed</th><td>On the box, on your premises</td><td>In the vendor’s data centre, often outside Sweden</td></tr>
+      <tr><th scope="row">Who can access it</th><td>You</td><td>The vendor, its sub-processors and sometimes authorities in other countries</td></tr>
+      <tr><th scope="row">Processor agreement and transfer impact assessment (TIA)</th><td>Not needed for the AI</td><td>Required, and you are responsible for them</td></tr>
+      <tr><th scope="row">Cost</th><td>Once</td><td>Every month, per user</td></tr>
+      <tr><th scope="row">How much you may use it</th><td>Unlimited</td><td>Per user, per word or capped</td></tr>
+      <tr><th scope="row">If the vendor stops</th><td>The box keeps running</td><td>The service ends</td></tr>
+      <tr><th scope="row">Updates</th><td>When you choose</td><td>When the vendor chooses</td></tr>
+    </tbody>
+  </table>
+  <aside class="notfor" aria-labelledby="notfor-h">
+    <h3 id="notfor-h">Who should <em>not</em> buy AI Box?</h3>
+    <p>May your data sit in a cloud service, and do you use AI only now and then? Then the cloud is enough, and it is
+      cheaper. AI Box pays off when the data may not leave the building, or when the whole office uses AI every day.
+      We would rather say that now than afterwards.</p>
+  </aside>
+</section>
+
+<section class="wrap sec rule" id="questions">
+  <div class="head">
+    <p class="kicker">Frequently asked questions</p>
+    <h2>What you <em>are wondering.</em></h2>
+  </div>
+  <span id="data-protection" aria-hidden="true"></span>
+  <div class="qtabs" role="tablist" aria-label="Questions by role">
+    <button role="tab" id="t-led" aria-controls="q-led" aria-selected="true">Management</button>
+    <button role="tab" id="t-pers" aria-controls="q-pers" aria-selected="false" tabindex="-1">Staff</button>
+    <button role="tab" id="t-it" aria-controls="q-it" aria-selected="false" tabindex="-1">IT</button>
+    <button role="tab" id="t-dp" aria-controls="q-dp" aria-selected="false" tabindex="-1">Data protection</button>
+  </div>
+
+  <div class="qgroup" id="q-led" role="tabpanel" aria-labelledby="t-led">
+    <h3 class="gh">Management</h3>
+    <details><summary>Is it as good as the big AI services in the cloud?</summary>
+      <div class="a"><p>Yes. The language model on the box is on a par with the leading cloud services for the work an office does:
+        reading, summarising, writing, translating, calculating and reasoning. Try it yourself, with your own questions.</p></div></details>
+    <details><summary>What does it actually cost?</summary>
+      <div class="a"><p>AI Box S costs SEK 49,000 and AI Box M SEK 89,000, excluding VAT, once. Installation, walkthrough,
+        updates for at least five years and a three-year warranty are included. No fees per user, per question or per word.
+        If you would rather pay monthly, you can lease for 12, 24 or 36 months. The longest lease gives the lowest monthly cost:
+        SEK 1,950 for S and SEK 3,500 for M over 36 months.</p></div></details>
+    <details><summary>Why not just buy a cloud service?</summary>
+      <div class="a"><p>If you have no sensitive data and only use AI now and then, a cloud service can be cheaper. The box is for
+        those whose data may not leave the building, or where many people use AI every day. The box costs the same however much
+        you use it, while a cloud service charges per user or per question.</p></div></details>
+    <details><summary>What happens if the box breaks?</summary>
+      <div class="a"><p>During the warranty, the first three years, we repair or replace it on your premises.</p></div></details>
+    <details><summary>Which AI model does it run?</summary>
+      <div class="a"><p>An open language model, run by our own software. When better models arrive, you get them as an
+        update.</p></div></details>
+    <details><summary>How soon can we have it?</summary>
+      <div class="a"><p>Within two weeks of ordering it is installed on your premises, wherever you are in Sweden.</p></div></details>
+  </div>
+
+  <div class="qgroup" id="q-pers" role="tabpanel" aria-labelledby="t-pers" hidden>
+    <h3 class="gh">Staff</h3>
+    <details><summary>How do I use it?</summary>
+      <div class="a"><p>In the app on your phone (iPhone and Android) or in the browser on your computer. Each device is paired with
+        the box once, with a code. After that it is a chat like any other.</p></div></details>
+    <details><summary>Does it understand Swedish?</summary>
+      <div class="a"><p>Yes, both written and spoken. You can write and dictate in Swedish and get answers in Swedish, or in another language.</p></div></details>
+    <details><summary>Can I upload documents?</summary>
+      <div class="a"><p>Yes. PDF and Word files and other text files, straight into the chat. Follow-up questions about the same document are answered without reading it again.</p></div></details>
+    <details><summary>Does it work from home?</summary>
+      <div class="a"><p>Yes. At the office the traffic goes straight to the box. From home it is encrypted all the way from the app to
+        the box: directly when possible, otherwise through a relay server that cannot read the content.</p></div></details>
+    <details><summary>Can I trust the answers?</summary>
+      <div class="a"><p>Treat what it writes as a draft from a capable colleague: read it through before you use it. It makes
+        no decisions and gives no diagnoses.</p></div></details>
+  </div>
+
+  <div class="qgroup" id="q-it" role="tabpanel" aria-labelledby="t-it" hidden>
+    <h3 class="gh">IT</h3>
+    <details><summary>What does the box need?</summary>
+      <div class="a"><p>Power and a network cable. It is a tower workstation that stands on the floor or in a server rack. No screen
+        is needed.</p></div></details>
+    <details><summary>Which ports and what traffic?</summary>
+      <div class="a"><p>No inbound ports and no port forwarding. The box gets its address by DHCP and only opens outbound encrypted
+        connections: for remote access through the tunnel, for updates when you install them and for web search if you have
+        it switched on. None of your documents or conversations are sent out.</p></div></details>
+    <details><summary>Can our own software use it?</summary>
+      <div class="a"><p>Yes. The box has OpenAI- and Anthropic-compatible APIs, so most programs and AI tools
+        that can talk to a cloud service can talk to the box instead. If you need a particular connection to your system, we help
+        with it.</p></div></details>
+    <details><summary>How is it updated?</summary>
+      <div class="a"><p>With signed updates that you install when it suits you, or automatically if you switch that on yourselves.
+        Updates are included for at least five years. We keep working on making the AI faster and better, and those improvements
+        reach your box with the updates: the one you buy today gets better over time.</p></div></details>
+    <details><summary>How do we control who can reach it?</summary>
+      <div class="a"><p>Only devices paired with the box can reach it. You decide which, and can remove a device at any time.</p></div></details>
+    <details><summary>Can you reach the box remotely?</summary>
+      <div class="a"><p>Only if you let us in. If you need help, you switch on maintenance mode on the box yourselves and approve our
+        connection. Otherwise we cannot reach it, and support happens on your premises.</p></div></details>
+  </div>
+
+  <div class="qgroup" id="q-dp" role="tabpanel" aria-labelledby="t-dp" hidden>
+    <h3 class="gh">Data protection</h3>
+    <details><summary>Does any data leave the box?</summary>
+      <div class="a"><p>No, no content. Documents, questions, answers and history are processed and stored on the box. With web search on, only
+        the search terms themselves go out, and every search shows in the chat. You can switch web search off entirely.</p></div></details>
+    <details><summary>Do we need a processor agreement with you?</summary>
+      <div class="a"><p>Not for the AI. It runs on your own box, and there is no cloud provider or
+        sub-processor in the chain. During support, on site or remotely once you have switched on maintenance mode, we may
+        see data on the box. For that we offer a data processing agreement (DPA) that covers the support only.</p></div></details>
+    <details><summary>What about confidentiality and patient data?</summary>
+      <div class="a"><p>The data does not leave the building and is not handed to any vendor, so when
+        staff use the AI nothing is disclosed to a third party. Access is controlled by which devices you have paired with the box. The box
+        does not replace your patient record system; the record is kept there as today, under the Swedish Patient Data Act.</p></div></details>
+    <details><summary>Can we delete data?</summary>
+      <div class="a"><p>Yes. Everything is on the box, so what is deleted there is gone. There is no copy with us or in any cloud.</p></div></details>
+  </div>
+</section>
+
+<section class="wrap sec rule" id="about">
+  <div class="about">
+    <div class="head" style="margin:0">
+      <p class="kicker">About us</p>
+      <h2>We build <em>the whole</em> box.</h2>
+    </div>
+    <div class="p">
+      <p><strong>AI Box comes from Jakup Güven AB in Malmö, Sweden.</strong> We choose the hardware in every box ourselves and write
+        the software that runs the AI, tailored to that very machine. That is why a box that fits under a desk can
+        answer as fast as services running in large data centres.</p>
+      <p>We believe that anyone bound by confidentiality or holding trade secrets should be able to use the best AI without giving anything away.</p>
+      <p>Contact us at <a href="mailto:info@ai-box.se">info@ai-box.se</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec rule closing">
+  <div class="wrap">
+    <h2>Try it with <em>your own questions.</em></h2>
+    <p class="lead muted">A real box says more than this page. Or email us, and we will come and show it on your premises, wherever you are in Sweden.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#try">Try it <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn" href="mailto:info@ai-box.se?subject=AI%20Box%20demonstration">Book a demonstration</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong style="color:var(--ink);font-weight:500">AI Box</strong> is sold and installed by Jakup Güven AB<br>
+      Reg. no. 559582-8921 · Malmö, Sweden · <a href="mailto:info@ai-box.se">info@ai-box.se</a><br>
+      This site uses no cookies and no visitor statistics. <a href="../integritet/#english">Privacy policy</a> · <a href="../" hreflang="sv" lang="sv">På svenska</a>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#speed">Speed</a>
+      <a href="#boxes">Prices</a>
+      <a href="#questions">Questions</a>
+      <a href="#data-protection">Data protection</a>
+      <a href="#about">About us</a>
+      <a href="order/">Order</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Tabs for the questions; without JS every group shows.
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".qtabs [role=tab]"));
+  function pick(t, focus) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute("aria-selected", on); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) t.focus();
+  }  function fromHash() { if (location.hash === "#data-protection") pick(document.getElementById("t-dp")); }
+  window.addEventListener("hashchange", fromHash); fromHash();
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { pick(t); });
+    t.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
+})();
+
+(function () {
+  // The trial form. A local preview talks to a trial server on localhost:8100.
+  var API = location.hostname === "localhost" ? "http://localhost:8100" : "https://trial.ai-box.se";
+  var $ = function (id) { return document.getElementById(id); };
+  var req = $("req"), code = $("code"), panel = $("panel"), frame = $("trialframe"), box = document.querySelector(".formbox");
+  code.action = API + "/trial/start";
+
+  function say(text, kind) { var m = $("req-msg"); m.textContent = text; m.className = "msg " + (kind || ""); }
+
+  req.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = req.elements;
+    if (f.name.value.trim().length < 2 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) {
+      say("Please enter your name and a valid email address.", "err"); return;
+    }
+    var body = {};
+    ["name", "company", "email", "purpose", "lang", "website"].forEach(function (k) { body[k] = f[k].value; });
+    var btn = req.querySelector("button"); btn.disabled = true; say("Sending…");
+    fetch(API + "/trial/api/request", { method: "POST", headers: { "Content-Type": "application/json" },
+                                        body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return [r.status, d]; }); })
+      .then(function (x) {
+        if (x[1].ok) { say("Thank you! We will read your request and email you a code.", "ok"); req.reset(); return; }
+        btn.disabled = false;
+        say(x[0] === 429 ? "Many requests right now. Please try again later, or email us."
+                         : "Please check your name and email address.", "err");
+      })
+      .catch(function () { btn.disabled = false; say("It could not be sent. Please email info@ai-box.se instead.", "err"); });
+  });
+
+  function open() {
+    panel.classList.add("on");
+    box.style.display = "none";
+    panel.scrollIntoView({ block: "start" });
+  }
+
+  code.addEventListener("submit", function () { open(); setTimeout(status, 4000); });
+
+  function status() {
+    fetch(API + "/trial/api/status", { credentials: "include", cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (s) {
+        if (s.state === "active" || s.state === "grace") {
+          if (!panel.classList.contains("on")) { frame.src = API + "/trial/start"; open(); }
+          $("st-q").textContent = s.limit ? "Questions: " + s.used + " of " + s.limit : "";
+          var left = Math.max(0, Math.ceil((s.ends * 1000 - Date.now()) / 60000));
+          $("st-end").textContent = left > 1440 ? "The trial ends " + new Date(s.ends * 1000).toLocaleDateString("en-GB",
+                                    { day: "numeric", month: "long" }) : left + " min left";
+        } else if (s.state === "over") {
+          $("st-q").textContent = ""; $("st-end").textContent = "The trial is over.";
+        }
+      })
+      .catch(function () {});
+  }
+
+  window.addEventListener("message", function (e) {
+    if (e.origin !== API || !e.data || !e.data.trial) return;
+    if (e.data.trial === "unknown" || e.data.trial === "nocode") { box.style.display = ""; }
+    status();
+  });
+
+  var kod = new URLSearchParams(location.search).get("kod");
+  if (kod) {
+    code.elements.code.value = kod;
+    history.replaceState(null, "", location.pathname + "#try");
+    open();
+    frame.addEventListener("load", function () { panel.scrollIntoView({ block: "start" }); }, { once: true });
+    code.submit();
+    setTimeout(status, 4000);
+  } else {
+    status();
+  }
+  setInterval(function () { if (panel.classList.contains("on")) status(); }, 15000);
+})();
+</script>
+</body>
+</html>

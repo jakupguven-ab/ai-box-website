@@ -23,5 +23,6 @@ Also described as: lokal AI, AI på egen server, on-premise AI, AI utan moln, GD
 - Try a real box in the browser: https://ai-box.se/#prova
 - Order (buy or lease, by email, confirmed before binding): https://ai-box.se/bestall/
 - Speed replay (simulated, at measured rates): https://ai-box.se/hastighet/
+- This page in English: https://ai-box.se/en/ (order: https://ai-box.se/en/order/, speed: https://ai-box.se/en/speed/)
 - Contact: info@ai-box.se
 - Not for: businesses that may put their data in a cloud service and use AI only now and then; the cloud is cheaper.

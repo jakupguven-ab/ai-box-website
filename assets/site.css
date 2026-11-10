@@ -79,6 +79,9 @@ p { margin: 0; }
 .nav a { text-decoration: none; }
 .nav a:hover { color: var(--ink); }
 .top .btn { padding: 10px 16px; font-size: 14px; }
+.acts { display: flex; align-items: center; gap: 14px; }
+.lang { font-size: 13px; letter-spacing: .08em; color: var(--muted); text-decoration: none; padding: 6px 2px; }
+.lang:hover { color: var(--ink); }
 @media (max-width: 860px) { .nav { display: none; } }
 
 /* hero */
