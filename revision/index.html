@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<title>AI Box för revisionsbyråer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="AI Box står på revisionsbyrån och arbetar med protokoll, avtal och arbetspapper, på svenska och helt i ert eget nätverk.">
+<style>
+@font-face{font-family:"Instrument Sans";font-weight:400 700;font-display:swap;src:url(../assets/fonts/instrument-sans-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Instrument Sans";font-weight:400 700;font-display:swap;src:url(../assets/fonts/instrument-sans-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/instrument-serif-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/instrument-serif-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(../assets/fonts/instrument-serif-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(../assets/fonts/instrument-serif-italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+</style>
+<style>
+/* Layout: a short product film on a bright studio floor. Title cards, one sticky 3D stage driven by scroll, one sideways "day at the firm" reel, then rules, price and questions in quiet rows. Single light look on purpose. */
+:root{
+  --bg:#F4F4F1; --bg2:#EAEAE6; --card:#FFFFFF; --ink:#15171A; --muted:#5A5E64; --dim:#8D9096;
+  --line:rgba(21,23,26,.10); --line2:rgba(21,23,26,.20);
+  --accent:#2C4C83; --accent-soft:rgba(44,76,131,.08);
+  --serif:"Instrument Serif","Times New Roman",Georgia,serif;
+  --sans:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gut-l:max(20px, env(safe-area-inset-left,0px)); --gut-r:max(20px, env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg); -webkit-text-size-adjust:100%}
+body{margin:0; background:var(--bg); color:var(--ink); font:400 1rem/1.6 var(--sans); overflow-x:hidden; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:60; background:var(--bg)}
+a{color:inherit}
+::selection{background:var(--ink); color:var(--bg)}
+:focus-visible{outline:1.5px solid var(--accent); outline-offset:5px}
+h1,h2,h3{margin:0; font-family:var(--serif); font-weight:400; letter-spacing:-.022em; line-height:1.03; text-wrap:balance}
+em{font-style:italic}
+p{margin:0}
+.wrap{max-width:1240px; margin:0 auto; padding-left:max(var(--gut-l), clamp(24px,5vw,72px)); padding-right:max(var(--gut-r), clamp(24px,5vw,72px))}
+.label{font:500 .74rem/1.4 var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.skip{position:absolute; left:-999px; top:8px; background:var(--ink); color:var(--bg); padding:10px 14px; z-index:100}
+.skip:focus{left:12px}
+.btn{display:inline-flex; align-items:center; gap:10px; min-height:46px; padding:0 24px; border-radius:999px; text-decoration:none; font:500 .95rem var(--sans); background:var(--ink); color:var(--bg); border:1px solid var(--ink); cursor:pointer; transition:background .5s var(--ease), color .5s var(--ease)}
+.btn:hover{background:var(--accent); border-color:var(--accent)}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--line2)}
+.btn.ghost:hover{border-color:var(--ink); background:transparent}
+
+/* header */
+header.site{position:fixed; top:env(safe-area-inset-top,0px); left:0; right:0; z-index:50; transition:background .8s var(--ease), opacity 1s var(--ease), box-shadow .8s}
+header.site .bar{display:flex; justify-content:space-between; align-items:center; min-height:72px; padding-left:max(var(--gut-l), clamp(24px,4vw,56px)); padding-right:max(var(--gut-r), clamp(24px,4vw,56px))}
+.brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; font:600 .95rem var(--sans)}
+.brand small{font:400 .82rem var(--sans); color:var(--muted)}
+header.site .btn{min-height:40px; padding:0 18px; font-size:.88rem}
+header.site.solid{background:rgba(244,244,241,.82); -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px); box-shadow:0 1px 0 var(--line)}
+.filming header.site{opacity:0}
+
+/* intro film */
+#film{position:fixed; inset:0; z-index:80; background:var(--bg); transition:opacity 1.2s var(--ease), visibility 0s linear 1.2s}
+#film.done{opacity:0; visibility:hidden}
+#film .card{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:min(90vw,980px); text-align:center; font-family:var(--serif); font-size:clamp(2.2rem,6vw,5.2rem); line-height:1.05; letter-spacing:-.02em}
+#film .card span{display:inline-block; opacity:0; filter:blur(12px); transform:translateY(.18em); transition:opacity 1s var(--ease), filter 1.2s var(--ease), transform 1.2s var(--ease)}
+#film .card.on span{opacity:1; filter:blur(0); transform:none}
+#film .card.off span{opacity:0; filter:blur(8px); transform:translateY(-.12em); transition-duration:.6s}
+#film .kick{position:absolute; left:50%; bottom:calc(40px + env(safe-area-inset-bottom,0px)); transform:translateX(-50%); color:var(--dim); white-space:nowrap}
+#film .skipfilm{position:absolute; right:calc(24px + env(safe-area-inset-right,0px)); top:calc(22px + env(safe-area-inset-top,0px)); color:var(--muted); font:400 .85rem var(--sans); background:none; border:0; cursor:pointer; min-height:44px}
+#film .tick{position:absolute; left:50%; top:calc(50% + clamp(70px,10vw,120px)); width:120px; height:1px; transform:translateX(-50%); background:var(--line)}
+#film .tick i{position:absolute; inset:0; background:var(--ink); transform-origin:left; transform:scaleX(0)}
+
+/* scrolly stage */
+#scrolly{position:relative; height:calc(3 * 95vh + 100vh)}
+.stage{position:sticky; top:0; height:100vh; height:100lvh; overflow:hidden; background:var(--bg)}
+.stage::after{content:""; position:absolute; left:0; right:0; bottom:0; height:22%; pointer-events:none; background:linear-gradient(to bottom, rgba(244,244,241,0), var(--bg) 92%)}
+#gl{position:absolute; inset:0; width:100%; height:100%; display:block}
+.nogl .stage{background:radial-gradient(ellipse 40% 50% at 50% 42%, #FFFFFF 0%, var(--bg) 70%)}
+.copy{position:absolute; inset:0; pointer-events:none; z-index:3}
+.st{position:absolute; left:50%; bottom:clamp(40px,8vh,92px); width:min(88vw,760px); text-align:center; opacity:0; transform:translate(-50%,18px); transition:opacity 1.1s var(--ease), transform 1.4s var(--ease)}
+.st.on{opacity:1; transform:translate(-50%,0)}
+.st .label{display:block; margin-bottom:16px}
+.st h1,.st h2{font-size:clamp(2.4rem,5vw,4.3rem)}
+.st p{margin:16px auto 0; max-width:48ch; color:var(--muted); font-size:1.02rem}
+.st .acts{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:24px; pointer-events:auto}
+.progress{position:absolute; right:max(calc(16px + env(safe-area-inset-right,0px)), clamp(24px,4vw,56px)); top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:2px; opacity:0; transition:opacity 1s var(--ease); z-index:4}
+.progress.show{opacity:1}
+.progress button{all:unset; cursor:pointer; width:24px; height:24px; display:grid; place-items:center}
+.progress button::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--line2); transition:background .6s, transform .6s var(--ease)}
+.progress button[aria-current="true"]::before{background:var(--ink); transform:scale(1.5)}
+.hud{position:absolute; left:max(calc(16px + env(safe-area-inset-left,0px)), clamp(24px,4vw,56px)); top:50%; transform:translateY(-50%); z-index:4; display:grid; gap:12px; opacity:0; transition:opacity 1s var(--ease)}
+.hud.show{opacity:1}
+.hud div{display:flex; gap:14px; align-items:baseline; color:var(--muted)}
+.hud b{font:400 1.6rem/1 var(--serif); color:var(--ink); min-width:2.4ch; text-align:right; font-variant-numeric:tabular-nums}
+.hud .z b{color:var(--accent)}
+.scrollhint{position:absolute; left:50%; bottom:22px; transform:translateX(-50%); width:1px; height:44px; background:linear-gradient(var(--ink),transparent); opacity:.4; transition:opacity .8s; transform-origin:top; animation:drip 2.6s var(--ease) infinite}
+@keyframes drip{0%{transform:translateX(-50%) scaleY(0)}50%{transform:translateX(-50%) scaleY(1)}100%{transform:translateX(-50%) scaleY(1); opacity:0}}
+@media (max-width:760px){ .progress,.hud{display:none} .st{bottom:calc(40px + env(safe-area-inset-bottom,0px))} }
+
+/* sections */
+section.s{position:relative; padding-block:clamp(96px,12vw,170px)}
+section.s.alt{background:var(--bg2)}
+.rv{transition:opacity 1.4s var(--ease), transform 1.6s var(--ease)}
+.anim .rv:not(.in){opacity:0; transform:translateY(24px)}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
+.headline{font-size:clamp(2.5rem,5.6vw,5rem); max-width:16ch}
+.sub{color:var(--muted); max-width:54ch; margin-top:22px; font-size:1.05rem}
+
+/* day reel */
+#day{position:relative; background:var(--bg2)}
+#day .pin{position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; display:flex; flex-direction:column; justify-content:center}
+#day .head{position:absolute; top:clamp(92px,13vh,132px); left:0; right:0}
+#day .head .row{display:flex; justify-content:space-between; align-items:end; gap:24px; flex-wrap:wrap}
+#day .head h2{font-size:clamp(2.2rem,4.4vw,4rem)}
+#day .clock{font-family:var(--serif); font-size:clamp(2rem,4vw,3.2rem); color:var(--accent); font-variant-numeric:tabular-nums}
+#day .ghost{position:absolute; left:0; top:50%; transform:translateY(-34%); white-space:nowrap; font-family:var(--serif); font-size:clamp(10rem,28vw,24rem); line-height:1; color:rgba(21,23,26,.045); pointer-events:none; will-change:transform}
+#day .track{display:flex; gap:clamp(20px,3vw,40px); padding-left:max(var(--gut-l), clamp(24px,5vw,72px)); padding-right:40vw; margin-top:clamp(110px,15vh,160px); will-change:transform}
+.shot{flex:0 0 min(80vw,540px); min-width:0}
+.shot .meta{display:flex; justify-content:space-between; gap:16px; align-items:baseline; margin-bottom:12px}
+.shot .meta .t{font-family:var(--serif); font-size:1.7rem; font-variant-numeric:tabular-nums}
+.chat{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:20px; box-shadow:0 30px 60px -36px rgba(21,23,26,.35), 0 2px 6px rgba(21,23,26,.04)}
+.chat .top{display:flex; align-items:center; gap:10px; padding-bottom:14px; border-bottom:1px solid var(--line); margin-bottom:16px; color:var(--muted); font-size:.8rem}
+.chat .top .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft)}
+.chat .top .r{margin-left:auto}
+.chat .qwrap{display:flex; flex-direction:column; align-items:flex-end; gap:8px}
+.chat .file{display:inline-flex; gap:8px; align-items:center; padding:5px 10px; border:1px solid var(--line); border-radius:8px; font-size:.74rem; color:var(--muted)}
+.chat .q{max-width:88%; background:var(--bg2); border-radius:14px 14px 4px 14px; padding:10px 14px; font-size:.92rem}
+.chat .a{margin-top:14px; font-size:.92rem; white-space:pre-line; min-height:8.4em}
+.chat .a .cur{display:inline-block; width:.5em; height:1em; background:var(--ink); vertical-align:-.15em; margin-left:2px; animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.chat .ask{margin-top:14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; padding:12px; border-radius:12px; background:var(--accent-soft); font-size:.85rem}
+.chat .ask span{flex:1 1 180px}
+.chat .ask i{font-style:normal; padding:6px 12px; border-radius:999px; background:var(--ink); color:var(--bg); font-size:.78rem}
+.chat .ask i.o{background:transparent; color:var(--ink); border:1px solid var(--line2)}
+.shot .note{margin-top:14px; color:var(--muted); font-size:.88rem; display:flex; gap:10px}
+.shot .note::before{content:""; flex:0 0 14px; height:1px; background:var(--dim); margin-top:.75em}
+#day .foot{position:absolute; bottom:calc(28px + env(safe-area-inset-bottom,0px)); left:0; right:0}
+#day .bar{height:1px; background:var(--line); position:relative}
+#day .bar i{position:absolute; inset:0; background:var(--ink); transform-origin:left; transform:scaleX(0)}
+.ex{font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); border:1px solid var(--line2); border-radius:999px; padding:2px 8px}
+@media (max-width:760px){
+  #day{height:auto !important}
+  #day .pin{position:relative; height:auto; overflow:visible; padding-block:96px}
+  #day .head{position:relative; top:0}
+  #day .track{flex-direction:column; transform:none !important; padding-right:max(var(--gut-r),24px); margin-top:48px; gap:48px}
+  #day .ghost,#day .foot{display:none}
+  .shot{flex:none}
+}
+
+/* rules */
+.rules{margin-top:60px; border-top:1px solid var(--line)}
+.rule{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.45fr) minmax(0,1.5fr) minmax(0,1fr); gap:clamp(16px,3vw,44px); padding-block:clamp(22px,3vw,34px); align-items:baseline; border-bottom:1px solid var(--line)}
+.rule h3{font-size:clamp(1.3rem,2vw,1.7rem); line-height:1.15}
+.rule h3 a{text-decoration:none; background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat; padding-bottom:1px}
+.rule .kind b{display:inline-block; font-weight:500; border:1px solid var(--ink); border-radius:999px; padding:3px 10px; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap}
+.rule .kind b.g{color:var(--muted); border:1px dashed var(--line2)}
+.rule p{color:var(--muted)}
+.rule .box{color:var(--accent)}
+.rule.headrow{padding-block:0 14px; border-bottom:1px solid var(--line); margin-top:-1px}
+.rules .headrow{border-top:0}
+.rule.headrow span{font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--dim)}
+@media (max-width:900px){ .rule{grid-template-columns:1fr; gap:8px} .rule.headrow{display:none} .rule .box::before{content:"Med AI Box: "; color:var(--muted)} }
+.caveat{margin-top:36px; max-width:64ch; color:var(--muted); font-size:.95rem}
+
+/* price */
+.offer{display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(32px,5vw,80px); margin-top:64px; align-items:start}
+@media (max-width:900px){ .offer{grid-template-columns:1fr} }
+.pilot{padding:clamp(28px,4vw,44px); border-radius:24px; background:var(--card); border:1px solid var(--line); box-shadow:0 30px 70px -44px rgba(21,23,26,.35)}
+.pilot .label{color:var(--accent)}
+.pilot h3{font-size:clamp(1.9rem,3.2vw,2.8rem); margin-top:14px}
+.pilot .price{font-family:var(--serif); font-size:clamp(3.2rem,6.4vw,5.4rem); line-height:1; margin-top:24px; font-variant-numeric:tabular-nums}
+.pilot .price small{font:400 .9rem var(--sans); color:var(--muted); margin-left:10px}
+.pilot ul{list-style:none; padding:0; margin:26px 0 0; display:grid; gap:10px}
+.pilot li{display:grid; grid-template-columns:18px minmax(0,1fr); gap:10px; color:var(--muted)}
+.pilot li::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); margin-top:.62em; margin-left:4px}
+.after h3{font-size:clamp(1.6rem,2.4vw,2.1rem)}
+.after .two{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:22px}
+.after .two div{border-top:1px solid var(--line2); padding-top:16px}
+.after .two b{display:block; font:400 clamp(2rem,3.2vw,2.7rem)/1.05 var(--serif); font-variant-numeric:tabular-nums}
+.after .two span{color:var(--muted); font-size:.88rem}
+.bars{margin-top:40px; display:grid; gap:16px}
+.bars .bl{display:flex; justify-content:space-between; gap:16px; font-size:.88rem; color:var(--muted); margin-bottom:7px}
+.bars .bl b{font-weight:500; color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap}
+.bars .tr{height:8px; border-radius:8px; background:rgba(21,23,26,.06); overflow:hidden}
+.bars .tr i{display:block; height:100%; border-radius:8px; background:var(--ink); width:var(--w); transform-origin:left; transition:transform 1.8s var(--ease)}
+.bars .tr i.c{background:var(--dim)}
+.anim .bars:not(.in) .tr i{transform:scaleX(0)}
+.bars .src{font-size:.78rem; color:var(--dim)}
+.honest{margin-top:48px; max-width:64ch; color:var(--muted)}
+.honest b{color:var(--ink); font-weight:500}
+
+/* faq */
+.faq{margin-top:56px; border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none; cursor:pointer; display:flex; justify-content:space-between; gap:24px; align-items:baseline; padding-block:24px; font-family:var(--serif); font-size:clamp(1.35rem,2.2vw,1.85rem); line-height:1.2}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+"; font-family:var(--sans); font-weight:300; color:var(--muted); transition:transform .6s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details div{padding-bottom:26px; color:var(--muted); max-width:66ch}
+
+/* end */
+.end{padding-block:clamp(110px,14vw,190px); text-align:center; background:radial-gradient(ellipse 60% 70% at 50% 100%, #FFFFFF 0%, var(--bg) 70%)}
+.end h2{font-size:clamp(2.8rem,7vw,6.2rem)}
+.end p{color:var(--muted); max-width:50ch; margin:24px auto 0}
+.end .row2{display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-top:36px}
+.end .mail{display:inline-flex; gap:12px; align-items:center; color:var(--muted)}
+.end .mail code{font-family:var(--mono); font-size:.9rem; color:var(--ink); user-select:all}
+.end .mail button{all:unset; cursor:pointer; font-size:.8rem; border-bottom:1px solid var(--dim); color:var(--muted)}
+.end .mail button:focus-visible{outline:1.5px solid var(--accent); outline-offset:4px}
+footer{border-top:1px solid var(--line); padding-block:28px calc(28px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+footer span{font-size:.8rem; color:var(--dim)}
+
+
+@media (prefers-reduced-motion: reduce){ *,*::before,*::after{animation-duration:.01ms !important; transition-duration:.01ms !important} }
+</style>
+</head>
+<body>
+<a class="skip" href="#innehall">Hoppa till innehållet</a>
+
+<div id="film" aria-hidden="true">
+  <div class="card">Elva styrelseprotokoll.</div>
+  <div class="card">En årsredovisning att granska.</div>
+  <div class="card">Det stannar hos er.</div>
+  <div class="tick"><i id="tick"></i></div>
+  <span class="kick label">AI Box för revisionsbyråer</span>
+  <button class="skipfilm" id="skipfilm" type="button">Hoppa över</button>
+</div>
+
+<header class="site" id="hdr">
+  <div class="bar">
+    <a class="brand" href="#top">AI Box <small>för revisionsbyråer</small></a>
+    <a class="btn" href="#kontakt">Boka en visning</a>
+  </div>
+</header>
+
+<main id="innehall">
+<span id="top"></span>
+
+<div id="scrolly">
+  <div class="stage">
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <div class="hud" id="hud" aria-hidden="true">
+      <div><b id="hud-n">0</b><span class="label">dokument inlästa</span></div>
+      <div class="z"><b>0</b><span class="label">skickade ut</span></div>
+    </div>
+    <div class="copy">
+      <div class="st" data-s="0"><span class="label">AI Box för revisionsbyråer</span><h1>Klientens underlag stannar <em>hos er.</em></h1><p>AI Box står hos er och arbetar med protokoll, avtal, årsredovisningar och arbetspapper. Snabbt, på svenska och helt i ert eget nätverk.</p></div>
+      <div class="st" data-s="1"><span class="label">Det stannar här</span><h2>Hela årets underlag. <em>På sekunder.</em></h2><p>Protokoll, avtal och årsredovisningar läses direkt på boxen. Tystnadsplikten följer med, eftersom underlaget aldrig lämnar byrån.</p></div>
+      <div class="st" data-s="2"><span class="label">Den arbetar som ni</span><h2>Allt ni gör på datorn. <em>Med ert godkännande.</em></h2><p>Den kan göra allt ni kan göra på datorn: mejl, kalender, ärendesystem och mappar. Ni bestämmer vad den får röra, och den frågar innan något skickas.</p><div class="acts"><a class="btn" href="#kontakt">Boka en visning</a><a class="btn ghost" href="#pris">Se priset</a></div></div>
+    </div>
+    <nav class="progress" aria-label="Avsnitt om boxen" id="progress"><button type="button" data-i="0" aria-label="AI Box för revisionsbyråer"></button><button type="button" data-i="1" aria-label="Det stannar här"></button><button type="button" data-i="2" aria-label="Den arbetar som ni"></button></nav>
+    <div class="scrollhint" id="hint" aria-hidden="true"></div>
+  </div>
+</div>
+
+<section id="day" aria-labelledby="day-h">
+  <div class="pin">
+    <div class="ghost" id="ghost" aria-hidden="true">08:30 &nbsp; 11:00 &nbsp; 15:20</div>
+    <div class="head"><div class="wrap"><div class="row">
+      <h2 id="day-h">En dag <em>på byrån.</em></h2>
+      <span class="clock" id="clock" aria-hidden="true">08:30</span>
+    </div></div></div>
+    <div class="track" id="track">
+      <article class="shot" data-t="08:30">
+        <div class="meta"><span class="t">08:30</span><span class="label">Läsa</span></div>
+        <div class="chat">
+          <div class="top"><span class="dot"></span>AI Box · Bergström Bygg AB · 2025<span class="r ex">Exempel</span></div>
+          <div class="qwrap"><span class="file">Styrelseprotokoll 2025 · 11 filer</span><div class="q">Sammanfatta protokollen och flagga beslut som påverkar revisionen.</div></div>
+          <div class="a" data-full="Tre beslut att titta närmare på:
+1. Lån på 2,4 Mkr till närstående bolag (14 maj).
+2. Nedskrivning av lager, beslutad men inte bokförd (2 okt).
+3. Ny vd från 1 november. Anställningsavtalet saknas i underlaget.">Tre beslut att titta närmare på:
+1. Lån på 2,4 Mkr till närstående bolag (14 maj).
+2. Nedskrivning av lager, beslutad men inte bokförd (2 okt).
+3. Ny vd från 1 november. Anställningsavtalet saknas i underlaget.</div>
+        </div>
+        <p class="note">Hela årets protokoll, lästa på boxen.</p>
+      </article>
+      <article class="shot" data-t="11:00">
+        <div class="meta"><span class="t">11:00</span><span class="label">Granska</span></div>
+        <div class="chat">
+          <div class="top"><span class="dot"></span>AI Box · Bergström Bygg AB · 2025<span class="r ex">Exempel</span></div>
+          <div class="qwrap"><span class="file">Arbetspapper · Checklista byrå</span><div class="q">Kontrollera arbetspapperen mot byråns checklista.</div></div>
+          <div class="a" data-full="14 av 16 punkter är dokumenterade.
+
+Saknas:
+· Bedömning av fortsatt drift (punkt 9)
+· Väsentlighet för koncernen (punkt 12)
+
+Vill du att jag skriver ett utkast till punkt 9?">14 av 16 punkter är dokumenterade.
+
+Saknas:
+· Bedömning av fortsatt drift (punkt 9)
+· Väsentlighet för koncernen (punkt 12)
+
+Vill du att jag skriver ett utkast till punkt 9?</div>
+        </div>
+        <p class="note">Två luckor hittade på några sekunder, med förslag på nästa steg.</p>
+      </article>
+      <article class="shot" data-t="15:20">
+        <div class="meta"><span class="t">15:20</span><span class="label">Göra</span></div>
+        <div class="chat">
+          <div class="top"><span class="dot"></span>AI Box · Klientportal och mappar<span class="r ex">Exempel</span></div>
+          <div class="qwrap"><div class="q">Hämta den signerade årsredovisningen från klientportalen och spara den i uppdragsmappen.</div></div>
+          <div class="a" data-full="Hittade &quot;Årsredovisning 2025 signerad.pdf&quot;, uppladdad i dag 14.52.
+
+Målmapp: Klienter / Bergström Bygg AB / 2025 / Underlag.">Hittade &quot;Årsredovisning 2025 signerad.pdf&quot;, uppladdad i dag 14.52.
+
+Målmapp: Klienter / Bergström Bygg AB / 2025 / Underlag.</div><div class="ask"><span>Får jag spara filen i uppdragsmappen?</span><i>Godkänn</i><i class="o">Ändra</i></div>
+        </div>
+        <p class="note">Den klickar sig fram i era program precis som ni, och väntar på ert klartecken.</p>
+      </article>
+    </div>
+    <div class="foot"><div class="wrap"><div class="bar"><i id="daybar"></i></div></div></div>
+  </div>
+</section>
+
+<section class="s" id="regler" aria-labelledby="regler-h">
+  <div class="wrap">
+    <h2 class="headline rv" id="regler-h">Tystnadsplikt <em>utan fotnoter.</em></h2>
+    <p class="sub rv d1">Revisorslagen, ISQM 1 och FAR:s råd handlar om samma sak: att klientens uppgifter stannar under er kontroll. Med AI Box gör de det.</p>
+    <div class="rules rv">
+      <div class="rule headrow"><span>Regel</span><span>Typ</span><span>Vad den säger</span><span>Med AI Box</span></div>
+      <div class="rule"><h3><a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/revisorslag-2001883_sfs-2001-883/" target="_blank" rel="noopener">Revisorslagen 26 §</a></h3><span class="kind"><b>Lag</b></span><p>Ni får inte obehörigen röja det ni får veta i uppdraget. Molnet nämns inte.</p><p class="box">Underlaget stannar på byrån.</p></div>
+      <div class="rule"><h3>ISQM 1</h3><span class="kind"><b>Standard</b></span><p>Byrån ska bedöma sekretess och kvalitet i sina verktyg och leverantörer, och dokumentera bedömningen.</p><p class="box">En enkel bedömning: allt står hos er.</p></div>
+      <div class="rule"><h3><a href="https://www.faronline.se/dokument/balans/2026/juni/balans_2026061001/" target="_blank" rel="noopener">FAR om AI och tystnadsplikt, juni 2026</a></h3><span class="kind"><b class="g">Vägledning</b></span><p>Klientdata i en extern chattbot kan i värsta fall räknas som obehörigt röjande. Var extra försiktig tills reglerna ändras.</p><p class="box">Klientdata stannar i er egen miljö.</p></div>
+      <div class="rule"><h3>GDPR</h3><span class="kind"><b>Lag</b></span><p>En molntjänst kräver biträdesavtal, och överföring utanför EU kräver laglig grund.</p><p class="box">Allt behandlas i ert eget nätverk.</p></div>
+    </div>
+    <p class="caveat rv">FAR har återgett Revisorsinspektionens intryck: AI som håller data inom byråns egen kontroll går lättare ihop med tystnadsplikten.</p>
+  </div>
+</section>
+
+<section class="s alt" id="pris" aria-labelledby="pris-h">
+  <div class="wrap">
+    <h2 class="headline rv" id="pris-h">Börja med <em>sextio dagar.</em></h2>
+    <p class="sub rv d1">Ni provar boxen på riktiga uppdrag i två månader. Fortsätter ni dras pilotavgiften av från priset. Slutar ni hämtar vi boxen och ni är skyldiga oss ingenting mer.</p>
+    <div class="offer">
+      <div class="pilot rv">
+        <span class="label">Pilot för grundarbyråer</span>
+        <h3>Sextio dagar på era egna uppdrag.</h3>
+        <p class="price">5 000 kr<small>exkl. moms, 60 dagar</small></p>
+        <ul><li>Boxen installerad hos er, för upp till tio användare.</li><li>Tre jobb uppsatta på era filer: sammanfatta klientunderlag, skriva utkast till PM och brev, och kontrollera arbetspapper mot er checklista.</li><li>Ett faktablad på en sida med revisorslagen 26 § och ISQM 1, att visa klienter och kvalitetsansvarig.</li><li>Genomgång för hela byrån och avstämning varannan vecka.</li></ul>
+      </div>
+      <div class="after rv d1">
+        <h3>Sedan väljer ni.</h3>
+        <div class="two">
+          <div><b>89 000 kr</b><span>Köp en gång, exkl. moms. Boxen är er från första dagen.</span></div>
+          <div><b>3 500 kr</b><span>i månaden i 36 månader, exkl. moms.</span></div>
+        </div>
+        <div class="bars" id="bars"><div><div class="bl"><span>AI Box, köp</span><b>89 000 kr</b></div><div class="tr"><i style="--w:70.6%"></i></div></div><div><div class="bl"><span>AI Box, leasing i 36 månader</span><b>126 000 kr</b></div><div class="tr"><i style="--w:100.0%"></i></div></div><p class="src">Tre år, exkl. moms. För åtta personer blir leasingen cirka 440 kr per person och månad, oavsett hur mycket ni använder den.</p></div>
+      </div>
+    </div>
+    <p class="honest rv"><b>Ett pris för hela byrån.</b> Ingen licens per person och ingen kostnad per fråga. Ju mer ni använder AI Box, desto billigare blir varje svar.</p>
+  </div>
+</section>
+
+<section class="s" id="fragor" aria-labelledby="fragor-h">
+  <div class="wrap">
+    <h2 class="headline rv" id="fragor-h">Frågor från <em>byrån.</em></h2>
+    <div class="faq rv"><details><summary>Är den lika bra som de stora AI-tjänsterna?</summary><div><p>I våra tester klarar den byråns vanliga uppgifter lika bra som de ledande molntjänsterna: läsa, sammanfatta, skriva och svara på svenska. Det bästa beviset är ert eget, därför börjar vi med sextio dagar på riktiga uppdrag.</p></div></details><details><summary>Vad gör den, och vad gör vi?</summary><div><p>Den läser, sammanfattar, kontrollerar och skriver utkast. Ni gör bedömningarna och skriver under, med mer tid över till just det.</p></div></details><details><summary>Vilka filer kan den läsa?</summary><div><p>PDF, Word och andra textfiler, direkt i chatten. Den kan också öppna filer i era mappar och program, om ni ger den lov.</p></div></details><details><summary>Vad behöver vår IT?</summary><div><p>Ström och en nätverkskabel. Inga inkommande portar. Boxen öppnar bara utgående krypterade förbindelser, för uppdateringar när ni installerar dem och för webbsökning om ni slår på den.</p></div></details></div>
+  </div>
+</section>
+
+<section class="end" id="kontakt" aria-labelledby="kontakt-h">
+  <div class="wrap">
+    <h2 class="rv" id="kontakt-h">Se den på <em>ert eget underlag.</em></h2>
+    <p class="rv d1">Vi kommer till byrån, visar boxen på avidentifierade dokument från ett av era uppdrag och svarar på frågorna från revisorerna och IT.</p>
+    <div class="row2 rv d2">
+      <a class="btn" href="mailto:info@ai-box.se?subject=Visning%20av%20AI%20Box%20f%C3%B6r%20revisionsbyr%C3%A5">Boka en visning</a>
+      <span class="mail"><code id="mail">info@ai-box.se</code><button type="button" id="copy">Kopiera</button></span>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>AI Box säljs och installeras av Jakup Güven AB · [Gatuadress], Malmö · Org.nr 559582-8921 · info@ai-box.se</span><span>Inga kakor. Ingen besöksstatistik.</span></div></footer>
+
+<script src="../assets/vendor/three-r128.min.js"></script>
+<script>
+(function(){
+var CFG = {"docs": ["Styrelseprotokoll", "Årsredovisning 2025", "Hyresavtal", "Arbetspapper", "Huvudbok", "Vd-avtal", "Bolagsstämma"], "docMeta": ["Bergström Bygg AB", "Räkenskapsår 2025", "Sekretess"], "hudMax": 48, "keys": [[1.0, 0.3, 0.0, 0.06], [0.78, 0.34, 0.45, 0.09], [1.1, 0.46, -0.32, 0.0]]};
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var root = document.documentElement;
+var clamp = function(v,a,b){ return Math.max(a, Math.min(b, v)); };
+var smooth = function(a,b,x){ var t = clamp((x-a)/(b-a),0,1); return t*t*(3-2*t); };
+if ('IntersectionObserver' in window && !reduce) root.classList.add('anim');
+
+/* ---------- intro film ---------- */
+var film = document.getElementById('film'), filmDone = false, onFilmEnd = [];
+function endFilm(){ if (filmDone) return; filmDone = true; film.classList.add('done'); root.classList.remove('filming'); onFilmEnd.forEach(function(f){ f(); }); }
+(function(){
+  var cards = [].slice.call(film.querySelectorAll('.card'));
+  cards.forEach(function(c){ c.innerHTML = c.textContent.trim().split(/\s+/).map(function(w, i){ return '<span style="transition-delay:' + (i*0.08) + 's">' + w + '</span>'; }).join(' '); });
+  if (reduce || window.scrollY > 40){ endFilm(); return; }
+  root.classList.add('filming');
+  var tick = document.getElementById('tick'), HOLD = 1300, i = 0, total = cards.length * HOLD + 500, t0 = performance.now();
+  function step(){
+    if (filmDone) return;
+    if (i > 0){ cards[i-1].classList.remove('on'); cards[i-1].classList.add('off'); }
+    if (i < cards.length){ cards[i].classList.add('on'); i++; setTimeout(step, HOLD); } else setTimeout(endFilm, 400);
+  }
+  (function bar(now){ if (filmDone) return; tick.style.transform = 'scaleX(' + clamp((now - t0)/total, 0, 1) + ')'; requestAnimationFrame(bar); })(t0);
+  setTimeout(step, 300);
+  document.getElementById('skipfilm').addEventListener('click', endFilm);
+  window.addEventListener('wheel', endFilm, {passive:true, once:true});
+  window.addEventListener('touchmove', endFilm, {passive:true, once:true});
+  window.addEventListener('keydown', endFilm, {once:true});
+})();
+
+var hdr = document.getElementById('hdr');
+function hdrUpdate(){ hdr.classList.toggle('solid', window.scrollY > window.innerHeight * 0.5); }
+
+/* ---------- scrolly ---------- */
+var sc = document.getElementById('scrolly');
+var sts = [].slice.call(document.querySelectorAll('.st')), btns = [].slice.call(document.querySelectorAll('#progress button'));
+var hint = document.getElementById('hint'), hud = document.getElementById('hud'), hudN = document.getElementById('hud-n');
+var N = sts.length, target = 0, stageNow = 0, lastStage = -1, cur = 0;
+function measure(){ var total = sc.offsetHeight - window.innerHeight; target = clamp(-sc.getBoundingClientRect().top / total, 0, 1); }
+function stageUI(){
+  var s = clamp(Math.round(target * (N - 1)), 0, N - 1); stageNow = s;
+  document.getElementById('progress').classList.toggle('show', target > 0.04);
+  hud.classList.toggle('show', target > 0.2 && target < 0.85);
+  if (s !== lastStage){ lastStage = s;
+    sts.forEach(function(el){ el.classList.toggle('on', +el.dataset.s === s); });
+    btns.forEach(function(b){ b.setAttribute('aria-current', +b.dataset.i === s ? 'true' : 'false'); });
+  }
+  hint.style.opacity = target > 0.02 ? 0 : 0.4;
+}
+btns.forEach(function(b){ b.addEventListener('click', function(){ var total = sc.offsetHeight - window.innerHeight; window.scrollTo({top: sc.offsetTop + total * (+b.dataset.i / (N - 1)), behavior: reduce ? 'auto' : 'smooth'}); }); });
+
+/* ---------- 3D ---------- */
+(function initGL(){
+  var canvas = document.getElementById('gl');
+  if (!window.THREE){ root.classList.add('nogl'); return; }
+  var T = THREE, renderer;
+  try { renderer = new T.WebGLRenderer({canvas:canvas, antialias:true, powerPreference:'high-performance'}); } catch(e){ root.classList.add('nogl'); return; }
+  var BG = 0xF4F4F1;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = T.sRGBEncoding; renderer.toneMapping = T.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = T.PCFSoftShadowMap; renderer.setClearColor(BG, 1);
+  var scene = new T.Scene(); scene.fog = new T.Fog(BG, 6, 18);
+  var camera = new T.PerspectiveCamera(26, 1, 0.05, 60);
+  var env = new T.Scene();
+  env.add(new T.Mesh(new T.BoxGeometry(12,12,12), new T.MeshBasicMaterial({color:0x4a4a49, side:T.BackSide})));
+  function softbox(w,h,x,y,z,k){ var m = new T.Mesh(new T.PlaneGeometry(w,h), new T.MeshBasicMaterial({color:new T.Color(k,k,k), side:T.DoubleSide})); m.position.set(x,y,z); m.lookAt(0,0.2,0); env.add(m); }
+  softbox(6,2,-3.5,4.5,1.5,2.2); softbox(1.2,6,5,1.5,0.5,1.8); softbox(8,0.6,0,2.5,-5,2.6); softbox(4,4,0,-5,3,0.6);
+  var pmrem = new T.PMREMGenerator(renderer); scene.environment = pmrem.fromScene(env, 0.03).texture;
+  function tex(w,h,draw,srgb){ var c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); var t = new T.CanvasTexture(c); if (srgb) t.encoding = T.sRGBEncoding; t.anisotropy = 8; return t; }
+
+  var W = 0.18, H = 0.41, D = 0.47, FEET = 0.012;
+  var box = new T.Group(); scene.add(box);
+  var r = 0.01, sh = new T.Shape();
+  sh.moveTo(-W/2 + r, -H/2); sh.lineTo(W/2 - r, -H/2); sh.quadraticCurveTo(W/2, -H/2, W/2, -H/2 + r);
+  sh.lineTo(W/2, H/2 - r); sh.quadraticCurveTo(W/2, H/2, W/2 - r, H/2); sh.lineTo(-W/2 + r, H/2);
+  sh.quadraticCurveTo(-W/2, H/2, -W/2, H/2 - r); sh.lineTo(-W/2, -H/2 + r); sh.quadraticCurveTo(-W/2, -H/2, -W/2 + r, -H/2);
+  var bev = 0.006;
+  var bodyGeo = new T.ExtrudeGeometry(sh, {depth: D - 2*bev, bevelEnabled:true, bevelThickness:bev, bevelSize:bev*.8, bevelSegments:5, curveSegments:8}); bodyGeo.center();
+  var body = new T.Mesh(bodyGeo, new T.MeshPhysicalMaterial({color:0x0c0c0e, metalness:0.45, roughness:0.4, clearcoat:0.5, clearcoatRoughness:0.35, envMapIntensity:0.6}));
+  body.castShadow = true; body.receiveShadow = true; body.position.y = H/2 + FEET; box.add(body);
+  var FZ = D/2 + 0.0004, CY = H/2 + FEET;
+  var gW = W*0.54, gH = H*0.88, gX = -W/2 + 0.012 + gW/2;
+  var grilleMap = tex(256, 512, function(c,w,h){ c.fillStyle = '#34373c'; c.fillRect(0,0,w,h); var s = 14; c.fillStyle = '#050506';
+    for (var y = -s; y < h + s; y += s) for (var x = -s; x < w + s; x += s){ var ox = ((y / s) % 2) ? s/2 : 0; c.beginPath(); c.moveTo(x+ox, y-s*.42); c.lineTo(x+ox+s*.38, y); c.lineTo(x+ox, y+s*.42); c.lineTo(x+ox-s*.38, y); c.closePath(); c.fill(); } }, true);
+  var grilleBump = grilleMap.clone(); grilleBump.encoding = T.LinearEncoding; grilleBump.needsUpdate = true;
+  var grille = new T.Mesh(new T.PlaneGeometry(gW, gH), new T.MeshStandardMaterial({map:grilleMap, bumpMap:grilleBump, bumpScale:0.0025, metalness:0.7, roughness:0.45}));
+  grille.position.set(gX, CY + 0.004, FZ + 0.0006); box.add(grille);
+  var pW = W - gW - 0.03, pX = W/2 - 0.009 - pW/2;
+  var panelMap = tex(128, 512, function(c,w,h){ var g = c.createLinearGradient(0,0,w,0); g.addColorStop(0,'#141519'); g.addColorStop(1,'#1b1c20'); c.fillStyle = g; c.fillRect(0,0,w,h);
+    c.fillStyle = '#2c2f35'; c.fillRect(14, 120, w-28, 3); c.fillStyle = '#060607'; c.fillRect(54, 160, 20, 46); c.strokeStyle = '#3a3e45'; c.lineWidth = 2;
+    [[30,236],[72,236],[30,264],[72,264]].forEach(function(p){ c.strokeRect(p[0], p[1], 26, 14); c.fillStyle = '#0a0a0b'; c.fillRect(p[0]+4, p[1]+4, 18, 6); }); c.beginPath(); c.arc(64, 300, 8, 0, Math.PI*2); c.stroke(); }, true);
+  var panel = new T.Mesh(new T.PlaneGeometry(pW, H*0.88), new T.MeshPhysicalMaterial({map:panelMap, metalness:0.5, roughness:0.32, clearcoat:0.6, clearcoatRoughness:0.25}));
+  panel.position.set(pX, CY + 0.004, FZ + 0.0006); box.add(panel);
+  var pwr = new T.Mesh(new T.CylinderGeometry(0.0085, 0.0085, 0.004, 40), new T.MeshPhysicalMaterial({color:0x1a1b1e, metalness:0.9, roughness:0.25, clearcoat:1}));
+  pwr.rotation.x = Math.PI/2; pwr.position.set(pX, CY + H*0.39, FZ + 0.002); box.add(pwr);
+  var pring = new T.Mesh(new T.TorusGeometry(0.0088, 0.0007, 12, 48), new T.MeshStandardMaterial({color:0x9ca0a6, metalness:1, roughness:0.2}));
+  pring.position.set(pX, CY + H*0.39, FZ + 0.004); box.add(pring);
+  var ledMat = new T.MeshStandardMaterial({color:0x101530, emissive:new T.Color(0x6f8cff), emissiveIntensity:0});
+  var led = new T.Mesh(new T.SphereGeometry(0.0022, 16, 12), ledMat); led.position.set(pX, CY + H*0.345, FZ + 0.0015); box.add(led);
+  var badgeMap = tex(512, 160, function(c,w,h){ var g = c.createLinearGradient(0,0,0,h); g.addColorStop(0,'#e2e4e7'); g.addColorStop(.5,'#a7acb2'); g.addColorStop(1,'#d2d5d9'); c.fillStyle = g; c.fillRect(0,0,w,h);
+    c.fillStyle = '#16181b'; c.font = '600 64px "Instrument Sans", Helvetica, Arial, sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('AI Box', w/2, h/2 + 2); }, true);
+  var bm = new T.MeshStandardMaterial({color:0xaab0b6, metalness:1, roughness:0.3});
+  var badge = new T.Mesh(new T.BoxGeometry(W*0.42, 0.024, 0.004), [bm,bm,bm,bm,new T.MeshStandardMaterial({map:badgeMap, metalness:0.85, roughness:0.28}),bm]);
+  badge.position.set(W/2 - W*0.21 - 0.004, CY - H*0.08, FZ + 0.002); box.add(badge);
+  var backMap = tex(256, 512, function(c,w,h){ c.fillStyle = '#111215'; c.fillRect(0,0,w,h); c.fillStyle = '#040405'; for (var i = 0; i < 18; i++) c.fillRect(30 + i*11, 40, 6, 120);
+    c.strokeStyle = '#30333a'; c.lineWidth = 2; c.strokeRect(40, 200, 120, 150); c.fillStyle = '#060607'; for (var j = 0; j < 6; j++) c.fillRect(52, 214 + j*22, 96, 12); c.strokeRect(40, 380, 176, 60); c.beginPath(); c.arc(190, 220, 18, 0, Math.PI*2); c.stroke(); }, true);
+  var back = new T.Mesh(new T.PlaneGeometry(W*0.9, H*0.9), new T.MeshStandardMaterial({map:backMap, metalness:0.6, roughness:0.45}));
+  back.rotation.y = Math.PI; back.position.set(0, CY, -FZ - 0.0006); box.add(back);
+  var footMat = new T.MeshStandardMaterial({color:0x050505, roughness:0.9});
+  [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(p){ var f = new T.Mesh(new T.BoxGeometry(0.022, FEET, 0.05), footMat); f.position.set(p[0]*(W/2 - 0.016), FEET/2, p[1]*(D/2 - 0.04)); f.castShadow = true; box.add(f); });
+
+  /* documents that drift into the box */
+  var docs = [];
+  CFG.docs.forEach(function(title, i){
+    var map = tex(256, 362, function(c,w,h){
+      c.fillStyle = '#FFFFFF'; c.fillRect(0,0,w,h); c.strokeStyle = '#d9d9d4'; c.lineWidth = 2; c.strokeRect(1,1,w-2,h-2);
+      c.fillStyle = '#15171a'; c.font = '600 15px "Instrument Sans", Helvetica, Arial, sans-serif'; c.fillText(title.toUpperCase(), 22, 40);
+      c.fillStyle = '#2C4C83'; c.font = '400 11px ui-monospace, monospace'; c.fillText(CFG.docMeta[i % CFG.docMeta.length], 22, 60);
+      c.fillStyle = '#c9c9c4'; var y = 86; for (var k = 0; k < 22; k++){ var lw = (k % 6 === 5) ? 90 + (k*37 % 70) : 200 - (k*53 % 40); c.fillRect(22, y, lw, 4); y += (k % 6 === 5) ? 18 : 11; }
+    }, true);
+    var m = new T.Mesh(new T.PlaneGeometry(0.105, 0.148), new T.MeshStandardMaterial({map:map, roughness:0.8, metalness:0, side:T.DoubleSide, transparent:true, opacity:0}));
+    m.castShadow = true;
+    var a = i / CFG.docs.length;
+    m.userData = { from: new T.Vector3(-0.5 + Math.cos(a*6.28)*0.2 - i*0.03, 0.2 + (i%3)*0.1, 0.5 + Math.sin(a*6.28)*0.16), rot: new T.Euler(-0.2 + (i%2)*0.3, 0.6 + i*0.17, -0.25 + (i%3)*0.18) };
+    m.visible = false; box.add(m); docs.push(m);
+  });
+  var docTo = new T.Vector3(gX, CY + 0.02, FZ + 0.004);
+
+  /* studio backdrop: a bright pool behind the box */
+  var bgMat = new T.ShaderMaterial({ uniforms:{ uRes:{value:new T.Vector2(1,1)}, uC:{value:new T.Vector2(0.5,0.5)}, uR:{value:0.3}, uI:{value:0}, uB:{value:0} },
+    vertexShader:'void main(){ gl_Position = vec4(position.xy, 0.999, 1.0); }',
+    fragmentShader:['uniform vec2 uRes; uniform vec2 uC; uniform float uR; uniform float uI; uniform float uB;',
+      'float hash(vec2 p){ vec3 p3 = fract(vec3(p.xyx) * 0.1031); p3 += dot(p3, p3.yzx + 33.33); return fract((p3.x + p3.y) * p3.z); }',
+      'void main(){ vec2 uv = gl_FragCoord.xy / uRes.y; vec2 v = uv - uC; v.x /= 1.4; float q = length(v) / (uR * 2.6);',
+      ' vec3 base = vec3(0.957, 0.957, 0.945); vec3 hi = mix(vec3(1.0), vec3(0.93, 0.95, 1.0), uB);',
+      ' float g = exp(-q * q * 1.2) * uI; float n = (hash(gl_FragCoord.xy) - 0.5) / 255.0 * 2.0;',
+      ' vec3 col = mix(base, hi, g) + n; float edge = smoothstep(0.55, 1.4, length((gl_FragCoord.xy / uRes) - 0.5) * 1.6); col *= 1.0 - edge * 0.05;',
+      ' gl_FragColor = vec4(col, 1.0); }'].join('\n'), depthWrite:false, depthTest:false });
+  var bg = new T.Mesh(new T.PlaneGeometry(2, 2), bgMat); bg.frustumCulled = false; bg.renderOrder = -10; scene.add(bg);
+  var ground = new T.Mesh(new T.PlaneGeometry(6, 6), new T.ShadowMaterial({opacity:0.16})); ground.rotation.x = -Math.PI/2; ground.receiveShadow = true; scene.add(ground);
+  var csMap = tex(256, 256, function(c,w,h){ var g = c.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2); g.addColorStop(0,'rgba(0,0,0,.55)'); g.addColorStop(.5,'rgba(0,0,0,.22)'); g.addColorStop(1,'rgba(0,0,0,0)'); c.fillStyle = g; c.fillRect(0,0,w,h); });
+  var cs = new T.Mesh(new T.PlaneGeometry(W*3.2, D*1.9), new T.MeshBasicMaterial({map:csMap, transparent:true, depthWrite:false})); cs.rotation.x = -Math.PI/2; cs.position.y = 0.0015; scene.add(cs);
+
+  /* the boundary: a thin blue line on the floor that closes around the box */
+  var ringFrag = ['uniform float uI; uniform float uP; varying vec2 vUv;',
+    'void main(){ vec2 p = (vUv - 0.5) * 2.0; float r = length(p); float ang = fract(atan(p.y, p.x) / 6.28318 + 0.25);',
+    ' float m = 1.0 - smoothstep(uP - 0.02, uP, ang); float d = abs(r - 0.82);',
+    ' float a = exp(-d * d * 30000.0) * 0.95 + exp(-d * d * 900.0) * 0.12;',
+    ' gl_FragColor = vec4(0.17, 0.30, 0.51, a * m * uI); }'].join('\n');
+  function ringMat(){ return new T.ShaderMaterial({ uniforms:{ uI:{value:0}, uP:{value:0} }, vertexShader:'varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }', fragmentShader:ringFrag, transparent:true, depthWrite:false, fog:false }); }
+  var ring = new T.Mesh(new T.PlaneGeometry(1.2, 1.2), ringMat()); ring.rotation.x = -Math.PI/2; ring.position.y = 0.002; scene.add(ring);
+  var ring2 = new T.Mesh(new T.PlaneGeometry(2.8, 2.8), ringMat()); ring2.rotation.x = -Math.PI/2; ring2.position.y = 0.001; scene.add(ring2);
+
+  var key = new T.DirectionalLight(0xffffff, 1.4); key.position.set(-1.4, 2.8, 1.4); key.castShadow = true; key.shadow.mapSize.set(1024, 1024);
+  key.shadow.camera.left = -0.7; key.shadow.camera.right = 0.7; key.shadow.camera.top = 0.7; key.shadow.camera.bottom = -0.7; key.shadow.camera.near = 0.5; key.shadow.camera.far = 6; key.shadow.radius = 8; key.shadow.bias = -0.0005; scene.add(key);
+  var fill = new T.DirectionalLight(0xf2f4ff, 0.5); fill.position.set(1.6, 0.8, 2.4); scene.add(fill);
+  var rim = new T.SpotLight(0xffffff, 0, 6, 0.6, 0.8, 1.2); rim.position.set(0.3, 1.2, -1.8); rim.target.position.set(0, 0.2, 0); scene.add(rim); scene.add(rim.target);
+  scene.add(new T.HemisphereLight(0xffffff, 0xd8d8d4, 0.55));
+
+  /* camera stops: [distance, height, angle, lookY], one per caption */
+  var KEYS = CFG.keys;
+  function camAt(c){ var i = Math.min(Math.floor(c), KEYS.length - 2), f = c - i; f = f * f * (3 - 2 * f); var A = KEYS[i], B = KEYS[i + 1]; return A.map(function(v, j){ return v + (B[j] - v) * f; }); }
+  var dist = 2.2;
+  function resize(){ var w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); var pr = renderer.getPixelRatio(); bgMat.uniforms.uRes.value.set(w * pr, h * pr); dist = 3.15 * Math.max(1, 0.8 / camera.aspect); }
+  window.addEventListener('resize', resize); resize();
+
+  var t0 = performance.now(), INTRO = reduce ? 0 : 3600, visible = true, started = filmDone;
+  onFilmEnd.push(function(){ if (!started){ started = true; t0 = performance.now(); } kick(); });
+  if ('IntersectionObserver' in window){ new IntersectionObserver(function(es){ visible = es[0].isIntersecting; if (visible) kick(); }).observe(sc); }
+  var midV = new T.Vector3(), baseV = new T.Vector3(), topV = new T.Vector3(), tmp = new T.Vector3(), pending = false;
+  function kick(){ if (pending) return; pending = true; requestAnimationFrame(frame); }
+  function frame(now){
+    pending = false;
+    var t = (now - t0) / 1000, k = started ? (INTRO ? clamp((now - t0) / INTRO, 0, 1) : 1) : 0;
+    var goal = target * (N - 1);
+    cur = reduce ? goal : cur + (goal - cur) * 0.08;
+    var sp = clamp(cur / (N - 1), 0, 1);
+    var on = smooth(0.06, 0.24, k);
+    ledMat.emissiveIntensity = 2.4 * on * (0.85 + 0.15 * Math.sin(t * 2.2));
+    var g = smooth(0.2, 0.9, k);
+    var blue = smooth(0.7, 1.2, cur) * (1 - smooth(1.6, 2.0, cur));
+    bgMat.uniforms.uI.value = g; bgMat.uniforms.uB.value = blue; rim.intensity = 1.6 * g;
+    ring.material.uniforms.uP.value = smooth(0.55, 1.0, k); ring.material.uniforms.uI.value = 0.55 * smooth(0.5, 0.8, k);
+    ring2.material.uniforms.uP.value = smooth(0.75, 1.35, cur); ring2.material.uniforms.uI.value = 0.6 * (1 - smooth(1.75, 2.0, cur));
+    box.rotation.y = -0.55 + sp * Math.PI * 1.25 + (reduce ? 0 : Math.sin(t * 0.25) * 0.02);
+    var inside = 0;
+    docs.forEach(function(m, i){
+      var p = clamp((cur - 0.15) * 1.25 - i * 0.07, 0, 1);
+      m.visible = p > 0 && p < 1; if (p >= 1) inside++;
+      if (!m.visible) return;
+      var e = p * p * (3 - 2 * p);
+      tmp.copy(m.userData.from).lerp(docTo, e); tmp.y += Math.sin(e * Math.PI) * 0.08;
+      m.position.copy(tmp);
+      m.rotation.set(m.userData.rot.x * (1 - e), m.userData.rot.y * (1 - e), m.userData.rot.z * (1 - e));
+      var s = 1 - 0.85 * smooth(0.6, 1, p); m.scale.set(s, s, s);
+      m.material.opacity = smooth(0, 0.12, p) * (1 - smooth(0.86, 1, p));
+    });
+    hudN.textContent = Math.round(inside / docs.length * CFG.hudMax).toLocaleString('sv-SE');
+    var K = camAt(cur), ki = 1 - Math.pow(1 - smooth(0.15, 1.0, k), 3);
+    var Dd = dist * K[0] * (0.3 + 0.7 * ki), ledY = H * 0.345 + H / 2 + FEET;
+    var camY = ledY + (K[1] - ledY) * ki, lookY = ledY + (K[3] - ledY) * ki, ang = K[2] - (1 - ki) * 0.5;
+    camera.position.set(Math.sin(ang) * Dd, camY, Math.cos(ang) * Dd); camera.lookAt(0, lookY, 0);
+    baseV.set(0, 0, 0).project(camera); topV.set(0, H + FEET, 0).project(camera); midV.set(0, (H + FEET) * 0.6, 0).project(camera);
+    bgMat.uniforms.uC.value.set(camera.aspect * (midV.x + 1) / 2, (midV.y + 1) / 2); bgMat.uniforms.uR.value = ((topV.y - baseV.y) / 2) * 0.8;
+    renderer.render(scene, camera);
+    if (visible && (Math.abs(goal - cur) > 0.001 || k < 1 || !reduce)) kick();
+  }
+  kick();
+})();
+
+/* ---------- the day reel: vertical scroll drives a sideways track ---------- */
+var day = document.getElementById('day'), track = document.getElementById('track'), ghost = document.getElementById('ghost'), clock = document.getElementById('clock'), daybar = document.getElementById('daybar');
+var shots = [].slice.call(track.querySelectorAll('.shot')), wide = false;
+function dayDist(){ return Math.max(0, track.scrollWidth - window.innerWidth * 0.6); }
+function dayLayout(){ wide = window.innerWidth > 760; day.style.height = wide ? (window.innerHeight + dayDist() * 1.1) + 'px' : ''; }
+function dayUpdate(){
+  if (!wide){ shots.forEach(function(s){ if (s.getBoundingClientRect().top < window.innerHeight * 0.75) typeShot(s); }); return; }
+  var r = day.getBoundingClientRect(), total = day.offsetHeight - window.innerHeight;
+  var p = total > 0 ? clamp(-r.top / total, 0, 1) : 0, d = dayDist();
+  track.style.transform = 'translate3d(' + (-p * d) + 'px,0,0)';
+  ghost.style.transform = 'translate3d(' + (-p * d * 0.35 + window.innerWidth * 0.08) + 'px,-34%,0)';
+  daybar.style.transform = 'scaleX(' + p + ')';
+  var best = 0, bd = 1e9;
+  shots.forEach(function(s, i){ var b = s.getBoundingClientRect(); var dd = Math.abs(b.left + b.width/2 - window.innerWidth * 0.42); if (dd < bd){ bd = dd; best = i; } if (b.left < window.innerWidth * 0.75 && r.top <= 4) typeShot(s); });
+  clock.textContent = shots[best].dataset.t;
+}
+function typeShot(s){
+  if (s.dataset.typed) return; s.dataset.typed = '1';
+  var a = s.querySelector('.a'), full = a.getAttribute('data-full'), ask = s.querySelector('.ask');
+  if (reduce){ a.textContent = full; return; }
+  if (ask) ask.style.opacity = 0;
+  a.textContent = ''; var cr = document.createElement('span'); cr.className = 'cur'; a.appendChild(cr);
+  var i = 0, txt = document.createTextNode(''); a.insertBefore(txt, cr);
+  setTimeout(function tk(){ i = Math.min(full.length, i + 2 + Math.floor(Math.random()*3)); txt.data = full.slice(0, i);
+    if (i < full.length) setTimeout(tk, 16); else { cr.remove(); if (ask){ ask.style.transition = 'opacity .8s'; ask.style.opacity = 1; } } }, 450);
+}
+
+/* ---------- reveals ---------- */
+if (root.classList.contains('anim')){
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px'});
+  [].slice.call(document.querySelectorAll('.rv, .bars')).forEach(function(el){ io.observe(el); });
+}
+
+document.getElementById('copy').addEventListener('click', function(){
+  var b = this, done = function(){ b.textContent = 'Kopierad'; setTimeout(function(){ b.textContent = 'Kopiera'; }, 1800); };
+  function sel(){ var rg = document.createRange(); rg.selectNodeContents(document.getElementById('mail')); var s = window.getSelection(); s.removeAllRanges(); s.addRange(rg); }
+  try { navigator.clipboard.writeText('info@ai-box.se').then(done, sel); } catch(e){ sel(); }
+});
+
+function onScroll(){ measure(); stageUI(); hdrUpdate(); dayUpdate(); }
+window.addEventListener('scroll', onScroll, {passive:true});
+window.addEventListener('resize', function(){ dayLayout(); onScroll(); });
+dayLayout(); onScroll();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ dayLayout(); onScroll(); });
+})();
+</script>
+
+</body>
+</html>
