@@ -32,7 +32,7 @@
       var v = ease(clamp((b - y) * 6));
       h.style.transform = 'scaleX(' + v.toFixed(3) + ')';
     });
-    if (cnt) cnt.textContent = 's. ' + Math.max(1, Math.round(214 * ease(ramp(t, .02, .62)))) + ' av 214';
+    if (cnt) { var EN = document.documentElement.lang === 'en'; cnt.textContent = (EN ? 'p. ' : 's. ') + Math.max(1, Math.round(214 * ease(ramp(t, .02, .62)))) + (EN ? ' of 214' : ' av 214'); }
   }
 
   /* cut 2: the draft writes itself, a warm caret leads */

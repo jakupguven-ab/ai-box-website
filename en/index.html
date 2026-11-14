@@ -1,16 +1,14 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Box – your own AI on your premises, for sensitive work</title>
+<title>AI Box – the best AI, on your premises</title>
 <meta name="description" content="AI Box is your own AI in a box at the office. It reads, writes and works in your programs, and everything you show it stays with you. From SEK 49,000 ex VAT, or a 60-day pilot from SEK 3,000.">
-<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
-<link rel="preload" href="../assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=3">
-<link rel="stylesheet" href="../assets/light.css">
-<script>if (/[?&](tema=mork|theme=dark)/.test(location.search)) document.documentElement.setAttribute("data-theme", "dark");</script>
-<meta property="og:title" content="AI Box – the best AI. On your premises.">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/aibox.css?v=10">
+<meta property="og:title" content="AI Box – the best AI, on your premises">
 <meta property="og:description" content="AI Box is your own AI in a box at the office. It reads, writes and works in your programs, and everything you show it stays with you. From SEK 49,000 ex VAT, or a 60-day pilot from SEK 3,000.">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="sv_SE">
@@ -20,94 +18,61 @@
 <link rel="alternate" hreflang="sv" href="https://ai-box.se/">
 <link rel="alternate" hreflang="en" href="https://ai-box.se/en/">
 <link rel="alternate" hreflang="x-default" href="https://ai-box.se/">
-<script>document.documentElement.classList.remove("no-js");</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    { "@type": "Organization", "name": "Jakup Güven AB", "url": "https://ai-box.se/", "email": "info@ai-box.se",
-      "address": { "@type": "PostalAddress", "addressLocality": "Malmö", "addressCountry": "SE" }, "vatID": "SE559582892101" },
-    { "@type": "Product", "name": "AI Box S", "brand": "AI Box",
-      "description": "Your own AI in a box on your premises, for one person or a small team. Everything stays on the box.",
-      "offers": { "@type": "Offer", "price": "49000", "priceCurrency": "SEK", "availability": "https://schema.org/InStock",
-        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "49000", "priceCurrency": "SEK", "valueAddedTaxIncluded": false } } },
-    { "@type": "Product", "name": "AI Box M", "brand": "AI Box",
-      "description": "Your own AI in a box on your premises, for up to eight people at once and AI agents. Everything stays on the box.",
-      "offers": { "@type": "Offer", "price": "89000", "priceCurrency": "SEK", "availability": "https://schema.org/InStock",
-        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "89000", "priceCurrency": "SEK", "valueAddedTaxIncluded": false } } }
-  ]
-}
-</script>
-<style>
-/* Homepage hub: industry cards and the "read more" row, on the site's own tokens. */
-a.use { text-decoration: none; transition: border-color .2s; }
-a.use:hover { border-color: var(--line2); }
-.use .go { color: var(--glow); font-size: 15px; font-weight: 500; }
-.use h3 { margin: 0; font: 400 26px/1.15 var(--serif); }
-.more-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.more-row a { border-top: 1px solid var(--line2); padding: 18px 0 4px; text-decoration: none; display: grid; gap: 6px; }
-.more-row a b { font-weight: 500; }
-.more-row a span { color: var(--muted); font-size: 15px; }
-.more-row a:hover b { text-decoration: underline; text-decoration-color: var(--line2); }
-@media (max-width: 760px) { .more-row { grid-template-columns: 1fr; } }
-.closing form { text-align: left; margin: 0 auto; }
-.pilot { margin: 0 0 28px; }
-</style>
-<link rel="stylesheet" href="../assets/home.css">
-<script src="../assets/horizon.js" defer></script>
-<script src="../assets/home.js" defer></script>
+<script src="/assets/vendor/three-r128.min.js" defer></script>
+<script src="/assets/world.js?v=10" defer></script>
+<script src="/assets/montage.js?v=10" defer></script>
+<script src="/assets/reveal.js?v=10" defer></script>
+<script src="/assets/dial.js?v=10" defer></script>
+<script src="/assets/contact.js?v=10" defer></script>
+<script src="/assets/work.js?v=10" defer></script>
 </head>
 <body>
-<canvas id="horizon" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Skip to content</a>
-
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="AI Box">AI <span>Box</span></a>
-    <nav class="nav" id="nav" aria-label="Main menu">
-      <a href="#why">Why AI Box</a>
-      <a href="#industries">Industries</a>
-      <a href="#prices">Prices</a>
-      <a href="questions/">Questions</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="acts">
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
-      <a class="lang" href="../" hreflang="sv" lang="sv" title="På svenska">SV</a>
-      <a class="btn primary" href="#contact">Book a demo</a>
-    </div>
+    <a class="logo" href="/en/" aria-label="AI Box, home">AI <i>Box</i></a>
+    <nav class="nav" aria-label="Main menu"><a href="#hur">How it works</a><a href="#moln">Box or cloud</a><a href="#branscher">Industries</a><a href="#priser">Prices and pilot</a><a href="/en/questions/">Questions</a><a href="#kontakt">Contact</a></nav>
+    <a class="lang" href="/" hreflang="sv" lang="sv" title="På svenska">SV</a>
+    <a class="btn" href="#kontakt">Book a demo</a>
+    <button class="menu-b" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
   </div>
 </header>
 
 <main id="main">
-
-<section class="hz-hero" id="top">
-  <div class="hz-copy">
-    <p class="kicker">For everyone with something to protect</p>
+<canvas id="world-gl" aria-hidden="true"></canvas><section class="hero world-hero" data-kind="box">
+  <canvas id="hero-gl" aria-hidden="true"></canvas>
+  <svg class="arc-words" aria-hidden="true"><defs><path id="hz-arc" d=""/></defs>
+      <text><textPath href="#hz-arc" startOffset="50%" text-anchor="middle">The contracts.</textPath></text>
+      <text><textPath href="#hz-arc" startOffset="50%" text-anchor="middle">The ledger.</textPath></text>
+      <text><textPath href="#hz-arc" startOffset="50%" text-anchor="middle">The invention.</textPath></text>
+      <text class="last"><textPath href="#hz-arc" startOffset="50%" text-anchor="middle">In a box <tspan class="em">at the office.</tspan></textPath></text>
+  </svg>
+  <div class="in wrap">
+    <p class="eyebrow">For everyone with something to protect</p>
     <h1>The best AI. <em>On your premises.</em></h1>
-    <p class="lead">Your own AI in a box at the office. It reads, writes and works in your programs, and everything you show it stays with you.</p>
-    <div class="ctas"><a class="btn primary" href="#contact">Book a demo <span class="arr" aria-hidden="true">→</span></a><a class="btn" href="#prices">See prices</a></div>
-    <p class="note">From SEK 49,000 ex VAT. Or start with a pilot: 60 days from SEK 3,000.</p>
+    <p class="lede">AI Box is your own AI in a box at the office. It reads, writes and works in your programs, and everything you show it stays with you.</p>
+    <div class="acts"><a class="btn" href="#kontakt">Book a demo <span class="ar">→</span></a><a class="btn ghost" href="#priser">See prices</a></div>
+    <p class="fine">From SEK 49,000 ex VAT. Or start with a pilot: 60 days from SEK 3,000.</p>
   </div>
-  <div class="hz-hint" aria-hidden="true">Scroll</div>
-</section>
-
-<section class="hz-story" id="story" aria-label="How AI Box protects your data">
+</section><section class="world" id="huset" data-world data-end="13.6" aria-label="Nothing leaves the building">
   <div class="pin">
-    <div class="lines">
-      <p class="line on">The contracts. The records. <em>The accounts.</em><small>What you have promised not to share.</small></p>
-      <p class="line">Show the AI <em>everything.</em><small>It reads, summarises and writes with your own documents, in Swedish and English.</small></p>
-      <p class="line">Nothing leaves <em>the building.</em><small>Everything stays on the box. No cloud provider reads along, and the AI needs no processing agreement.</small></p>
-      <p class="line">Cloud quality. <em>A different address.</em><small>AI Box answers on a par with the leading cloud services.</small></p>
-    </div>
+    <div class="sheet-wrap" aria-hidden="true"><svg class="sheet" viewBox="0 0 280 380" aria-hidden="true">
+  <defs><linearGradient id="shg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFF4DF"/><stop offset=".55" stop-color="#FBF6EC"/><stop offset="1" stop-color="#F4EEE2"/></linearGradient></defs>
+  <rect class="paper" x="0" y="0" width="280" height="380" rx="3" fill="url(#shg)"/>
+  <text class="ph" x="34" y="44">SHARE TRANSFER AGREEMENT</text><line x1="34" y1="54" x2="246" y2="54" stroke="#D9CFBE"/>
+  <text class="pl" x="34" y="80">Seller</text><rect class="ln" x="124" y="74" width="122" height="5" rx="2.5"/><rect class="hi" style="--k:1" x="179" y="70" width="92" height="13" rx="2"/><rect class="bar" style="--k:1" x="179" y="70" width="92" height="13" rx="1"/><text class="pl" x="34" y="104">Buyer</text><rect class="ln" x="124" y="98" width="106" height="5" rx="2.5"/><rect class="hi" style="--k:2" x="125" y="94" width="120" height="13" rx="2"/><rect class="bar" style="--k:2" x="125" y="94" width="120" height="13" rx="1"/><text class="pl" x="34" y="128">ID number</text><rect class="ln" x="124" y="122" width="130" height="5" rx="2.5"/><rect class="hi" style="--k:3" x="165" y="118" width="88" height="13" rx="2"/><rect class="bar" style="--k:3" x="165" y="118" width="88" height="13" rx="1"/><rect class="ln" x="34" y="146" width="168" height="5" rx="2.5"/><text class="pl" x="34" y="176">Purchase price</text><rect class="ln" x="124" y="170" width="124" height="5" rx="2.5"/><rect class="hi" style="--k:1" x="161" y="166" width="70" height="13" rx="2"/><rect class="bar" style="--k:1" x="161" y="166" width="70" height="13" rx="1"/><rect class="ln" x="34" y="194" width="222" height="5" rx="2.5"/><rect class="hi" style="--k:3" x="181" y="190" width="74" height="13" rx="2"/><rect class="bar" style="--k:3" x="181" y="190" width="74" height="13" rx="1"/><rect class="ln" x="34" y="218" width="150" height="5" rx="2.5"/><rect class="ln" x="34" y="242" width="204" height="5" rx="2.5"/><rect class="hi" style="--k:4" x="151" y="238" width="96" height="13" rx="2"/><rect class="bar" style="--k:4" x="151" y="238" width="96" height="13" rx="1"/><rect class="ln" x="34" y="266" width="218" height="5" rx="2.5"/><rect class="ln" x="34" y="290" width="190" height="5" rx="2.5"/><rect class="hi" style="--k:1" x="101" y="286" width="110" height="13" rx="2"/><rect class="bar" style="--k:1" x="101" y="286" width="110" height="13" rx="1"/><rect class="ln" x="34" y="314" width="206" height="5" rx="2.5"/><rect class="hi" style="--k:2" x="67" y="310" width="84" height="13" rx="2"/><rect class="bar" style="--k:2" x="67" y="310" width="84" height="13" rx="1"/><rect class="ln" x="34" y="338" width="120" height="5" rx="2.5"/>
+</svg></div>
+    <div class="docs" aria-hidden="true"><span class="doc"><b>The contracts</b><i aria-hidden="true"></i></span><span class="doc"><b>The ledger</b><i aria-hidden="true"></i></span><span class="doc"><b>The invention</b><i aria-hidden="true"></i></span></div>
+    <div class="nodes" aria-hidden="true"><span class="node n0">Your office</span><span class="node n1">The cloud service</span><span class="node n2">The sub-processor</span><span class="node n3">A datacentre abroad</span><span class="kmc"><b>0</b> km</span></div>
+    <svg class="hop" aria-hidden="true"><path/><circle class="pk" r="4"/><g class="o"><circle r="4.5"/><text>Your office</text></g><g class="b"><rect x="-5" y="-10" width="10" height="20" rx="1.5"/><text>AI Box</text></g><text class="cap">AI Box: a few metres</text></svg>
+    <div class="lines"><p class="line" data-y0="1.15" data-y1="2.35">Show the AI <em>everything.</em><small>It reads, summarises and writes with your own documents, in Swedish and English.</small></p><p class="line" data-y0="2.55" data-y1="3.75">But what you promised to protect <em>cannot leave.</em><small>Two in three lawyers see confidentiality as the big obstacle to AI, and FAR tells auditors to be extra careful.</small><cite>Norstedts Juridik, survey of 2,200 lawyers in Sweden and Denmark, 2025 · FAR, Balans, June 2026</cite></p><p class="line" data-y0="3.95" data-y1="5.0">So you scrub the material <em>first.</em><small>Names, amounts and ID numbers out, question in, answer out. Then you put it all back by hand. Every time.</small></p><p class="line" data-y0="5.2" data-y1="6.3">The tools allowed to see everything <em>are built for big firms.</em><small>AI where client data stays under the firm’s control fits within professional secrecy. But it is usually only possible for firms with their own IT.</small><cite>FAR and the Swedish Inspectorate of Auditors, 2026</cite></p><p class="line" data-y0="6.55" data-y1="9.15">Same question. <em>Two roads.</em><small>In the cloud, the question travels to someone else’s datacentre, often abroad and through several hands. With AI Box it goes a few metres, to the box in your office, and back.</small></p><p class="line" data-y0="9.45" data-y1="10.55">Nothing leaves <em>the building.</em><small>With AI Box everything stays on the box. No cloud provider reads along, and the AI needs no processing agreement.</small></p><p class="line" data-y0="10.75" data-y1="11.85">No scrubbing. <em>The names can stay.</em><small>Give it the whole file, the whole ledger, the whole invention. There is no one else to hide anything from.</small></p><p class="line" data-y0="12.05" data-y1="13.4">A box for your firm, <em>not for the big ones.</em><small>No IT department needed. We install it on site, and it costs the same however much you use it.</small></p></div>
   </div>
-</section>
-
-<section class="hz-mont" id="why">
+</section><section class="mont" id="hur" data-mont>
   <div class="pin">
-    <div class="head"><p class="kicker">It does the work</p><h2>Anything you do on your PC. <em>With your approval.</em></h2></div>
-    <div class="stage" id="work" role="img" aria-label="It reads the file, drafts the reply, books the meeting and asks first. On your premises.">
-      <div class="cut on"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+    <div class="head center"><p class="eyebrow">It does the work</p><h2 class="headline">Anything you do on your PC. <em>With your approval.</em></h2></div>
+    <div class="stage" role="img" aria-label="It reads the file, drafts the reply, books the meeting and asks first. On your premises.">
+<div class="cut on" data-c="0"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="beam1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3B862" stop-opacity="0"/><stop offset=".5" stop-color="#F3B862" stop-opacity=".45"/><stop offset="1" stop-color="#F3B862" stop-opacity="0"/></linearGradient>
+<filter id="soft1" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="8"/></filter></defs><defs>
   <filter id="grain1" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="1"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="brush1" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="pencil1"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="8"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
@@ -115,28 +80,49 @@ a.use:hover { border-color: var(--line2); }
 <path d="M-100 640 Q800 470 1700 640 V1000 H-100Z" fill="#E7DFD2"/><path d="M-100 640 Q800 470 1700 640" fill="none" stroke="#BFB3A2" stroke-width="2"/><path d="M-100 649 Q800 479 1700 649" fill="none" stroke="#E9E1D4" stroke-width="6"/><path d="M-100 658 Q800 488 1700 658" fill="none" stroke="#CFC3B1" stroke-width="1.5"/><path d="M-100 667 Q800 497 1700 667" fill="none" stroke="#EDE6DA" stroke-width="7"/><path d="M-100 676 Q800 506 1700 676" fill="none" stroke="#B8AB98" stroke-width="1.5"/><path d="M-100 685 Q800 515 1700 685" fill="none" stroke="#E6DDCE" stroke-width="8"/><path d="M-100 694 Q800 524 1700 694" fill="none" stroke="#C4B7A4" stroke-width="1.5"/><path d="M-100 703 Q800 533 1700 703" fill="none" stroke="#EAE2D5" stroke-width="9"/><path d="M-100 712 Q800 542 1700 712" fill="none" stroke="#B3A692" stroke-width="2"/><path d="M-100 721 Q800 551 1700 721" fill="none" stroke="#E3DACB" stroke-width="10"/><path d="M-100 730 Q800 560 1700 730" fill="none" stroke="#BFB3A2" stroke-width="2"/><path d="M-100 739 Q800 569 1700 739" fill="none" stroke="#E9E1D4" stroke-width="6"/><path d="M-100 748 Q800 578 1700 748" fill="none" stroke="#CFC3B1" stroke-width="1.5"/><path d="M-100 757 Q800 587 1700 757" fill="none" stroke="#EDE6DA" stroke-width="7"/><path d="M-100 766 Q800 596 1700 766" fill="none" stroke="#B8AB98" stroke-width="1.5"/><path d="M-100 775 Q800 605 1700 775" fill="none" stroke="#E6DDCE" stroke-width="8"/><path d="M-100 784 Q800 614 1700 784" fill="none" stroke="#C4B7A4" stroke-width="1.5"/><path d="M-100 793 Q800 623 1700 793" fill="none" stroke="#EAE2D5" stroke-width="9"/><path d="M-100 802 Q800 632 1700 802" fill="none" stroke="#B3A692" stroke-width="2"/><path d="M-100 811 Q800 641 1700 811" fill="none" stroke="#E3DACB" stroke-width="10"/><path d="M-100 820 Q800 650 1700 820" fill="none" stroke="#BFB3A2" stroke-width="2"/><path d="M-100 829 Q800 659 1700 829" fill="none" stroke="#E9E1D4" stroke-width="6"/><path d="M-100 838 Q800 668 1700 838" fill="none" stroke="#CFC3B1" stroke-width="1.5"/><path d="M-100 847 Q800 677 1700 847" fill="none" stroke="#EDE6DA" stroke-width="7"/><path d="M-100 856 Q800 686 1700 856" fill="none" stroke="#B8AB98" stroke-width="1.5"/><path d="M-100 865 Q800 695 1700 865" fill="none" stroke="#E6DDCE" stroke-width="8"/><path d="M-100 874 Q800 704 1700 874" fill="none" stroke="#C4B7A4" stroke-width="1.5"/><path d="M-100 883 Q800 713 1700 883" fill="none" stroke="#EAE2D5" stroke-width="9"/><path d="M-100 892 Q800 722 1700 892" fill="none" stroke="#B3A692" stroke-width="2"/><path d="M-100 901 Q800 731 1700 901" fill="none" stroke="#E3DACB" stroke-width="10"/>
 <path d="M-100 640 Q800 470 1700 640" fill="none" stroke="#7A6E5E" stroke-width="1.2"/>
 <rect width="1600" height="1000" fill="#8a7a66" filter="url(#grain1)" opacity=".28"/>
+<g class="ov ov1">
+  <ellipse cx="800" cy="452" rx="230" ry="16" fill="#8a7a66" opacity=".22" filter="url(#soft1)"/>
+  <g class="flies"><g class="fly" data-k="0"><rect x="-160" y="-180" width="320" height="360" rx="3" fill="#FCFAF5" stroke="#CFC3B1"/><rect class="ln2" data-i="0" x="-126" y="-124" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="1" x="-126" y="-100" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="2" x="-126" y="-76" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="3" x="-126" y="-52" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="4" x="-126" y="-28" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="5" x="-126" y="-4" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="6" x="-126" y="20" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="7" x="-126" y="44" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="8" x="-126" y="68" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="9" x="-126" y="92" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="10" x="-126" y="116" width="200" height="7" rx="3.5"/></g><g class="fly" data-k="1"><rect x="-160" y="-180" width="320" height="360" rx="3" fill="#FCFAF5" stroke="#CFC3B1"/><rect class="ln2" data-i="0" x="-126" y="-124" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="1" x="-126" y="-100" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="2" x="-126" y="-76" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="3" x="-126" y="-52" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="4" x="-126" y="-28" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="5" x="-126" y="-4" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="6" x="-126" y="20" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="7" x="-126" y="44" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="8" x="-126" y="68" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="9" x="-126" y="92" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="10" x="-126" y="116" width="200" height="7" rx="3.5"/></g><g class="fly" data-k="2"><rect x="-160" y="-180" width="320" height="360" rx="3" fill="#FCFAF5" stroke="#CFC3B1"/><rect class="ln2" data-i="0" x="-126" y="-124" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="1" x="-126" y="-100" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="2" x="-126" y="-76" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="3" x="-126" y="-52" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="4" x="-126" y="-28" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="5" x="-126" y="-4" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="6" x="-126" y="20" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="7" x="-126" y="44" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="8" x="-126" y="68" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="9" x="-126" y="92" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="10" x="-126" y="116" width="200" height="7" rx="3.5"/></g><g class="fly" data-k="3"><rect x="-160" y="-180" width="320" height="360" rx="3" fill="#FCFAF5" stroke="#CFC3B1"/><rect class="ln2" data-i="0" x="-126" y="-124" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="1" x="-126" y="-100" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="2" x="-126" y="-76" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="3" x="-126" y="-52" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="4" x="-126" y="-28" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="5" x="-126" y="-4" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="6" x="-126" y="20" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="7" x="-126" y="44" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="8" x="-126" y="68" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="9" x="-126" y="92" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="10" x="-126" y="116" width="200" height="7" rx="3.5"/></g><g class="fly" data-k="4"><rect x="-160" y="-180" width="320" height="360" rx="3" fill="#FCFAF5" stroke="#CFC3B1"/><rect class="ln2" data-i="0" x="-126" y="-124" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="1" x="-126" y="-100" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="2" x="-126" y="-76" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="3" x="-126" y="-52" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="4" x="-126" y="-28" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="5" x="-126" y="-4" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="6" x="-126" y="20" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="7" x="-126" y="44" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="8" x="-126" y="68" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="9" x="-126" y="92" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="10" x="-126" y="116" width="200" height="7" rx="3.5"/></g><g class="fly" data-k="5"><rect x="-160" y="-180" width="320" height="360" rx="3" fill="#FCFAF5" stroke="#CFC3B1"/><rect class="ln2" data-i="0" x="-126" y="-124" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="1" x="-126" y="-100" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="2" x="-126" y="-76" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="3" x="-126" y="-52" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="4" x="-126" y="-28" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="5" x="-126" y="-4" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="6" x="-126" y="20" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="7" x="-126" y="44" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="8" x="-126" y="68" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="9" x="-126" y="92" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="10" x="-126" y="116" width="200" height="7" rx="3.5"/></g><g class="fly" data-k="6"><rect x="-160" y="-180" width="320" height="360" rx="3" fill="#FCFAF5" stroke="#CFC3B1"/><rect class="ln2" data-i="0" x="-126" y="-124" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="1" x="-126" y="-100" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="2" x="-126" y="-76" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="3" x="-126" y="-52" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="4" x="-126" y="-28" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="5" x="-126" y="-4" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="6" x="-126" y="20" width="200" height="7" rx="3.5"/><rect class="ln2" data-i="7" x="-126" y="44" width="250" height="7" rx="3.5"/><rect class="ln2" data-i="8" x="-126" y="68" width="220" height="7" rx="3.5"/><rect class="ln2" data-i="9" x="-126" y="92" width="240" height="7" rx="3.5"/><rect class="ln2" data-i="10" x="-126" y="116" width="200" height="7" rx="3.5"/></g></g>
+  <g class="page"><rect x="640" y="80" width="320" height="360" rx="3" fill="#FCFAF5" stroke="#CFC3B1"/>
+    <text class="mono" x="676" y="118">FILE 2026-114</text><text class="mono cnt" x="924" y="118" text-anchor="end">p. 1 of 214</text>
+    <line x1="676" y1="128" x2="924" y2="128" stroke="#E2D9CB"/>
+    <rect class="hlr" data-i="3" x="676" y="206" width="180" height="15" rx="3"/><rect class="hlr" data-i="7" x="676" y="286" width="238" height="15" rx="3"/><rect class="hlr" data-i="10" x="676" y="346" width="236" height="15" rx="3"/><rect class="ln" data-i="0" x="676" y="146" width="248" height="7" rx="3.5"/><rect class="ln" data-i="1" x="676" y="166" width="232" height="7" rx="3.5"/><rect class="ln" data-i="2" x="676" y="186" width="256" height="7" rx="3.5"/><rect class="ln" data-i="3" x="676" y="206" width="180" height="7" rx="3.5"/><rect class="ln" data-i="4" x="676" y="226" width="244" height="7" rx="3.5"/><rect class="ln" data-i="5" x="676" y="246" width="250" height="7" rx="3.5"/><rect class="ln" data-i="6" x="676" y="266" width="210" height="7" rx="3.5"/><rect class="ln" data-i="7" x="676" y="286" width="238" height="7" rx="3.5"/><rect class="ln" data-i="8" x="676" y="306" width="252" height="7" rx="3.5"/><rect class="ln" data-i="9" x="676" y="326" width="160" height="7" rx="3.5"/><rect class="ln" data-i="10" x="676" y="346" width="236" height="7" rx="3.5"/><rect class="ln" data-i="11" x="676" y="366" width="246" height="7" rx="3.5"/><rect class="ln" data-i="12" x="676" y="386" width="200" height="7" rx="3.5"/>
+    <rect class="beam" x="644" y="140" width="312" height="44" fill="url(#beam1)"/>
+  </g>
+</g>
 <path id="arc1" d="M100 640 Q800 470 1500 640" fill="none"/><text class="word" fill="#1D1B18" dy="-26"><textPath href="#arc1" startOffset="50%" text-anchor="middle">It reads the file,</textPath></text></svg></div>
-      <div class="cut"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+<div class="cut" data-c="1"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
   <filter id="grain2" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="2"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="brush2" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="pencil2"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
 </defs><rect width="1600" height="1000" fill="#F8F6F0"/>
-<path class="draw" d="M60 700 C 420 470, 1180 470, 1540 700" fill="none" stroke="#2A2724" stroke-width="5" stroke-linecap="round" filter="url(#pencil2)"/>
-<path class="draw" d="M80 706 C 430 482, 1170 478, 1530 708" fill="none" stroke="#2A2724" stroke-width="1.6" opacity=".5" filter="url(#pencil2)"/>
+<path class="draw" pathLength="1" d="M60 700 C 420 470, 1180 470, 1540 700" fill="none" stroke="#2A2724" stroke-width="5" stroke-linecap="round" filter="url(#pencil2)"/>
+<path class="draw" pathLength="1" d="M80 706 C 430 482, 1170 478, 1530 708" fill="none" stroke="#2A2724" stroke-width="1.6" opacity=".5" filter="url(#pencil2)"/>
 <rect width="1600" height="1000" fill="#6b6255" filter="url(#grain2)" opacity=".18"/>
+<g class="ov ov2">
+  <text class="tag" x="580" y="100">DRAFT · IN YOUR VOICE</text>
+  <text class="lt" data-full="Dear Anna," x="580" y="162"></text><text class="lt" data-full="thank you for today. Here is a" x="580" y="216"></text><text class="lt" data-full="proposal for how we proceed," x="580" y="262"></text><text class="lt" data-full="with the three changes we" x="580" y="308"></text><text class="lt" data-full="discussed. Could we meet on" x="580" y="354"></text><text class="lt" data-full="Tuesday at 10?" x="580" y="400"></text>
+  <rect class="caret" x="580" y="134" width="3" height="36" fill="#B8661F"/>
+</g>
 <path id="arc2" d="M60 700 C 420 470, 1180 470, 1540 700" fill="none"/><text class="word" fill="#1D1B18" dy="-26"><textPath href="#arc2" startOffset="50%" text-anchor="middle">drafts the reply,</textPath></text></svg></div>
-      <div class="cut"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+<div class="cut" data-c="2"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><clipPath id="dome3"><circle cx="800" cy="1560" r="998"/></clipPath>
+<linearGradient id="slotg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7C46F"/><stop offset="1" stop-color="#D98B3A"/></linearGradient></defs><defs>
   <filter id="grain3" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="3"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="brush3" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="6"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="pencil3"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="10"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
 </defs><defs><radialGradient id="amb" cx="50%" cy="20%" r="80%"><stop offset="0" stop-color="#F7C46F"/><stop offset=".5" stop-color="#C9752E"/><stop offset="1" stop-color="#3B1A07"/></radialGradient></defs>
 <rect width="1600" height="1000" fill="#0B0A09"/>
-<circle cx="800" cy="1560" r="1000" fill="url(#amb)"/><circle cx="520" cy="700" r="26" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="510.9" cy="690.9" r="4.68" fill="#FFF3DA"/><circle cx="610" cy="780" r="14" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="605.1" cy="775.1" r="2.52" fill="#FFF3DA"/><circle cx="700" cy="660" r="38" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="686.7" cy="646.7" r="6.84" fill="#FFF3DA"/><circle cx="820" cy="740" r="18" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="813.7" cy="733.7" r="3.2399999999999998" fill="#FFF3DA"/><circle cx="900" cy="690" r="30" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="889.5" cy="679.5" r="5.3999999999999995" fill="#FFF3DA"/><circle cx="1010" cy="770" r="12" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="1005.8" cy="765.8" r="2.16" fill="#FFF3DA"/><circle cx="1080" cy="700" r="22" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="1072.3" cy="692.3" r="3.96" fill="#FFF3DA"/><circle cx="760" cy="860" r="10" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="756.5" cy="856.5" r="1.7999999999999998" fill="#FFF3DA"/><circle cx="950" cy="880" r="16" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="944.4" cy="874.4" r="2.88" fill="#FFF3DA"/><circle cx="640" cy="900" r="20" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="633.0" cy="893.0" r="3.5999999999999996" fill="#FFF3DA"/><circle cx="1150" cy="820" r="9" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="1146.85" cy="816.85" r="1.6199999999999999" fill="#FFF3DA"/><circle cx="440" cy="820" r="11" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="436.15" cy="816.15" r="1.98" fill="#FFF3DA"/>
+<circle cx="800" cy="1560" r="1000" fill="url(#amb)"/><g class="bubbles" clip-path="url(#dome3)"><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g><g class="bub"><circle r="1" fill="none" stroke="#FFE2B0" stroke-opacity=".75" stroke-width="2"/><circle class="gl" r="1" fill="#FFF3DA"/></g></g>
 <circle cx="800" cy="1560" r="1000" fill="none" stroke="#FFD9A0" stroke-width="3" opacity=".9"/>
 <circle cx="800" cy="1560" r="1012" fill="none" stroke="#F2A65A" stroke-width="16" opacity=".18"/>
 <rect width="1600" height="1000" fill="#000" filter="url(#grain3)" opacity=".35"/>
+<g class="ov ov3">
+  <g class="cal"><text class="cday" x="536" y="116" text-anchor="middle">Mon</text><text class="cday" x="668" y="116" text-anchor="middle">Tue</text><text class="cday" x="800" y="116" text-anchor="middle">Wed</text><text class="cday" x="932" y="116" text-anchor="middle">Thu</text><text class="cday" x="1064" y="116" text-anchor="middle">Fri</text><text class="ctime" x="456" y="158" text-anchor="end">08</text><text class="ctime" x="456" y="224" text-anchor="end">10</text><text class="ctime" x="456" y="290" text-anchor="end">13</text><text class="ctime" x="456" y="356" text-anchor="end">15</text><line x1="470" y1="136" x2="470" y2="400"/><line x1="602" y1="136" x2="602" y2="400"/><line x1="734" y1="136" x2="734" y2="400"/><line x1="866" y1="136" x2="866" y2="400"/><line x1="998" y1="136" x2="998" y2="400"/><line x1="1130" y1="136" x2="1130" y2="400"/><line x1="470" y1="136" x2="1130" y2="136"/><line x1="470" y1="202" x2="1130" y2="202"/><line x1="470" y1="268" x2="1130" y2="268"/><line x1="470" y1="334" x2="1130" y2="334"/><line x1="470" y1="400" x2="1130" y2="400"/><rect class="busy" x="476" y="142" width="120" height="54" rx="6"/><rect class="busy" x="740" y="208" width="120" height="54" rx="6"/><rect class="busy" x="872" y="340" width="120" height="54" rx="6"/><rect class="busy" x="1004" y="142" width="120" height="54" rx="6"/><rect class="busy" x="476" y="274" width="120" height="54" rx="6"/><rect class="busy" x="740" y="340" width="120" height="54" rx="6"/></g><g class="slot"><rect x="608" y="208" width="120" height="54" rx="8" fill="url(#slotg)"/>
+<text class="st1" x="620" y="232">Tue 10.00</text><text class="st2" x="620" y="252">With Anna</text></g>
+  <g class="riser"><circle r="22" fill="none" stroke="#FFE2B0" stroke-width="2.5"/><circle cx="-7" cy="-7" r="4.5" fill="#FFF3DA"/><circle r="40" fill="#F3B862" opacity=".22"/></g>
+</g>
 <path id="arc3" d="M-200 1560 A1000 1000 0 0 1 1800 1560" fill="none"/><text class="word" fill="#F2EDE0" dy="-34"><textPath href="#arc3" startOffset="50%" text-anchor="middle">books the meeting</textPath></text></svg></div>
-      <div class="cut"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+<div class="cut" data-c="3"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><filter id="soft4" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="22"/></filter></defs><defs>
   <filter id="grain4" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="4"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="brush4" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="pencil4"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="11"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
@@ -150,8 +136,19 @@ a.use:hover { border-color: var(--line2); }
 <ellipse cx="800" cy="1900" rx="1500" ry="1320" fill="none" stroke="#FFB46A" stroke-width="3"/>
 <ellipse cx="800" cy="1900" rx="1500" ry="1320" fill="none" stroke="#F2A65A" stroke-width="22" opacity=".16"/>
 <rect width="1600" height="1000" fill="#000" filter="url(#grain4)" opacity=".3"/>
+<g class="ov ov4"><g class="card">
+  <rect x="520" y="96" width="560" height="300" rx="20" fill="#000" opacity=".35" filter="url(#soft4)" transform="translate(0 18)"/>
+  <rect x="520" y="96" width="560" height="300" rx="20" fill="#F7F4EC"/>
+  <g class="ask"><text class="tag" x="560" y="150" fill="#B8661F">AI BOX ASKS</text>
+    <text class="q" x="560" y="200">May I send the reply to Anna</text><text class="q" x="560" y="242">and book Tuesday at 10?</text>
+    <g class="ok"><rect x="560" y="290" width="164" height="54" rx="27" fill="#1B1914"/><text class="bt" x="642" y="324" text-anchor="middle" fill="#F7F4EC">Approve</text></g>
+    <rect x="738" y="290" width="128" height="54" rx="27" fill="none" stroke="#1B1914" stroke-opacity=".3"/><text class="bt" x="802" y="324" text-anchor="middle" fill="#1B1914">Edit</text></g>
+  <g class="done"><circle cx="800" cy="196" r="34" fill="#B8661F"/><path d="M783 197 l12 12 l22 -26" fill="none" stroke="#F7F4EC" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="q" x="800" y="290" text-anchor="middle">Sent. The meeting is in the calendar.</text><text class="sm" x="800" y="330" text-anchor="middle">Approved by you, 15.42</text></g>
+</g>
+<path class="cur" d="M0 0 L0 34 L9 26 L15 40 L21 37 L15 24 L27 24 Z" fill="#F7F4EC" stroke="#1B1914" stroke-width="2" stroke-linejoin="round"/></g>
 <path id="arc4" d="M-700 1900 A1500 1320 0 0 1 2300 1900" fill="none"/><text class="word" fill="#F2EDE0" dy="-32"><textPath href="#arc4" startOffset="50%" text-anchor="middle">and asks first.</textPath></text></svg></div>
-      <div class="cut"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+<div class="cut" data-c="4"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
   <filter id="grain5" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="5"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="brush5" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="8"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
   <filter id="pencil5"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="12"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
@@ -162,179 +159,106 @@ a.use:hover { border-color: var(--line2); }
 <circle cx="800" cy="3240" r="2640" fill="none" stroke="#FFC98A" stroke-width="2.5"/>
 <circle cx="800" cy="602" r="5" fill="#FFD9A0"/><circle cx="800" cy="602" r="22" fill="#F2A65A" opacity=".25"/>
 <rect width="1600" height="1000" fill="#8a7a66" filter="url(#grain5)" opacity=".2"/>
+<g class="ov ov5"><circle class="halo" cx="800" cy="602" r="24" fill="#F2A65A" opacity=".3"/><g class="home" data-k="0"><rect x="-30" y="-39" width="60" height="78" rx="3" fill="#FCFAF5" stroke="#CFC3B1"/><rect x="-18" y="-24" width="36" height="4" rx="2" fill="#CFC3B1"/><rect x="-18" y="-14" width="30" height="4" rx="2" fill="#CFC3B1"/><rect x="-18" y="-4" width="36" height="4" rx="2" fill="#F3B862"/><rect x="-18" y="6" width="26" height="4" rx="2" fill="#CFC3B1"/></g><g class="home" data-k="1"><rect x="-40" y="-28" width="80" height="56" rx="4" fill="#FCFAF5" stroke="#CFC3B1"/><path d="M-40 -26 L0 4 L40 -26" fill="none" stroke="#CFC3B1" stroke-width="2"/></g><g class="home" data-k="2"><rect x="-34" y="-34" width="68" height="68" rx="8" fill="#FCFAF5" stroke="#CFC3B1"/><rect x="-34" y="-34" width="68" height="16" rx="8" fill="#D98B3A"/><rect x="-14" y="-6" width="28" height="24" rx="4" fill="#F7C46F"/></g><g class="home" data-k="3"><circle r="30" fill="#B8661F"/><path d="M-13 1 l9 9 l17 -19" fill="none" stroke="#F7F4EC" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></g></g>
 <path id="arc5" d="M-1840 3240 A2640 2640 0 0 1 3440 3240" fill="none"/><text class="word" fill="#1D1B18" dy="-40"><textPath href="#arc5" startOffset="50%" text-anchor="middle">On your premises.</textPath></text></svg></div>
     </div>
-    <div><p class="foot">It can do anything you can do on your PC: email, calendar, case systems and accounting software. You decide what it may touch, and it asks before anything is sent.</p><div class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="mfoot"><p>It can do anything you can do on your PC: email, calendar, case systems and accounting software. You decide what it may touch, and it asks before anything is sent.</p><div class="ticks" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
   </div>
-</section>
-
-<section class="hz-dial" id="cost">
-  <div class="wrap">
-    <div>
-      <p class="kicker">One cost</p>
-      <h2>Ask ten times or ten thousand. <em>The price stands still.</em></h2>
-      <p>You pay for the box once, not per user, per question or per word. The whole office can use it every day, and updates for at least five years make it better over time.</p>
-      <div class="readout" data-locale="en-GB"><div><b id="qcount">10</b><span>Questions today</span></div><div><b>SEK 0</b><span>Cost per question</span></div></div>
-      <p style="margin-top:28px"><a class="btn" style="color:#F2EDE0;border-color:rgba(242,237,224,.3)" href="#prices">See prices <span class="arr" aria-hidden="true">→</span></a></p>
+</section><section class="reveal" data-reveal aria-label="AI Box, the box">
+  <div class="reveal-stage">
+    <div class="story-sky"></div>
+    <canvas aria-hidden="true"></canvas>
+    <div class="story-ground" aria-hidden="true"><svg viewBox="0 0 1000 300" preserveAspectRatio="none">
+      <defs><linearGradient id="gr2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDE4D3"/><stop offset=".5" stop-color="#E9DFCC"/><stop offset="1" stop-color="#E4D9C4"/></linearGradient></defs>
+      <path d="M0 64 Q500 -64 1000 64 L1000 300 L0 300Z" fill="url(#gr2)"/>
+      <path d="M0 64 Q500 -64 1000 64" fill="none" stroke="rgba(27,25,20,.38)" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+    </svg></div>
+    <div class="caps">
+      <p class="cap" data-from="0" data-to="0.2">This is <em>AI Box.</em></p>
+      <p class="cap" data-from="0.2" data-to="0.42">It stands in a corner <em>of your office.</em></p>
+      <p class="cap" data-from="0.42" data-to="0.64">The whole office asks <em>at once.</em></p>
+      <p class="cap" data-from="0.64" data-to="0.84">It gets better <em>over time.</em></p>
+      <p class="cap" data-from="0.84" data-to="1">Buy it once. <em>Use it as much as you like.</em></p>
     </div>
-    <div class="meter"><svg viewBox="0 0 800 550" aria-hidden="true">
+    <div class="spec l t1" data-from="0.2"><b>Power and one cable.</b><p>It stands on the floor or in a cabinet. No screen, no inbound ports, no cloud.</p></div>
+    <div class="spec r t1" data-from="0.42"><b>Up to eight at once.</b><p>AI Box M handles the whole office, and agents that work in the background while you do something else.</p></div>
+    <div class="spec l t2" data-from="0.64"><b>Five years of updates.</b><p>Faster and smarter with every update. You choose when it is installed.</p></div>
+    <div class="spec r t2" data-from="0.84"><b>No meter running.</b><p>One price for the box. No fees per user, per question or per word.</p></div>
+    <div class="under" data-from=".84"><p>AI Box S from SEK 49,000, AI Box M SEK 89,000. Or lease.</p><a class="btn ghost" href="#priser">See prices and pilot <span class="ar">→</span></a></div>
+  </div>
+</section><section class="s alt" id="moln">
+  <div class="wrap">
+    <p class="eyebrow rv">Box or cloud</p>
+    <h2 class="headline rv">Same quality. <em>A different address.</em></h2>
+    <p class="lede rv">AI Box answers on a par with the leading cloud services. The difference is where your texts go.</p>
+    <div class="compare rv"><table><thead><tr><th></th><th scope="col">AI Box</th><th scope="col">AI in the cloud</th></tr></thead><tbody><tr><th scope="row">Where your texts are processed</th><td class="box" data-l="AI Box">On the box, on your premises</td><td data-l="Cloud">In the provider’s datacentre, often outside Sweden</td></tr><tr><th scope="row">Who can access them</th><td class="box" data-l="AI Box">You</td><td data-l="Cloud">The provider, its sub-processors and sometimes authorities in other countries</td></tr><tr><th scope="row">Processing agreement and transfer analysis (TIA)</th><td class="box" data-l="AI Box">Not needed for the AI</td><td data-l="Cloud">Required, and you are responsible for them</td></tr><tr><th scope="row">Cost</th><td class="box" data-l="AI Box">Once</td><td data-l="Cloud">Every month, per user</td></tr><tr><th scope="row">How much you may use it</th><td class="box" data-l="AI Box">Unlimited</td><td data-l="Cloud">Per user, per word or capped</td></tr><tr><th scope="row">If the provider stops</th><td class="box" data-l="AI Box">The box keeps running</td><td data-l="Cloud">The service ends</td></tr><tr><th scope="row">Updates</th><td class="box" data-l="AI Box">When you choose</td><td data-l="Cloud">When the provider chooses</td></tr></tbody></table></div>
+    <div class="notfor rv"><h3>Who should not buy AI Box?</h3><p>May your data sit in a cloud service, and do you only use AI now and then? Then the cloud is enough, and it is cheaper. AI Box pays off when the data may not leave the office, or when the whole office uses AI every day. We would rather say so now than afterwards.</p></div>
+  </div>
+</section><section class="s" id="branscher"><div class="wrap"><p class="eyebrow rv">Industries</p><h2 class="headline rv">Built for firms bound by <em>professional secrecy.</em></h2><p class="lede rv">We start with three professions where AI can do the most, and where the material can least of all leave the building.</p><div style="margin-top:40px"><div class="grid3"><a class="card rv" href="/advokat/" lang="sv"><span class="k">Law firms</span><h3>The file stays at the firm.</h3><blockquote>&rdquo;Summarise the file and list what we should ask the other side.&rdquo;</blockquote><span class="go">How it works there (in Swedish) →</span><span class="arc"></span></a><a class="card rv" href="/revision/" lang="sv"><span class="k">Audit firms</span><h3>All of the evidence, not a sample.</h3><blockquote>&rdquo;Go through every voucher and flag what deviates.&rdquo;</blockquote><span class="go">How it works there (in Swedish) →</span><span class="arc"></span></a><a class="card rv" href="/patent/" lang="sv"><span class="k">Patent firms</span><h3>The invention stays with you.</h3><blockquote>&rdquo;Compare the invention with the prior art and draft the first claim.&rdquo;</blockquote><span class="go">How it works there (in Swedish) →</span><span class="arc"></span></a></div></div></div></section><section class="s dial" id="kostnad">
+  <div class="wrap dial-in">
+    <div>
+      <p class="eyebrow rv">One cost</p>
+      <h2 class="headline rv">Ask ten times or ten thousand. <em>The price stands still.</em></h2>
+      <p class="lede rv">You pay for the box once, not per user, per question or per word. One person or the whole office, every day: the price does not move.</p>
+      <div class="readout" data-locale="en-GB">
+        <div><b id="pcount">1</b><span>People</span></div>
+        <div><b id="qcount">10</b><span>Questions today</span></div>
+        <div class="still"><b>SEK 0</b><span>Extra per question</span></div>
+      </div>
+      <p class="rv" style="margin-top:30px"><a class="btn ghost" href="#priser">See prices <span class="ar">→</span></a></p>
+    </div>
+    <div class="gauge" aria-hidden="true"><svg viewBox="0 0 800 550" aria-hidden="true">
   <path d="M147.2 307.9 A330 330 0 0 1 652.8 307.9" fill="none" stroke="#1A120B" stroke-width="3"/>
-  <line x1="147.2" y1="307.9" x2="174.0" y2="330.4" stroke="#1A120B" stroke-width="3"/><line x1="156.7" y1="297.1" x2="170.0" y2="309.2" stroke="#1A120B" stroke-width="1.4"/><line x1="166.7" y1="286.7" x2="179.4" y2="299.4" stroke="#1A120B" stroke-width="1.4"/><line x1="177.1" y1="276.7" x2="189.2" y2="290.0" stroke="#1A120B" stroke-width="1.4"/><line x1="187.9" y1="267.2" x2="199.5" y2="281.0" stroke="#1A120B" stroke-width="1.4"/><line x1="199.1" y1="258.2" x2="210.1" y2="272.5" stroke="#1A120B" stroke-width="1.4"/><line x1="210.7" y1="249.7" x2="221.0" y2="264.4" stroke="#1A120B" stroke-width="1.4"/><line x1="222.7" y1="241.7" x2="232.4" y2="256.9" stroke="#1A120B" stroke-width="1.4"/><line x1="235.0" y1="234.2" x2="244.0" y2="249.8" stroke="#1A120B" stroke-width="1.4"/><line x1="247.6" y1="227.3" x2="255.9" y2="243.3" stroke="#1A120B" stroke-width="1.4"/><line x1="260.5" y1="220.9" x2="275.3" y2="252.6" stroke="#1A120B" stroke-width="3"/><line x1="273.7" y1="215.1" x2="280.6" y2="231.7" stroke="#1A120B" stroke-width="1.4"/><line x1="287.1" y1="209.9" x2="293.3" y2="226.8" stroke="#1A120B" stroke-width="1.4"/><line x1="300.8" y1="205.3" x2="306.2" y2="222.4" stroke="#1A120B" stroke-width="1.4"/><line x1="314.6" y1="201.2" x2="319.2" y2="218.6" stroke="#1A120B" stroke-width="1.4"/><line x1="328.6" y1="197.8" x2="332.5" y2="215.4" stroke="#1A120B" stroke-width="1.4"/><line x1="342.7" y1="195.0" x2="345.8" y2="212.7" stroke="#1A120B" stroke-width="1.4"/><line x1="356.9" y1="192.8" x2="359.3" y2="210.7" stroke="#1A120B" stroke-width="1.4"/><line x1="371.2" y1="191.3" x2="372.8" y2="209.2" stroke="#1A120B" stroke-width="1.4"/><line x1="385.6" y1="190.3" x2="386.4" y2="208.3" stroke="#1A120B" stroke-width="1.4"/><line x1="400.0" y1="190.0" x2="400.0" y2="225.0" stroke="#1A120B" stroke-width="3"/><line x1="414.4" y1="190.3" x2="413.6" y2="208.3" stroke="#1A120B" stroke-width="1.4"/><line x1="428.8" y1="191.3" x2="427.2" y2="209.2" stroke="#1A120B" stroke-width="1.4"/><line x1="443.1" y1="192.8" x2="440.7" y2="210.7" stroke="#1A120B" stroke-width="1.4"/><line x1="457.3" y1="195.0" x2="454.2" y2="212.7" stroke="#1A120B" stroke-width="1.4"/><line x1="471.4" y1="197.8" x2="467.5" y2="215.4" stroke="#1A120B" stroke-width="1.4"/><line x1="485.4" y1="201.2" x2="480.8" y2="218.6" stroke="#1A120B" stroke-width="1.4"/><line x1="499.2" y1="205.3" x2="493.8" y2="222.4" stroke="#1A120B" stroke-width="1.4"/><line x1="512.9" y1="209.9" x2="506.7" y2="226.8" stroke="#1A120B" stroke-width="1.4"/><line x1="526.3" y1="215.1" x2="519.4" y2="231.7" stroke="#1A120B" stroke-width="1.4"/><line x1="539.5" y1="220.9" x2="524.7" y2="252.6" stroke="#1A120B" stroke-width="3"/><line x1="552.4" y1="227.3" x2="544.1" y2="243.3" stroke="#1A120B" stroke-width="1.4"/><line x1="565.0" y1="234.2" x2="556.0" y2="249.8" stroke="#1A120B" stroke-width="1.4"/><line x1="577.3" y1="241.7" x2="567.6" y2="256.9" stroke="#1A120B" stroke-width="1.4"/><line x1="589.3" y1="249.7" x2="579.0" y2="264.4" stroke="#1A120B" stroke-width="1.4"/><line x1="600.9" y1="258.2" x2="589.9" y2="272.5" stroke="#1A120B" stroke-width="1.4"/><line x1="612.1" y1="267.2" x2="600.5" y2="281.0" stroke="#1A120B" stroke-width="1.4"/><line x1="622.9" y1="276.7" x2="610.8" y2="290.0" stroke="#1A120B" stroke-width="1.4"/><line x1="633.3" y1="286.7" x2="620.6" y2="299.4" stroke="#1A120B" stroke-width="1.4"/><line x1="643.3" y1="297.1" x2="630.0" y2="309.2" stroke="#1A120B" stroke-width="1.4"/><line x1="652.8" y1="307.9" x2="626.0" y2="330.4" stroke="#1A120B" stroke-width="3"/><text x="199.3" y="351.6" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">10</text><text x="289.3" y="282.5" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">100</text><text x="400.0" y="258.0" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">1 000</text><text x="510.7" y="282.5" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">10 000</text><text x="600.7" y="351.6" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">∞</text>
-  <text x="400" y="400" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="18" letter-spacing="4" fill="#1A120B" opacity=".75">QUESTIONS PER DAY</text>
+  <line x1="147.2" y1="307.9" x2="174.0" y2="330.4" stroke="#1A120B" stroke-width="3"/><line x1="156.7" y1="297.1" x2="170.0" y2="309.2" stroke="#1A120B" stroke-width="1.4"/><line x1="166.7" y1="286.7" x2="179.4" y2="299.4" stroke="#1A120B" stroke-width="1.4"/><line x1="177.1" y1="276.7" x2="189.2" y2="290.0" stroke="#1A120B" stroke-width="1.4"/><line x1="187.9" y1="267.2" x2="199.5" y2="281.0" stroke="#1A120B" stroke-width="1.4"/><line x1="199.1" y1="258.2" x2="210.1" y2="272.5" stroke="#1A120B" stroke-width="1.4"/><line x1="210.7" y1="249.7" x2="221.0" y2="264.4" stroke="#1A120B" stroke-width="1.4"/><line x1="222.7" y1="241.7" x2="232.4" y2="256.9" stroke="#1A120B" stroke-width="1.4"/><line x1="235.0" y1="234.2" x2="244.0" y2="249.8" stroke="#1A120B" stroke-width="1.4"/><line x1="247.6" y1="227.3" x2="255.9" y2="243.3" stroke="#1A120B" stroke-width="1.4"/><line x1="260.5" y1="220.9" x2="275.3" y2="252.6" stroke="#1A120B" stroke-width="3"/><line x1="273.7" y1="215.1" x2="280.6" y2="231.7" stroke="#1A120B" stroke-width="1.4"/><line x1="287.1" y1="209.9" x2="293.3" y2="226.8" stroke="#1A120B" stroke-width="1.4"/><line x1="300.8" y1="205.3" x2="306.2" y2="222.4" stroke="#1A120B" stroke-width="1.4"/><line x1="314.6" y1="201.2" x2="319.2" y2="218.6" stroke="#1A120B" stroke-width="1.4"/><line x1="328.6" y1="197.8" x2="332.5" y2="215.4" stroke="#1A120B" stroke-width="1.4"/><line x1="342.7" y1="195.0" x2="345.8" y2="212.7" stroke="#1A120B" stroke-width="1.4"/><line x1="356.9" y1="192.8" x2="359.3" y2="210.7" stroke="#1A120B" stroke-width="1.4"/><line x1="371.2" y1="191.3" x2="372.8" y2="209.2" stroke="#1A120B" stroke-width="1.4"/><line x1="385.6" y1="190.3" x2="386.4" y2="208.3" stroke="#1A120B" stroke-width="1.4"/><line x1="400.0" y1="190.0" x2="400.0" y2="225.0" stroke="#1A120B" stroke-width="3"/><line x1="414.4" y1="190.3" x2="413.6" y2="208.3" stroke="#1A120B" stroke-width="1.4"/><line x1="428.8" y1="191.3" x2="427.2" y2="209.2" stroke="#1A120B" stroke-width="1.4"/><line x1="443.1" y1="192.8" x2="440.7" y2="210.7" stroke="#1A120B" stroke-width="1.4"/><line x1="457.3" y1="195.0" x2="454.2" y2="212.7" stroke="#1A120B" stroke-width="1.4"/><line x1="471.4" y1="197.8" x2="467.5" y2="215.4" stroke="#1A120B" stroke-width="1.4"/><line x1="485.4" y1="201.2" x2="480.8" y2="218.6" stroke="#1A120B" stroke-width="1.4"/><line x1="499.2" y1="205.3" x2="493.8" y2="222.4" stroke="#1A120B" stroke-width="1.4"/><line x1="512.9" y1="209.9" x2="506.7" y2="226.8" stroke="#1A120B" stroke-width="1.4"/><line x1="526.3" y1="215.1" x2="519.4" y2="231.7" stroke="#1A120B" stroke-width="1.4"/><line x1="539.5" y1="220.9" x2="524.7" y2="252.6" stroke="#1A120B" stroke-width="3"/><line x1="552.4" y1="227.3" x2="544.1" y2="243.3" stroke="#1A120B" stroke-width="1.4"/><line x1="565.0" y1="234.2" x2="556.0" y2="249.8" stroke="#1A120B" stroke-width="1.4"/><line x1="577.3" y1="241.7" x2="567.6" y2="256.9" stroke="#1A120B" stroke-width="1.4"/><line x1="589.3" y1="249.7" x2="579.0" y2="264.4" stroke="#1A120B" stroke-width="1.4"/><line x1="600.9" y1="258.2" x2="589.9" y2="272.5" stroke="#1A120B" stroke-width="1.4"/><line x1="612.1" y1="267.2" x2="600.5" y2="281.0" stroke="#1A120B" stroke-width="1.4"/><line x1="622.9" y1="276.7" x2="610.8" y2="290.0" stroke="#1A120B" stroke-width="1.4"/><line x1="633.3" y1="286.7" x2="620.6" y2="299.4" stroke="#1A120B" stroke-width="1.4"/><line x1="643.3" y1="297.1" x2="630.0" y2="309.2" stroke="#1A120B" stroke-width="1.4"/><line x1="652.8" y1="307.9" x2="626.0" y2="330.4" stroke="#1A120B" stroke-width="3"/><text x="199.3" y="351.6" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-size="26" font-weight="600" fill="#1A120B">10</text><text x="289.3" y="282.5" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-size="26" font-weight="600" fill="#1A120B">100</text><text x="400.0" y="258.0" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-size="26" font-weight="600" fill="#1A120B">1 000</text><text x="510.7" y="282.5" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-size="26" font-weight="600" fill="#1A120B">10 000</text><text x="600.7" y="351.6" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-size="26" font-weight="600" fill="#1A120B">∞</text>
+  <text x="400" y="400" text-anchor="middle" font-family="Instrument Sans, system-ui, sans-serif" font-size="18" letter-spacing="4" fill="#1A120B" opacity=".75">QUESTIONS PER DAY</text>
   <g class="needle" id="needle"><line x1="400" y1="520" x2="400" y2="168" stroke="#1A120B" stroke-width="3" stroke-linecap="round"/></g>
   <circle cx="400" cy="520" r="34" fill="#141110"/><circle cx="392" cy="512" r="8" fill="#3A332D"/>
-</svg></div>
+</svg><div class="glass"></div></div>
   </div>
-</section>
-
-<section class="wrap sec rule" id="industries">
-  <div class="head">
-    <p class="kicker">Your industry</p>
-    <h2>How it works <em>for you.</em></h2>
-  </div>
-  <div class="uses">
-    <a class="use" href="../advokat/" hreflang="sv">
-      <span class="tile t1" aria-hidden="true"></span>
-      <span class="tag">Law firms</span>
-      <h3>The file stays at the firm.</h3>
-      <p class="ask">Summarise the file and list what the other side has not answered.</p>
-      <span class="go">How it works at a firm (in Swedish) <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="use" href="../revision/" hreflang="sv">
-      <span class="tile t2" aria-hidden="true"></span>
-      <span class="tag">Audit and accounting firms</span>
-      <h3>All the evidence, not a sample.</h3>
-      <p class="ask">Go through every voucher and flag what stands out.</p>
-      <span class="go">How it works at an audit firm (in Swedish) <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="use" href="../patent/" hreflang="sv">
-      <span class="tile t3" aria-hidden="true"></span>
-      <span class="tag">Patent bureaus</span>
-      <h3>The invention stays with you.</h3>
-      <p class="ask">Compare the invention with the prior art and write a first draft.</p>
-      <span class="go">How it works at a patent bureau (in Swedish) <span aria-hidden="true">→</span></span>
-    </a>
-    <a class="use" href="#contact">
-      <span class="tile t4" aria-hidden="true"></span>
-      <span class="tag">Care, consultancy, industry</span>
-      <h3>Something to protect?</h3>
-      <p class="ask">Patient records, customer registers, drawings and source code.</p>
-      <span class="go">Tell us what you do <span aria-hidden="true">→</span></span>
-    </a>
-  </div>
-</section>
-
-<section class="sec rule" id="prices">
-  <div class="wrap">
-    <div class="head">
-      <p class="kicker">Prices</p>
-      <h2>One price. <em>The whole office.</em></h2>
-      <p class="lead muted">Start with a pilot on your own work. Then choose a size, or hand the box back.</p>
-    </div>
-    <div class="pilot" id="pilot">
-      <div>
-        <h3>Start with <em>sixty days.</em></h3>
-        <p class="pp">AI Box S SEK 3,000 · AI Box M SEK 5,000 · ex VAT, 60 days</p>
-        <p>You try the box on your own work for two months. If you continue, the pilot fee is deducted from the price. If you stop,
-          we collect the box and you owe us nothing more.</p>
-      </div>
-      <a class="btn" href="#contact" data-arende="pilot">Start a pilot <span class="arr" aria-hidden="true">→</span></a>
-    </div>
-    <div class="boxes">
-      <div class="card">
-        <div class="name"><h3>AI Box <em>S</em></h3></div>
-        <p class="for">For one person, or a small team taking turns.</p>
-        <div class="price">SEK 49,000<small>one-off price, ex VAT</small></div>
-        <ul>
-          <li><strong>One at a time</strong>, at full speed</li>
-          <li>Apps for phone and computer</li>
-          <li>Installation and walkthrough included</li>
-        </ul>
-        <a class="btn primary" href="order/?box=s">Order AI Box S <span class="arr" aria-hidden="true">→</span></a>
-        <p class="lease"><a href="order/?box=s&amp;satt=leasa">Lease</a> from SEK 1,950/month over 36 months, or SEK 2,600 over 24, SEK 4,700 over 12.</p>
-      </div>
-      <div class="card hl">
-        <div class="name"><h3>AI Box <em>M</em></h3><span class="badge">For the whole office</span></div>
-        <p class="for">For up to eight people at once, and AI agents working in the background.</p>
-        <div class="price">SEK 89,000<small>one-off price, ex VAT</small></div>
-        <ul>
-          <li><strong>Up to 8 at once</strong></li>
-          <li>AI agents working in the background</li>
-          <li>Installation and walkthrough included</li>
-        </ul>
-        <a class="btn primary" href="order/?box=m">Order AI Box M <span class="arr" aria-hidden="true">→</span></a>
-        <p class="lease"><a href="order/?box=m&amp;satt=leasa">Lease</a> from SEK 3,500/month over 36 months, or SEK 4,700 over 24, SEK 8,500 over 12.</p>
-      </div>
-    </div>
-    <div class="incl" aria-label="Included with both">
-      <div><strong>Installation on site</strong><span>Anywhere in Sweden. We deliver the box, connect it and show your staff for an hour.</span></div>
-      <div><strong>Gets better over time</strong><span>Updates for at least five years are included: faster, smarter and with new features. No compulsory subscription.</span></div>
-      <div><strong>Three-year warranty</strong><span>Email support on weekdays is included too.</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="wrap sec rule">
-  <div class="head" style="margin-bottom:28px">
-    <p class="kicker">More about the box</p>
-  </div>
-  <nav class="more-row" aria-label="More about the box">
-    <a href="try/"><b>Try a real box <span aria-hidden="true">→</span></b><span>Chat with one of our boxes, right in your browser.</span></a>
-    <a href="questions/"><b>Questions and answers <span aria-hidden="true">→</span></b><span>From management, staff and IT, and on data protection.</span></a>
-    <a href="speed/"><b>Speed and technology <span aria-hidden="true">→</span></b><span>See how fast it reads and writes.</span></a>
-  </nav>
-</section>
-
-<section class="sec closing" id="contact">
-  <div class="wrap">
-    <svg class="arc-head" viewBox="0 0 520 34" aria-hidden="true"><path d="M4 31 Q260 -10 516 31" fill="none" stroke="#2A2724" stroke-width="1.6" stroke-linecap="round"/></svg>
-    <h2>See it on <em>your own work.</em></h2>
-    <p class="lead muted">We come to you and show the box on an anonymised document from your everyday work, wherever you are in Sweden.</p>
-    <form id="kontaktform" class="formbox contact" novalidate>
+</section><section class="s" id="priser"><div class="wrap"><p class="eyebrow rv">Prices and pilot</p><h2 class="headline rv">One price. <em>The whole office.</em></h2><p class="lede rv">Buy the box once or lease it. No fees per user, per question or per word.</p><div style="margin:40px 0 16px"><div class="pilot rv">
+      <div><h3>Start with <em>sixty days.</em></h3><p class="meta">AI Box S SEK 3,000 · AI Box M SEK 5,000 · ex VAT · 60 days</p>
+      <p>You try the box on your own work for two months. If you continue, the pilot fee is deducted from the price. If you stop, we collect the box and you owe us nothing more.</p></div>
+      <a class="btn" href="#kontakt" data-arende="pilot">Start a pilot <span class="ar">→</span></a>
+    </div></div><div class="grid2"><div class="card price rv"><h3>AI Box <em>S</em></h3><p>For one person, or a small team taking turns.</p><div class="amt">SEK 49,000<small>one-off price, ex VAT</small></div><ul><li>One at a time, at full speed</li><li>Apps for phone and computer</li><li>Installation and walkthrough on site</li><li>Three-year warranty, updates for at least five years</li></ul><a class="btn ghost" href="/en/order/?box=s">Order S <span class="ar">→</span></a><p class="lease">Lease from SEK 1,950/month over 36 months, or SEK 2,600 over 24, SEK 4,700 over 12.</p></div><div class="card price rv"><span class="tag">For the whole office</span><h3>AI Box <em>M</em></h3><p>For up to eight people at once, and agents that work in the background.</p><div class="amt">SEK 89,000<small>one-off price, ex VAT</small></div><ul><li>Up to eight at once</li><li>Agents that work in the background</li><li>Installation and walkthrough on site</li><li>Three-year warranty, updates for at least five years</li></ul><a class="btn" href="/en/order/?box=m">Order M <span class="ar">→</span></a><p class="lease">Lease from SEK 3,500/month over 36 months, or SEK 4,700 over 24, SEK 8,500 over 12.</p></div></div></div></section><section class="end" id="kontakt">
+  <div class="narrow">
+    <h2 class="headline rv">See it on <em>your own work.</em></h2>
+    <p class="lede rv" style="margin:0 auto">We come to you and show the box on an anonymised document from your everyday work, wherever you are in Sweden. Or ask a question, and we will answer within one working day.</p>
+    <form id="kontaktform" class="form rv" novalidate>
       <div class="fields">
         <label>Name<input name="name" autocomplete="name" required maxlength="80"></label>
-        <label>Company or organisation<input name="company" autocomplete="organization" maxlength="120"></label>
+        <label>Company or firm<input name="company" autocomplete="organization" maxlength="120"></label>
         <label>Email<input name="email" type="email" autocomplete="email" required maxlength="200"></label>
         <label><span>Phone <span class="opt">(if you want a call)</span></span><input name="phone" type="tel" autocomplete="tel" maxlength="40"></label>
       </div>
       <label>What is it about?
         <select name="topic">
-          <option value="visning">Book a demonstration on your premises</option>
+          <option value="visning">Book a demonstration</option>
           <option value="pilot">Start a 60-day pilot</option>
           <option value="fraga">A question</option>
           <option value="ring">Call me</option>
         </select></label>
       <label><span>Message <span class="opt">(optional)</span></span><textarea name="message" maxlength="2000"></textarea></label>
       <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
-      <button class="btn primary" type="submit">Send <span class="arr" aria-hidden="true">→</span></button>
+      <button class="btn" type="submit">Send <span class="ar">→</span></button>
       <p class="msg" id="kontakt-msg" role="status"></p>
-      <p class="fine">We reply within one working day. How we handle the data: <a href="../integritet/#contact">privacy policy</a>.</p>
+      <p class="fine">We reply within one working day. How we handle the data: <a href="/integritet/#english">privacy policy</a>.</p>
     </form>
   </div>
 </section>
-
 </main>
-
-<footer>
+<footer class="foot">
   <div class="wrap">
     <div>
-      <strong style="color:var(--ink);font-weight:500">AI Box</strong> is sold and installed by Jakup Güven AB<br>
-      <span class="todo">[street address]</span>, Malmö, Sweden · <a href="mailto:info@ai-box.se">info@ai-box.se</a><br>
-      Reg. no. 559582-8921 · VAT no. SE559582892101<br>
-      The site has no cookies and no visitor statistics. The trial sets two necessary cookies when you start it. <a href="../integritet/#english">Privacy policy</a> · <a href="../" hreflang="sv" lang="sv">På svenska</a>
+      <b>AI <i>Box</i></b>
+      AI Box is sold and installed by Jakup Güven AB.<br>
+      <span class="todo">[Street address]</span>, Malmö, Sweden<br>
+      <a href="mailto:info@ai-box.se">info@ai-box.se</a><br>
+      Reg. no. 559582-8921 · VAT no. SE559582892101
     </div>
-    <nav aria-label="Footer">
-      <a href="#prices">Prices</a>
-      <a href="questions/">Questions</a>
-      <a href="questions/#data-protection">Data protection</a>
-      <a href="speed/">Speed</a>
-      <a href="try/">Try it</a>
-      <a href="order/">Order</a>
-    </nav>
+    <nav aria-label="Footer"><a href="#hur">How it works</a><a href="#moln">Box or cloud</a><a href="#priser">Prices and pilot</a><a href="/en/questions/">Questions</a><a href="/en/try/">Try a real box</a><a href="#kontakt">Contact</a></nav>
+    <nav aria-label="Industries"><a href="/advokat/" lang="sv">For law firms (in Swedish)</a><a href="/revision/" lang="sv">For audit firms (in Swedish)</a><a href="/patent/" lang="sv">For patent firms (in Swedish)</a><a href="/integritet/#english">Privacy policy</a><a href="/" lang="sv">På svenska</a></nav>
   </div>
+  <div class="wrap" style="display:block;margin-top:30px">The site has no cookies and no visitor statistics.</div>
 </footer>
-
-<script src="../assets/contact.js"></script>
-<script src="../assets/menu.js"></script>
 </body>
 </html>

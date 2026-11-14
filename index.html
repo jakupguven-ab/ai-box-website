@@ -7,7 +7,7 @@
 <meta name="description" content="AI-Box är er egen AI i en box på kontoret. Den läser, skriver och arbetar i era program, och allt ni visar den stannar hos er. Från 49 000 kr exkl. moms, eller en pilot i 60 dagar från 3 000 kr.">
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/aibox.css?v=9">
+<link rel="stylesheet" href="/assets/aibox.css?v=10">
 <meta property="og:title" content="AI-Box – den bästa AI:n, hos er">
 <meta property="og:description" content="AI-Box är er egen AI i en box på kontoret. Den läser, skriver och arbetar i era program, och allt ni visar den stannar hos er. Från 49 000 kr exkl. moms, eller en pilot i 60 dagar från 3 000 kr.">
 <meta property="og:locale" content="sv_SE">
@@ -15,13 +15,12 @@
 <meta property="og:url" content="https://ai-box.se/">
 <link rel="canonical" href="https://ai-box.se/">
 <script src="/assets/vendor/three-r128.min.js" defer></script>
-<script src="/assets/hero.js?v=9" defer></script>
-<script src="/assets/night.js?v=9" defer></script>
-<script src="/assets/montage.js?v=9" defer></script>
-<script src="/assets/reveal.js?v=9" defer></script>
-<script src="/assets/dial.js?v=9" defer></script>
-<script src="/assets/contact.js?v=9" defer></script>
-<script src="/assets/work.js?v=9" defer></script>
+<script src="/assets/world.js?v=10" defer></script>
+<script src="/assets/montage.js?v=10" defer></script>
+<script src="/assets/reveal.js?v=10" defer></script>
+<script src="/assets/dial.js?v=10" defer></script>
+<script src="/assets/contact.js?v=10" defer></script>
+<script src="/assets/work.js?v=10" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Hoppa till innehållet</a>
@@ -35,7 +34,7 @@
   </div>
 </header>
 <main id="main">
-<section class="hero" data-kind="box">
+<canvas id="world-gl" aria-hidden="true"></canvas><section class="hero world-hero" data-kind="box">
   <canvas id="hero-gl" aria-hidden="true"></canvas>
   <svg class="arc-words" aria-hidden="true"><defs><path id="hz-arc" d=""/></defs>
       <text><textPath href="#hz-arc" startOffset="50%" text-anchor="middle">Avtalen.</textPath></text>
@@ -50,17 +49,18 @@
     <div class="acts"><a class="btn" href="/kontakt/">Boka en visning <span class="ar">→</span></a><a class="btn ghost" href="/priser/">Se priser</a></div>
     <p class="fine">Från 49 000 kr exkl. moms. Eller börja med en pilot: 60 dagar från 3 000 kr.</p>
   </div>
-</section><section class="night" id="huset" data-night aria-label="Inget lämnar huset">
+</section><section class="world" id="huset" data-world data-end="13.6" aria-label="Inget lämnar huset">
   <div class="pin">
-    <canvas id="night-gl" aria-hidden="true"></canvas>
-    <svg class="route" aria-hidden="true"><path class="cloud-p"/><path class="hop-p"/>
-      <circle class="pk c" r="4"/><circle class="pk h" r="4"/>
-      <g class="stop s0"><circle r="4"/><text>Molntjänsten</text></g><g class="stop s1"><circle r="4"/><text>Underleverantören</text></g><g class="stop s2"><circle r="4"/><text>Datacenter utomlands</text></g>
-      <g class="place o"><circle r="5"/><text>Kontoret</text></g><g class="place b"><rect x="-5" y="-9" width="10" height="18" rx="1.5"/><text>AI-Box</text></g>
-      <text class="rcap cc">Molnet: tusentals km, flera led</text><text class="rcap hc">AI-Box: några meter</text>
-    </svg>
+    <div class="sheet-wrap" aria-hidden="true"><svg class="sheet" viewBox="0 0 280 380" aria-hidden="true">
+  <defs><linearGradient id="shg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFF4DF"/><stop offset=".55" stop-color="#FBF6EC"/><stop offset="1" stop-color="#F4EEE2"/></linearGradient></defs>
+  <rect class="paper" x="0" y="0" width="280" height="380" rx="3" fill="url(#shg)"/>
+  <text class="ph" x="34" y="44">ÖVERLÅTELSEAVTAL</text><line x1="34" y1="54" x2="246" y2="54" stroke="#D9CFBE"/>
+  <text class="pl" x="34" y="80">Säljare</text><rect class="ln" x="124" y="74" width="122" height="5" rx="2.5"/><rect class="hi" style="--k:1" x="179" y="70" width="92" height="13" rx="2"/><rect class="bar" style="--k:1" x="179" y="70" width="92" height="13" rx="1"/><text class="pl" x="34" y="104">Köpare</text><rect class="ln" x="124" y="98" width="106" height="5" rx="2.5"/><rect class="hi" style="--k:2" x="125" y="94" width="120" height="13" rx="2"/><rect class="bar" style="--k:2" x="125" y="94" width="120" height="13" rx="1"/><text class="pl" x="34" y="128">Personnummer</text><rect class="ln" x="124" y="122" width="130" height="5" rx="2.5"/><rect class="hi" style="--k:3" x="165" y="118" width="88" height="13" rx="2"/><rect class="bar" style="--k:3" x="165" y="118" width="88" height="13" rx="1"/><rect class="ln" x="34" y="146" width="168" height="5" rx="2.5"/><text class="pl" x="34" y="176">Köpeskilling</text><rect class="ln" x="124" y="170" width="124" height="5" rx="2.5"/><rect class="hi" style="--k:1" x="161" y="166" width="70" height="13" rx="2"/><rect class="bar" style="--k:1" x="161" y="166" width="70" height="13" rx="1"/><rect class="ln" x="34" y="194" width="222" height="5" rx="2.5"/><rect class="hi" style="--k:3" x="181" y="190" width="74" height="13" rx="2"/><rect class="bar" style="--k:3" x="181" y="190" width="74" height="13" rx="1"/><rect class="ln" x="34" y="218" width="150" height="5" rx="2.5"/><rect class="ln" x="34" y="242" width="204" height="5" rx="2.5"/><rect class="hi" style="--k:4" x="151" y="238" width="96" height="13" rx="2"/><rect class="bar" style="--k:4" x="151" y="238" width="96" height="13" rx="1"/><rect class="ln" x="34" y="266" width="218" height="5" rx="2.5"/><rect class="ln" x="34" y="290" width="190" height="5" rx="2.5"/><rect class="hi" style="--k:1" x="101" y="286" width="110" height="13" rx="2"/><rect class="bar" style="--k:1" x="101" y="286" width="110" height="13" rx="1"/><rect class="ln" x="34" y="314" width="206" height="5" rx="2.5"/><rect class="hi" style="--k:2" x="67" y="310" width="84" height="13" rx="2"/><rect class="bar" style="--k:2" x="67" y="310" width="84" height="13" rx="1"/><rect class="ln" x="34" y="338" width="120" height="5" rx="2.5"/>
+</svg></div>
     <div class="docs" aria-hidden="true"><span class="doc"><b>Avtalen</b><i aria-hidden="true"></i></span><span class="doc"><b>Verifikationerna</b><i aria-hidden="true"></i></span><span class="doc"><b>Uppfinningen</b><i aria-hidden="true"></i></span></div>
-    <div class="lines"><p class="line on" data-ph="power">Visa AI:n <em>allt.</em><small>Den läser, sammanfattar och skriver med era egna dokument, på svenska.</small></p><p class="line" data-ph="secret">Men det ni lovat att skydda <em>får inte gå ut.</em><small>Två av tre jurister ser sekretessen som det stora hindret för AI, och FAR råder revisorerna att vara extra försiktiga.</small><cite>Norstedts Juridik, enkät med 2 200 jurister i Sverige och Danmark, 2025 · FAR, Balans, juni 2026</cite></p><p class="line" data-ph="wash">Så ni tvättar materialet <em>först.</em><small>Namn, belopp och personnummer bort, frågan in, svaret ut. Sedan sätter ni tillbaka allt för hand. Varje gång.</small></p><p class="line" data-ph="big">Verktygen som får se allt <em>är byggda för storbyråer.</em><small>AI där kundens data stannar under byråns kontroll ryms inom tystnadsplikten. Men det är oftast möjligt bara för byråer med egen IT.</small><cite>FAR och Revisorsinspektionen, 2026</cite></p><p class="line" data-ph="route">Samma fråga. <em>Två vägar.</em><small>I molnet reser frågan till någon annans datacenter, ofta utomlands och genom flera led. Med AI-Box går den några meter, till boxen på kontoret, och tillbaka.</small></p><p class="line" data-ph="home">Inget lämnar <em>huset.</em><small>Allt stannar på boxen. Ingen molnleverantör läser med, och för AI:n behövs inget biträdesavtal.</small></p><p class="line" data-ph="nowash">Ingen tvätt. <em>Namnen får stå kvar.</em><small>Ge den hela akten, hela huvudboken, hela uppfinningen. Det finns ingen annan att dölja något för.</small></p><p class="line" data-ph="small">En box för byrån, <em>inte för storbyrån.</em><small>Ingen IT-avdelning behövs. Vi installerar den på plats, och den kostar lika mycket hur mycket ni än använder den.</small></p></div>
+    <div class="nodes" aria-hidden="true"><span class="node n0">Kontoret</span><span class="node n1">Molntjänsten</span><span class="node n2">Underleverantören</span><span class="node n3">Datacenter utomlands</span><span class="kmc"><b>0</b> km</span></div>
+    <svg class="hop" aria-hidden="true"><path/><circle class="pk" r="4"/><g class="o"><circle r="4.5"/><text>Kontoret</text></g><g class="b"><rect x="-5" y="-10" width="10" height="20" rx="1.5"/><text>AI-Box</text></g><text class="cap">AI-Box: några meter</text></svg>
+    <div class="lines"><p class="line" data-y0="1.15" data-y1="2.35">Visa AI:n <em>allt.</em><small>Den läser, sammanfattar och skriver med era egna dokument, på svenska.</small></p><p class="line" data-y0="2.55" data-y1="3.75">Men det ni lovat att skydda <em>får inte gå ut.</em><small>Två av tre jurister ser sekretessen som det stora hindret för AI, och FAR råder revisorerna att vara extra försiktiga.</small><cite>Norstedts Juridik, enkät med 2 200 jurister i Sverige och Danmark, 2025 · FAR, Balans, juni 2026</cite></p><p class="line" data-y0="3.95" data-y1="5.0">Så ni tvättar materialet <em>först.</em><small>Namn, belopp och personnummer bort, frågan in, svaret ut. Sedan sätter ni tillbaka allt för hand. Varje gång.</small></p><p class="line" data-y0="5.2" data-y1="6.3">Verktygen som får se allt <em>är byggda för storbyråer.</em><small>AI där kundens data stannar under byråns kontroll ryms inom tystnadsplikten. Men det är oftast möjligt bara för byråer med egen IT.</small><cite>FAR och Revisorsinspektionen, 2026</cite></p><p class="line" data-y0="6.55" data-y1="9.15">Samma fråga. <em>Två vägar.</em><small>I molnet reser frågan till någon annans datacenter, ofta utomlands och genom flera led. Med AI-Box går den några meter, till boxen på kontoret, och tillbaka.</small></p><p class="line" data-y0="9.45" data-y1="10.55">Inget lämnar <em>huset.</em><small>Med AI-Box stannar allt på boxen. Ingen molnleverantör läser med, och för AI:n behövs inget biträdesavtal.</small></p><p class="line" data-y0="10.75" data-y1="11.85">Ingen tvätt. <em>Namnen får stå kvar.</em><small>Ge den hela akten, hela huvudboken, hela uppfinningen. Det finns ingen annan att dölja något för.</small></p><p class="line" data-y0="12.05" data-y1="13.4">En box för byrån, <em>inte för storbyrån.</em><small>Ingen IT-avdelning behövs. Vi installerar den på plats, och den kostar lika mycket hur mycket ni än använder den.</small></p></div>
   </div>
 </section><section class="mont" id="hur" data-mont>
   <div class="pin">

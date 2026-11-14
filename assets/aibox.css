@@ -537,3 +537,57 @@ details > div{padding:0 0 20px;color:var(--ink-2);max-width:680px}
 .night .pk{r:5}
 .night .stop text,.night .place text{font-size:13px}
 .night .rcap{font-size:22px}
+
+/* ==== the homepage's one continuous sky (world.js) ==== */
+#world-gl{position:fixed;inset:0;width:100vw;height:100vh;display:block;z-index:0;pointer-events:none}
+#world-gl ~ section{position:relative;z-index:1}
+.world-hero{background:transparent!important}.world-hero>canvas{display:none}
+html.no-gl .world-hero{background:linear-gradient(180deg,#F7F4EC 0%,#F4E6D2 70%,#F7F0E5 100%)!important}html.no-gl .world .docs,html.no-gl .world .nodes{display:none}
+.world{height:1360vh}
+html.no-gl .world .pin{background:#F7F0E5;background:color-mix(in srgb,#0C0F14 calc(var(--dk,0) * 100%),#F7F0E5)}
+.world .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.world .lines{position:absolute;left:50%;top:clamp(104px,17vh,190px);transform:translateX(-50%);width:min(900px,calc(100vw - 32px));height:12em;text-align:center}
+.world .line{position:absolute;inset:0 0 auto;margin:0;font:400 clamp(34px,5vw,68px)/1.06 var(--serif);letter-spacing:-.015em;visibility:hidden;will-change:opacity,transform,filter;
+  color:color-mix(in srgb,#F4EFE3 calc(var(--dk,0)*100%),var(--ink));text-shadow:0 2px 26px rgba(8,10,16,calc(var(--dk,0)*.9))}
+.world .line em{color:color-mix(in srgb,#F3B862 calc(var(--dk,0)*100%),var(--amber))}
+.world .line small{display:block;margin:18px auto 0;max-width:33em;font:400 17px/1.55 var(--sans);letter-spacing:0;color:color-mix(in srgb,rgba(242,237,224,.72) calc(var(--dk,0)*100%),var(--ink-2))}
+.world .line cite{display:block;margin:14px auto 0;font:500 11.5px/1.5 var(--sans);letter-spacing:.1em;text-transform:uppercase;font-style:normal;max-width:42em;color:color-mix(in srgb,rgba(243,184,98,.78) calc(var(--dk,0)*100%),#9A5418)}
+.world .docs,.world .nodes{position:absolute;inset:0;pointer-events:none}
+.world .doc{position:absolute;left:0;top:0;font:italic 400 17px/1 var(--serif);white-space:nowrap;opacity:0;will-change:transform,opacity;
+  color:color-mix(in srgb,#F3B862 calc(var(--dk,0)*100%),#9A5418);text-shadow:0 0 14px rgba(243,184,98,.45)}
+.world .doc b{font-weight:400}
+.world .doc i{position:absolute;left:-4px;right:-4px;top:1px;bottom:-2px;background:#07090d;border-radius:1px;box-shadow:0 0 0 1px rgba(243,184,98,.35);transform-origin:left;transform:scaleX(var(--red,0))}
+.world .node{position:absolute;left:0;top:0;opacity:0;white-space:nowrap;font:500 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:rgba(214,228,245,.9);text-shadow:0 1px 10px rgba(0,0,0,.8)}
+.world .node.n0{color:#F3B862}
+.world .kmc{position:absolute;left:0;top:0;opacity:0;font:italic 400 22px/1 var(--serif);color:#E6F0FF;white-space:nowrap;text-shadow:0 0 18px rgba(120,170,255,.5)}
+.world .kmc b{font-weight:400;font-variant-numeric:tabular-nums}
+.world .sheet-wrap{position:absolute;left:50%;top:0;opacity:0;will-change:transform,opacity;filter:drop-shadow(0 30px 50px rgba(0,0,0,.55)) drop-shadow(0 0 40px rgba(243,184,98,.25))}
+.world .sheet{display:block;width:100%;height:auto}
+.world .sheet .ph{font:600 10.5px/1 var(--sans);letter-spacing:.16em;fill:#4E473C}
+.world .sheet .pl{font:500 9.5px/1 var(--sans);letter-spacing:.06em;fill:#8A8173}
+.world .sheet .ln{fill:#D5CBB9}
+.world .sheet .bar{fill:#0B0C0F;transform-box:fill-box;transform-origin:left;transform:scaleX(clamp(0,calc(var(--red,0)*5 - var(--k)*1.1),1))}
+.world .sheet .hi{fill:#F3B862;opacity:calc(var(--hl,0)*.8)}
+.world .hop{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;opacity:0}
+.world .hop path{fill:none;stroke:#F3B862;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:2 5}
+.world .hop .pk{fill:#FFE6B8;filter:drop-shadow(0 0 8px rgba(243,184,98,1))}
+.world .hop .o circle{fill:#FFE2B0}.world .hop .b rect{fill:#141110;stroke:#F3B862;stroke-width:1.3}
+.world .hop text{font:500 11.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;fill:#F3B862;text-anchor:middle}
+.world .hop .o text{transform:translate(0,24px)}.world .hop .b text{transform:translate(0,-18px)}
+.world .hop .cap{font:italic 400 20px/1 var(--serif);letter-spacing:0;text-transform:none;fill:#FFE2B0}
+@media (max-width:700px){.world .line small{font-size:15px}.world .doc{font-size:15px}.world .node{font-size:10px}.world .kmc{font-size:18px}}
+@media (prefers-reduced-motion:reduce){.world{height:auto}.world .pin{position:relative;height:auto;min-height:100vh;padding:clamp(104px,17vh,190px) 0 40vh}
+  .world .lines{position:relative;left:auto;top:auto;transform:none;margin:0 auto;height:auto;display:grid;gap:60px}.world .line{position:relative}.world .docs,.world .nodes,.world .hop,.world .sheet-wrap{display:none}}
+.world .hop text{paint-order:stroke;stroke:rgba(10,8,6,.55);stroke-width:3px}
+.world .hop .cap{font-size:24px}
+.world .node{transition:margin .3s}
+.world .hop .o circle{r:6}.world .hop text{font-size:13px}
+.world .hop text{stroke:rgba(10,8,6,.3);stroke-width:2px}
+
+/* the hand-off to the next section: the last frame of the sky, painted, so it scrolls away with the page */
+.world .pin::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34vh;pointer-events:none;background:linear-gradient(to bottom,rgba(247,244,236,0),#F7F4EC 92%);opacity:var(--tl,0)}
+.world.tail .pin{background:linear-gradient(to bottom,#FAF5EB 0%,#F7F0E5 20%,#F8EDDF 45%,#FBEBD6 62%,#FEEACD 80%,#FFE9C6 100%)}
+/* the English headline runs to two lines; lift the hero so the arc words keep clear of the buttons */
+@media (min-width:700px){html[lang=en] .world-hero .in{padding-top:calc(64px + 8vh)}html[lang=en] .world-hero h1{font-size:clamp(44px,6.3vw,90px)}html[lang=en] .world-hero .lede{max-width:600px}}
+/* the arc words ride the horizon, which is fixed to the screen, so they are too */
+.world-hero .arc-words{position:fixed;inset:0;height:100vh;height:100svh}
