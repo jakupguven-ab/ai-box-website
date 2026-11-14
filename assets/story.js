@@ -66,7 +66,7 @@
     var night = ease(ramp(p, 0.355, 0.47)) * (1 - ease(ramp(p, 0.69, 0.79)));
     var dawn = ease(ramp(p, 0.69, 0.93));
     set(stage, '--night', night.toFixed(3));
-    root.classList.toggle('act2', p >= 0.4 && p < 0.69);
+    [[0.345, 0.43], [0.43, 0.52], [0.52, 0.6], [0.6, 0.69]].forEach(function (w, i) { root.classList.toggle('fa' + i, p >= w[0] && p < w[1]); });
     set(stage, '--dawn', dawn.toFixed(3));
     /* act 1: the whole file riffles past under a reading light */
     var rf = ramp(p, 0.0, 0.095);

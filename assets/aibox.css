@@ -421,7 +421,7 @@ details > div{padding:0 0 20px;color:var(--ink-2);max-width:680px}
 .cap{font-size:clamp(26px,3.5vw,46px)}
 .fact{position:absolute;z-index:6;left:var(--gut);right:var(--gut);bottom:3.5vh;margin:0 auto;max-width:620px;text-align:center;font:italic 400 16px/1.4 var(--serif);color:#E9E1D3;opacity:0;transform:translateY(8px);transition:opacity .7s,transform .7s}
 .fact small{display:block;font:400 12px/1.4 var(--sans);font-style:normal;color:#A79E8F;margin-top:5px;letter-spacing:.02em}
-.act2 .fact{opacity:1;transform:none}
+.fa0 .fact.f0,.fa1 .fact.f1,.fa2 .fact.f2,.fa3 .fact.f3{opacity:1;transform:none}
 @media (max-width:700px){.compare tbody th,.compare td{width:auto!important}.compare tbody th{margin-bottom:6px}}
 @media (max-width:860px){
   .reveal .spec{top:calc(var(--hz) + 3vh)!important;bottom:auto;background:none;border:0;padding:0 4px;text-align:center}
