@@ -7,7 +7,9 @@
 <meta name="description" content="AI Box is a local AI server on your premises: AI on a par with the leading cloud services, while patient data, contracts and client records never leave the building. GDPR without a cloud provider. From SEK 49,000 ex VAT. Try it yourself.">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
 <link rel="preload" href="../assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=2">
+<link rel="stylesheet" href="../assets/site.css?v=3">
+<link rel="stylesheet" href="../assets/light.css">
+<script>if (/[?&](tema=mork|theme=dark)/.test(location.search)) document.documentElement.setAttribute("data-theme", "dark");</script>
 <script src="../assets/vendor/three-r128.min.js" defer></script>
 <script src="../assets/box3d.js?v=2" defer></script>
 <script src="../assets/replay.js?v=2" defer></script>
@@ -48,15 +50,16 @@
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="AI Box, back to top">AI <span>Box</span></a>
-    <nav class="nav" aria-label="Main menu">
+    <nav class="nav" id="nav" aria-label="Main menu">
       <a href="#speed">Speed</a>
       <a href="#boxes">Prices</a>
       <a href="#questions">Questions</a>
       <a href="#data-protection">Data protection</a>
       <a href="#about">About us</a>
-      <a href="order/">Order</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="acts">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
       <a class="lang" href="../" hreflang="sv" lang="sv" title="På svenska">SV</a>
       <a class="btn primary" href="#try">Try it</a>
     </div>
@@ -68,7 +71,7 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div>
-      <p class="kicker who">For healthcare providers, law firms, accountants – anyone bound by confidentiality or handling sensitive data</p>
+      <p class="kicker who">For law firms, accountants and healthcare providers – anyone bound by confidentiality or handling sensitive data</p>
       <h1>Frontier AI <em>under the desk.</em></h1>
       <p class="lead">AI Box is a complete solution, computer and AI software in one, that gives you AI on a par with the leading
         cloud services, with privacy built in from the start. It stands on your premises, together with all your data. Buy it once and use it as much as you like, with a three-year warranty and continuous updates.</p>
@@ -90,9 +93,9 @@
     <p class="kicker">AI you can trust</p>
     <div class="probs" data-typer>
       <ul class="probs-list">
-        <li data-who="Health clinic">We want the AI to summarise the patient record before every visit, but patient confidentiality stops us from pasting it into an online AI service.</li>
         <li data-who="Law firm">We want the AI to review a thousand pages of contracts before the bid deadline, but the deal’s NDA does not allow the documents to be uploaded anywhere else.</li>
         <li data-who="Accounting firm">We want the AI to go through every one of the client’s vouchers instead of a sample, but our duty of confidentiality covers everything we see in their books.</li>
+        <li data-who="Health clinic">We want the AI to summarise the patient record before every visit, but with patient confidentiality we don’t dare paste it into an online AI service.</li>
         <li data-who="Engineering firm">We want the AI to price quotes from our drawings, but the drawings are what we live on.</li>
         <li data-who="Developer">I want the AI to rewrite the transaction layer of our application, but the business logic is proprietary, and my tokens would run out before it got halfway.</li>
       </ul>
@@ -226,10 +229,11 @@
     </div>
     <div class="use wide">
       <span class="tag">Connects to your systems</span>
-      <p class="ask">Connect to our email and booking system and remind tomorrow’s patients.</p>
-      <p>Ask it to connect to what you already use: email, calendar, patient record or case system, accounting software.
-        If the system has an API, it uses it. If not, it clicks its way through the program just as an employee would.
-        Everything happens on the box, and you decide what it may touch.</p>
+      <p class="ask">Go through tomorrow’s bookings and draft a reminder email to each client. I’ll send them myself.</p>
+      <p>It can do anything you can do at your computer: in email, the calendar, the case or record system and the accounting
+        software. If the system has an API, it uses it; if not, it clicks its way through like an employee would. You decide which
+        systems it may touch and what it may do there, and you can have it prepare the work so that you approve and send it yourself.
+        Everything happens on the box.</p>
     </div>
   </div>
   <ul class="also" aria-label="More in the chat">
@@ -283,6 +287,15 @@
     <p class="buy-why"><strong style="color:var(--ink);font-weight:500">Buy or lease?</strong> If you buy, the box is yours
       from day one and costs nothing more. If you lease, you pay every month, and the box is ours during the lease. Buying pays off:
       over three years you save SEK 21,200 on S and SEK 37,000 on M.</p>
+    <div class="pilot" id="pilot">
+      <div>
+        <h3>Start with <em>sixty days.</em></h3>
+        <p class="pp">SEK 5,000 ex VAT, 60 days</p>
+        <p>You try the box on your own work for two months. If you continue, the pilot fee is deducted from the price. If you stop,
+          we collect the box and you owe us nothing more.</p>
+      </div>
+      <a class="btn" href="#kontaktform" data-arende="pilot">Start a pilot <span class="arr" aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 
@@ -341,7 +354,7 @@
     <tbody>
       <tr><th scope="row">Where your text is processed</th><td>On the box, on your premises</td><td>In the vendor’s data centre, often outside Sweden</td></tr>
       <tr><th scope="row">Who can access it</th><td>You</td><td>The vendor, its sub-processors and sometimes authorities in other countries</td></tr>
-      <tr><th scope="row">Processor agreement and transfer impact assessment (TIA)</th><td>Not needed for the AI</td><td>Required, and you are responsible for them</td></tr>
+      <tr><th scope="row">Processor agreement and transfer impact assessment (TIA)</th><td>Not needed for the AI</td><td>A processor agreement is required, plus a TIA when data leaves the EU. You are responsible for them</td></tr>
       <tr><th scope="row">Cost</th><td>Once</td><td>Every month, per user</td></tr>
       <tr><th scope="row">How much you may use it</th><td>Unlimited</td><td>Per user, per word or capped</td></tr>
       <tr><th scope="row">If the vendor stops</th><td>The box keeps running</td><td>The service ends</td></tr>
@@ -416,7 +429,7 @@
         is needed.</p></div></details>
     <details><summary>Which ports and what traffic?</summary>
       <div class="a"><p>No inbound ports and no port forwarding. The box gets its address by DHCP and only opens outbound encrypted
-        connections: for remote access through the tunnel, for updates when you install them and for web search if you have
+        connections: for apps reaching the box from home (via a relay that cannot read the content), for updates when you install them and for web search if you have
         it switched on. None of your documents or conversations are sent out.</p></div></details>
     <details><summary>Can our own software use it?</summary>
       <div class="a"><p>Yes. The box has OpenAI- and Anthropic-compatible APIs, so most programs and AI tools
@@ -460,21 +473,41 @@
     <div class="p">
       <p><strong>AI Box comes from Jakup Güven AB in Malmö, Sweden.</strong> We choose the hardware in every box ourselves and write
         the software that runs the AI, tailored to that very machine. That is why a box that fits under a desk can
-        answer as fast as services running in large data centres.</p>
+        answer faster than you can read.</p>
       <p>We believe that anyone bound by confidentiality or holding trade secrets should be able to use the best AI without giving anything away.</p>
-      <p>Contact us at <a href="mailto:info@ai-box.se">info@ai-box.se</a>.</p>
+      <p>Contact us at <a href="mailto:info@ai-box.se">info@ai-box.se</a> or through <a href="#contact">the form</a>.</p>
     </div>
   </div>
 </section>
 
-<section class="sec rule closing">
+<section class="sec rule closing" id="contact">
   <div class="wrap">
     <h2>Try it with <em>your own questions.</em></h2>
-    <p class="lead muted">A real box says more than this page. Or email us, and we will come and show it on your premises, wherever you are in Sweden.</p>
+    <p class="lead muted">A real box says more than this page. Or write to us, and we will come and show it on your premises, wherever you are in Sweden.</p>
     <div class="ctas">
       <a class="btn primary" href="#try">Try it <span class="arr" aria-hidden="true">→</span></a>
-      <a class="btn" href="mailto:info@ai-box.se?subject=AI%20Box%20demonstration">Book a demonstration</a>
+      <a class="btn" href="#kontaktform" data-arende="visning">Book a demonstration</a>
     </div>
+    <form id="kontaktform" class="formbox contact" novalidate>
+      <div class="fields">
+        <label>Name<input name="name" autocomplete="name" required maxlength="80"></label>
+        <label>Company or organisation<input name="company" autocomplete="organization" maxlength="120"></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required maxlength="200"></label>
+        <label><span>Phone <span class="opt">(if you want a call)</span></span><input name="phone" type="tel" autocomplete="tel" maxlength="40"></label>
+      </div>
+      <label>What is it about?
+        <select name="topic">
+          <option value="visning">Book a demonstration on your premises</option>
+          <option value="pilot">Start a 60-day pilot</option>
+          <option value="fraga">A question</option>
+          <option value="ring">Call me</option>
+        </select></label>
+      <label><span>Message <span class="opt">(optional)</span></span><textarea name="message" maxlength="2000"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn primary" type="submit">Send <span class="arr" aria-hidden="true">→</span></button>
+      <p class="msg" id="kontakt-msg" role="status"></p>
+      <p class="fine">We reply within one working day. How we handle the data: <a href="../integritet/#contact">privacy policy</a>.</p>
+    </form>
   </div>
 </section>
 
@@ -484,8 +517,9 @@
   <div class="wrap">
     <div>
       <strong style="color:var(--ink);font-weight:500">AI Box</strong> is sold and installed by Jakup Güven AB<br>
-      Reg. no. 559582-8921 · Malmö, Sweden · <a href="mailto:info@ai-box.se">info@ai-box.se</a><br>
-      This site uses no cookies and no visitor statistics. <a href="../integritet/#english">Privacy policy</a> · <a href="../" hreflang="sv" lang="sv">På svenska</a>
+      <span class="todo">[street address]</span>, Malmö, Sweden · <a href="mailto:info@ai-box.se">info@ai-box.se</a><br>
+      Reg. no. 559582-8921 · VAT no. SE559582892101<br>
+      The site has no cookies and no visitor statistics. The trial sets two necessary cookies when you start it. <a href="../integritet/#english">Privacy policy</a> · <a href="../" hreflang="sv" lang="sv">På svenska</a>
     </div>
     <nav aria-label="Footer">
       <a href="#speed">Speed</a>
@@ -595,5 +629,7 @@
   setInterval(function () { if (panel.classList.contains("on")) status(); }, 15000);
 })();
 </script>
+<script src="../assets/contact.js"></script>
+<script src="../assets/menu.js"></script>
 </body>
 </html>

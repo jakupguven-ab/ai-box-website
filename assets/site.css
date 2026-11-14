@@ -20,7 +20,7 @@
 
 :root {
   --bg: #080808; --bg2: #101010; --bg3: #161615;
-  --ink: #EEEAE3; --muted: #9A958D; --dim: #7A756D;
+  --ink: #EEEAE3; --muted: #9A958D; --dim: #88827A;
   --line: rgba(238, 234, 227, .12); --line2: rgba(238, 234, 227, .22);
   --glow: #E8C48A;
   --sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -383,3 +383,33 @@ main.page > .fine { margin: 32px 0 24px; font-size: 14px; color: var(--muted); m
   animation: probs-blink 1s steps(1) infinite; }
 .probs.typing .probs-caret { animation: none; }
 @keyframes probs-blink { 50% { opacity: 0; } }
+
+/* mobile menu */
+.menu-btn { display: none; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line2);
+  background: transparent; color: var(--ink); font: 500 14px/1 var(--sans); cursor: pointer; }
+.menu-btn .bars { display: grid; gap: 3px; } .menu-btn .bars i { display: block; width: 14px; height: 1.5px; background: currentColor; }
+@media (max-width: 860px) {
+  .menu-btn { display: inline-flex; }
+  .top .wrap { position: relative; }
+  .nav.open { display: flex; flex-direction: column; gap: 0; position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px 24px 16px; font-size: 17px; }
+  .nav.open a { padding: 12px 0; border-top: 1px solid var(--line); color: var(--ink); }
+  .nav.open a:first-child { border-top: 0; }
+}
+@media (max-width: 600px) { .nav.open { padding: 8px 16px 16px; } .top .acts { gap: 10px; } }
+
+/* pilot line under the price cards */
+.pilot { margin-top: 28px; border: 1px solid var(--line2); border-radius: 22px; padding: 28px 32px; display: grid;
+  grid-template-columns: 1fr auto; gap: 16px 32px; align-items: center; }
+.pilot h3 { margin: 0 0 6px; font: 400 30px/1.1 var(--serif); }
+.pilot .pp { color: var(--ink); font-weight: 500; margin: 0 0 8px; }
+.pilot p { margin: 0; color: var(--muted); max-width: 42em; }
+@media (max-width: 760px) { .pilot { grid-template-columns: 1fr; padding: 24px; } }
+
+/* contact form in the closing section */
+.closing .contact { max-width: 640px; margin: 40px auto 0; text-align: left; }
+.contact .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .contact .fields { grid-template-columns: 1fr; } }
+.contact .opt { color: var(--dim); font-weight: 400; }
+.todo { background: #FFE58A; color: #1D1B18; padding: 0 4px; border-radius: 3px; }
+.closing .contact { display: grid; gap: 16px; }
