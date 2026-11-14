@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt – AI-Box</title>
+<meta name="description" content="Boka en visning av AI-Box, starta en pilot eller ställ en fråga. Vi svarar inom en arbetsdag.">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/aibox.css?v=7">
+<meta property="og:title" content="Kontakt – AI-Box">
+<meta property="og:description" content="Boka en visning av AI-Box, starta en pilot eller ställ en fråga. Vi svarar inom en arbetsdag.">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ai-box.se/kontakt/">
+<link rel="canonical" href="https://ai-box.se/kontakt/">
+<script src="/assets/contact.js?v=7" defer></script>
+<script src="/assets/work.js?v=7" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Hoppa till innehållet</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="AI-Box, startsidan">AI-<i>Box</i></a>
+    <nav class="nav" aria-label="Huvudmeny"><a href="/produkt/">Produkt</a><a href="/box-eller-moln/">Box eller moln</a><a href="/priser/">Priser och pilot</a><a href="/fragor/">Frågor</a><a href="/om-oss/">Om oss</a><a href="/kontakt/" aria-current="page">Kontakt</a></nav>
+    <a class="lang" href="/en/" hreflang="en" lang="en" title="In English">EN</a>
+    <a class="btn" href="/kontakt/">Boka en visning</a>
+    <button class="menu-b" type="button" aria-label="Meny" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<main id="main">
+<section class="end" style="padding-top:calc(64px + 12vh)" id="kontakt">
+  <div class="narrow">
+    <h1 class="headline">Boka en <em>visning.</em></h1>
+    <p class="lede rv" style="margin:0 auto">Vi kommer till er och visar boxen på ett avidentifierat dokument från er vardag. Eller starta en pilot, eller ställ en fråga. Vi svarar inom en arbetsdag.</p>
+    <form id="kontaktform" class="form rv" novalidate>
+      <div class="fields">
+        <label>Namn<input name="name" autocomplete="name" required maxlength="80"></label>
+        <label>Företag eller byrå<input name="company" autocomplete="organization" maxlength="120"></label>
+        <label>E-post<input name="email" type="email" autocomplete="email" required maxlength="200"></label>
+        <label><span>Telefon <span class="opt">(om ni vill bli uppringda)</span></span><input name="phone" type="tel" autocomplete="tel" maxlength="40"></label>
+      </div>
+      <label>Vad gäller det?
+        <select name="topic">
+          <option value="visning">Boka en visning hos oss</option>
+          <option value="pilot">Starta en pilot, 60 dagar</option>
+          <option value="fraga">En fråga</option>
+          <option value="ring">Ring upp mig</option>
+        </select></label>
+      <label><span>Meddelande <span class="opt">(frivilligt)</span></span><textarea name="message" maxlength="2000"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Webbplats <input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn" type="submit">Skicka <span class="ar">→</span></button>
+      <p class="msg" id="kontakt-msg" role="status"></p>
+      <p class="fine">Vi svarar inom en arbetsdag. Så hanterar vi uppgifterna: <a href="/integritet/#kontakt">integritetspolicy</a>.</p>
+    </form>
+  </div>
+</section><section class="s tight"><div class="wrap grid3"><div class="card"><span class="k">E-post</span><h3><a href="mailto:info@ai-box.se" style="text-decoration:none">info@ai-box.se</a></h3><p>Vi svarar inom en arbetsdag.</p></div><div class="card"><span class="k">Besök</span><h3><span class="todo" style="background:#F3E2B8">[Gatuadress]</span></h3><p>Malmö. Vi kommer också gärna till er.</p></div><div class="card"><span class="k">Prova själv</span><h3><a href="/prova/" style="text-decoration:none">Chatta med en riktig box</a></h3><p>Be om en kod, så chattar ni med en av våra egna boxar.</p></div></div></section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <b>AI-<i>Box</i></b>
+      AI-Box säljs och installeras av Jakup Güven AB.<br>
+      <span class="todo">[Gatuadress]</span>, Malmö<br>
+      <a href="mailto:info@ai-box.se">info@ai-box.se</a><br>
+      Org.nr 559582-8921 · Momsreg.nr SE559582892101
+    </div>
+    <nav aria-label="Sidfot"><a href="/produkt/">Produkt</a><a href="/box-eller-moln/">Box eller moln</a><a href="/priser/">Priser och pilot</a><a href="/fragor/">Frågor</a><a href="/om-oss/">Om oss</a><a href="/kontakt/">Kontakt</a></nav>
+    <nav aria-label="Branscher"><a href="/advokat/">För advokatbyråer</a><a href="/revision/">För revisionsbyråer</a><a href="/patent/">För patentbyråer</a><a href="/prova/">Prova en riktig box</a><a href="/integritet/">Integritetspolicy</a><a href="/en/" lang="en">In English</a></nav>
+  </div>
+  <div class="wrap" style="display:block;margin-top:30px">Webbplatsen har inga kakor och ingen besöksstatistik.</div>
+</footer>
+</body>
+</html>

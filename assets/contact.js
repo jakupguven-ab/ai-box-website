@@ -12,6 +12,7 @@
                  ok: "Tack! Vi svarar inom en arbetsdag.", busy: "Många förfrågningar just nu. Försök igen om en stund.",
                  fail: "Det gick inte att skicka härifrån. ", mail: "Skicka det som mejl i stället", subject: "AI Box: " };
   var msg = document.getElementById("kontakt-msg");
+  try { var q = new URLSearchParams(location.search).get("arende"); if (q && f.elements.topic.querySelector('option[value="' + q + '"]')) f.elements.topic.value = q; } catch (e) {}
   function say(text, kind, link) {
     msg.textContent = text; msg.className = "msg " + (kind || "");
     if (link) { var a = document.createElement("a"); a.href = link; a.textContent = T.mail; msg.appendChild(a); }
