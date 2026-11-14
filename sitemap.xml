@@ -12,6 +12,14 @@
     <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/hastighet/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/speed/"/></url>
   <url><loc>https://ai-box.se/en/speed/</loc>
     <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/hastighet/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/speed/"/></url>
+  <url><loc>https://ai-box.se/fragor/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/fragor/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/questions/"/></url>
+  <url><loc>https://ai-box.se/en/questions/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/fragor/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/questions/"/></url>
+  <url><loc>https://ai-box.se/prova/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/prova/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/try/"/></url>
+  <url><loc>https://ai-box.se/en/try/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/prova/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/try/"/></url>
   <url><loc>https://ai-box.se/advokat/</loc></url>
   <url><loc>https://ai-box.se/revision/</loc></url>
   <url><loc>https://ai-box.se/patent/</loc></url>
