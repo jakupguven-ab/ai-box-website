@@ -1,6 +1,6 @@
 # AI Box
 
-> AI Box is a local AI server that stands on the customer's premises and runs its own AI, on a par with the leading
+> AI Box is a box that stands on the customer's premises and runs its own AI, on a par with the leading
 > cloud services. Documents and conversations never leave the building. Sold and installed by Jakup Güven AB, Malmö,
 > Sweden, to businesses and public organisations.
 

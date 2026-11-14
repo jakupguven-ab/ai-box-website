@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Try AI Box</title>
+<meta name="description" content="Chat with a real AI Box right in your browser.">
+<link rel="icon" href="../../assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/site.css?v=3">
+<link rel="stylesheet" href="../../assets/light.css">
+<script>if (/[?&](tema=mork|theme=dark)/.test(location.search)) document.documentElement.setAttribute("data-theme", "dark");</script>
+<meta property="og:title" content="Try AI Box">
+<meta property="og:description" content="Chat with a real AI Box right in your browser.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ai-box.se/en/try/">
+<link rel="canonical" href="https://ai-box.se/en/try/">
+<script>document.documentElement.classList.remove("no-js");</script>
+<style>
+/* Homepage hub: industry cards and the "read more" row, on the site's own tokens. */
+a.use { text-decoration: none; transition: border-color .2s; }
+a.use:hover { border-color: var(--line2); }
+.use .go { color: var(--glow); font-size: 15px; font-weight: 500; }
+.use h3 { margin: 0; font: 400 26px/1.15 var(--serif); }
+.more-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.more-row a { border-top: 1px solid var(--line2); padding: 18px 0 4px; text-decoration: none; display: grid; gap: 6px; }
+.more-row a b { font-weight: 500; }
+.more-row a span { color: var(--muted); font-size: 15px; }
+.more-row a:hover b { text-decoration: underline; text-decoration-color: var(--line2); }
+@media (max-width: 760px) { .more-row { grid-template-columns: 1fr; } }
+.closing form { text-align: left; margin: 0 auto; }
+.pilot { margin: 0 0 28px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../#top" aria-label="AI Box">AI <span>Box</span></a>
+    <nav class="nav" id="nav" aria-label="Main menu">
+      <a href="../#why">Why AI Box</a>
+      <a href="../#industries">Industries</a>
+      <a href="../#prices">Prices</a>
+      <a href="../questions/">Questions</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+    <div class="acts">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
+      <a class="lang" href="../../" hreflang="sv" lang="sv" title="På svenska">SV</a>
+      <a class="btn primary" href="../#contact">Book a demo</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="try" class="trial" aria-labelledby="try-h">
+  <span id="prova" aria-hidden="true"></span>
+  <div class="wrap sec">
+    <div class="intro">
+      <div>
+        <p class="kicker">Try it yourself</p>
+        <h2 id="try-h">Chat with a <em>real box.</em></h2>
+        <p class="lead muted">Tell us who you are and we email you a code. Then you chat with one of
+          our own boxes, right here on the page.</p>
+        <p class="fine">The trial runs on our box, so use made-up examples rather than real patient or client data.
+          More on how we handle the data in our
+          <a href="../../integritet/#english">privacy policy</a>.</p>
+      </div>
+      <div class="formbox">
+        <form id="req" novalidate>
+          <label>Name <input name="name" autocomplete="name" required maxlength="80"></label>
+          <label>Company or organisation <input name="company" autocomplete="organization" maxlength="120"></label>
+          <label>Email <input name="email" type="email" autocomplete="email" required maxlength="200"></label>
+          <label>What would you like to try? (optional)
+            <textarea name="purpose" maxlength="1000"></textarea></label>
+          <label>Language of the email
+            <select name="lang"><option value="en" selected>English</option><option value="sv">Svenska</option></select></label>
+          <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button class="btn primary" type="submit">Send me a code</button>
+          <p class="msg" id="req-msg" role="status"></p>
+        </form>
+        <form id="code" class="have-code" method="post" target="trialframe">
+          <div class="row">
+            <label>Already have a code?
+              <input name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXXX-XXXXX"
+                     maxlength="20" required></label>
+            <button class="btn" type="submit">Start the trial</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel" id="panel">
+      <iframe name="trialframe" id="trialframe" title="AI Box, the trial" allow="clipboard-write"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads allow-modals allow-top-navigation-by-user-activation"></iframe>
+      <div class="status"><span id="st-q"></span><span id="st-end"></span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong style="color:var(--ink);font-weight:500">AI Box</strong> is sold and installed by Jakup Güven AB<br>
+      Nordenskiöldsgatan 8, Malmö, Sweden · <a href="mailto:info@ai-box.se">info@ai-box.se</a><br>
+      Reg. no. 559582-8921 · VAT no. SE559582892101<br>
+      The site has no cookies and no visitor statistics. The trial sets two necessary cookies when you start it. <a href="../../integritet/#english">Privacy policy</a> · <a href="../../" hreflang="sv" lang="sv">På svenska</a>
+    </div>
+    <nav aria-label="Footer">
+      <a href="../#prices">Prices</a>
+      <a href="../questions/">Questions</a>
+      <a href="../questions/#data-protection">Data protection</a>
+      <a href="../speed/">Speed</a>
+      <a href="../try/">Try it</a>
+      <a href="../order/">Order</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // The trial form. A local preview talks to a trial server on localhost:8100.
+  var API = location.hostname === "localhost" ? "http://localhost:8100" : "https://trial.ai-box.se";
+  var $ = function (id) { return document.getElementById(id); };
+  var req = $("req"), code = $("code"), panel = $("panel"), frame = $("trialframe"), box = document.querySelector(".formbox");
+  code.action = API + "/trial/start";
+
+  function say(text, kind) { var m = $("req-msg"); m.textContent = text; m.className = "msg " + (kind || ""); }
+
+  req.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = req.elements;
+    if (f.name.value.trim().length < 2 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) {
+      say("Please enter your name and a valid email address.", "err"); return;
+    }
+    var body = {};
+    ["name", "company", "email", "purpose", "lang", "website"].forEach(function (k) { body[k] = f[k].value; });
+    var btn = req.querySelector("button"); btn.disabled = true; say("Sending…");
+    fetch(API + "/trial/api/request", { method: "POST", headers: { "Content-Type": "application/json" },
+                                        body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return [r.status, d]; }); })
+      .then(function (x) {
+        if (x[1].ok) { say("Thank you! We will read your request and email you a code.", "ok"); req.reset(); return; }
+        btn.disabled = false;
+        say(x[0] === 429 ? "Many requests right now. Please try again later, or email us."
+                         : "Please check your name and email address.", "err");
+      })
+      .catch(function () { btn.disabled = false; say("It could not be sent. Please email info@ai-box.se instead.", "err"); });
+  });
+
+  function open() {
+    panel.classList.add("on");
+    box.style.display = "none";
+    panel.scrollIntoView({ block: "start" });
+  }
+
+  code.addEventListener("submit", function () { open(); setTimeout(status, 4000); });
+
+  function status() {
+    fetch(API + "/trial/api/status", { credentials: "include", cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (s) {
+        if (s.state === "active" || s.state === "grace") {
+          if (!panel.classList.contains("on")) { frame.src = API + "/trial/start"; open(); }
+          $("st-q").textContent = s.limit ? "Questions: " + s.used + " of " + s.limit : "";
+          var left = Math.max(0, Math.ceil((s.ends * 1000 - Date.now()) / 60000));
+          $("st-end").textContent = left > 1440 ? "The trial ends " + new Date(s.ends * 1000).toLocaleDateString("en-GB",
+                                    { day: "numeric", month: "long" }) : left + " min left";
+        } else if (s.state === "over") {
+          $("st-q").textContent = ""; $("st-end").textContent = "The trial is over.";
+        }
+      })
+      .catch(function () {});
+  }
+
+  window.addEventListener("message", function (e) {
+    if (e.origin !== API || !e.data || !e.data.trial) return;
+    if (e.data.trial === "unknown" || e.data.trial === "nocode") { box.style.display = ""; }
+    status();
+  });
+
+  var kod = new URLSearchParams(location.search).get("kod");
+  if (kod) {
+    code.elements.code.value = kod;
+    history.replaceState(null, "", location.pathname + "#try");
+    open();
+    frame.addEventListener("load", function () { panel.scrollIntoView({ block: "start" }); }, { once: true });
+    code.submit();
+    setTimeout(status, 4000);
+  } else {
+    status();
+  }
+  setInterval(function () { if (panel.classList.contains("on")) status(); }, 15000);
+})();
+</script>
+<script src="../../assets/menu.js"></script>
+</body>
+</html>

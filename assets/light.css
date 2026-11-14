@@ -1,0 +1,17 @@
+/* Light palette: warm paper, dark ink, deep amber accent. On by default; ?tema=mork (or ?theme=dark) shows the dark one. */
+:root:not([data-theme="dark"]) {
+  --bg: #F7F4EE; --bg2: #EFEAE1; --bg3: #E8E2D6;
+  --ink: #1D1B18; --muted: #565049; --dim: #6A6359;
+  --line: rgba(29, 27, 24, .12); --line2: rgba(29, 27, 24, .24);
+  --glow: #8A4F0E;
+}
+:root:not([data-theme="dark"]) .top { background: rgba(247, 244, 238, .88); }
+:root:not([data-theme="dark"]) .btn.primary:hover { background: #3A3630; border-color: #3A3630; }
+:root:not([data-theme="dark"]) .msg.ok { color: #2F6B2A; }
+:root:not([data-theme="dark"]) .msg.err { color: #A3341C; }
+/* The 3D box keeps its dark studio, shown as a rounded product shot on the paper. */
+:root:not([data-theme="dark"]) .boxstage { -webkit-mask-image: none; mask-image: none; border-radius: 28px; overflow: hidden;
+  background: #080808; box-shadow: 0 30px 60px -30px rgba(29, 27, 24, .45); }
+:root:not([data-theme="dark"]) .legal mark { background: rgba(138, 79, 14, .12); }
+:root:not([data-theme="dark"]) .lane .track .r { background: rgba(29, 27, 24, .22); }
+:root:not([data-theme="dark"]) .lane .track .k { background: rgba(138, 79, 14, .4); }

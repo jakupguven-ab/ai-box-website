@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://ai-box.se/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/"/></url>
+  <url><loc>https://ai-box.se/en/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/"/></url>
+  <url><loc>https://ai-box.se/bestall/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/bestall/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/order/"/></url>
+  <url><loc>https://ai-box.se/en/order/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/bestall/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/order/"/></url>
+  <url><loc>https://ai-box.se/hastighet/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/hastighet/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/speed/"/></url>
+  <url><loc>https://ai-box.se/en/speed/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/hastighet/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/speed/"/></url>
+  <url><loc>https://ai-box.se/fragor/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/fragor/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/questions/"/></url>
+  <url><loc>https://ai-box.se/en/questions/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/fragor/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/questions/"/></url>
+  <url><loc>https://ai-box.se/prova/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/prova/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/try/"/></url>
+  <url><loc>https://ai-box.se/en/try/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ai-box.se/prova/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai-box.se/en/try/"/></url>
+  <url><loc>https://ai-box.se/advokat/</loc></url>
+  <url><loc>https://ai-box.se/revision/</loc></url>
+  <url><loc>https://ai-box.se/patent/</loc></url>
+  <url><loc>https://ai-box.se/integritet/</loc></url>
+<url><loc>https://ai-box.se/produkt/</loc></url>
+<url><loc>https://ai-box.se/box-eller-moln/</loc></url>
+<url><loc>https://ai-box.se/priser/</loc></url>
+<url><loc>https://ai-box.se/om-oss/</loc></url>
+<url><loc>https://ai-box.se/kontakt/</loc></url>
+</urlset>

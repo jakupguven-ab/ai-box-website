@@ -9,3 +9,5 @@ User-agent: ClaudeBot
 Allow: /
 User-agent: PerplexityBot
 Allow: /
+
+Sitemap: https://ai-box.se/sitemap.xml
