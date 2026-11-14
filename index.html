@@ -10,8 +10,6 @@
 <link rel="stylesheet" href="assets/site.css?v=3">
 <link rel="stylesheet" href="assets/light.css">
 <script>if (/[?&](tema=mork|theme=dark)/.test(location.search)) document.documentElement.setAttribute("data-theme", "dark");</script>
-<script src="assets/vendor/three-r128.min.js" defer></script>
-<script src="assets/box3d.js?v=2" defer></script>
 <meta property="og:title" content="AI Box – den bästa AI:n. Hos er.">
 <meta property="og:description" content="AI Box är er egen AI i en box på kontoret. Den läser, skriver och arbetar i era program, och allt ni visar den stannar hos er. Från 49 000 kr exkl. moms, eller en pilot i 60 dagar för 5 000 kr.">
 <meta property="og:locale" content="sv_SE">
@@ -55,8 +53,12 @@ a.use:hover { border-color: var(--line2); }
 .closing form { text-align: left; margin: 0 auto; }
 .pilot { margin: 0 0 28px; }
 </style>
+<link rel="stylesheet" href="assets/home.css">
+<script src="assets/horizon.js" defer></script>
+<script src="assets/home.js" defer></script>
 </head>
 <body>
+<canvas id="horizon" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Hoppa till innehållet</a>
 
 <header class="top">
@@ -79,46 +81,109 @@ a.use:hover { border-color: var(--line2); }
 
 <main id="main">
 
-<section class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <p class="kicker who">För alla som har något att skydda</p>
-      <h1>Den bästa AI:n. <em>Hos er.</em></h1>
-      <p class="lead">Er egen AI i en box på kontoret. Den läser, skriver och arbetar i era program, och allt ni visar den stannar hos er.</p>
-      <div class="ctas">
-        <a class="btn primary" href="#kontakt">Boka en visning <span class="arr" aria-hidden="true">→</span></a>
-        <a class="btn" href="#priser">Se priser</a>
-      </div>
-      <p class="note">Från 49 000 kr exkl. moms. Eller börja med en pilot: 60 dagar för 5 000 kr.</p>
-    </div>
-    <div class="boxstage" role="img" aria-label="AI Box, en svart dator med ett varmt statusljus">
-    <canvas id="box3d" aria-hidden="true"></canvas>
+<section class="hz-hero" id="top">
+  <div class="hz-copy">
+    <p class="kicker">För alla som har något att skydda</p>
+    <h1>Den bästa AI:n. <em>Hos er.</em></h1>
+    <p class="lead">Er egen AI i en box på kontoret. Den läser, skriver och arbetar i era program, och allt ni visar den stannar hos er.</p>
+    <div class="ctas"><a class="btn primary" href="#kontakt">Boka en visning <span class="arr" aria-hidden="true">→</span></a><a class="btn" href="#priser">Se priser</a></div>
+    <p class="note">Från 49 000 kr exkl. moms. Eller börja med en pilot: 60 dagar för 5 000 kr.</p>
+  </div>
+  <div class="hz-hint" aria-hidden="true">Skrolla</div>
+</section>
+
+<section class="hz-story" id="story" aria-label="Så skyddar AI Box era uppgifter">
+  <div class="pin">
+    <div class="lines">
+      <p class="line on">Avtalen. Journalerna. <em>Bokslutet.</em><small>Det ni har lovat att inte dela.</small></p>
+      <p class="line">Visa AI:n <em>allt.</em><small>Den läser, sammanfattar och skriver med era egna dokument, på svenska.</small></p>
+      <p class="line">Inget lämnar <em>huset.</em><small>Allt stannar på boxen. Ingen molnleverantör läser med, och för AI:n behövs inget biträdesavtal.</small></p>
+      <p class="line">Samma kvalitet som molnet. <em>Annan adress.</em><small>AI Box svarar i klass med de marknadsledande molntjänsterna.</small></p>
     </div>
   </div>
 </section>
 
-<section class="wrap sec" id="varfor">
-  <div class="head">
-    <p class="kicker">Varför AI Box</p>
-    <h2>Tre skäl att ha AI:n <em>hos er.</em></h2>
-    <p class="lead muted">AI Box svarar i klass med de marknadsledande molntjänsterna. Skillnaden är var era texter tar vägen, och vad det kostar.</p>
+<section class="hz-mont" id="varfor">
+  <div class="pin">
+    <div class="head"><p class="kicker">Den gör jobbet</p><h2>Allt ni gör på datorn. <em>Med ert godkännande.</em></h2></div>
+    <div class="stage" id="gor" role="img" aria-label="Den läser akten, skriver utkastet, bokar mötet och frågar först. Hos er.">
+      <div class="cut on"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+  <filter id="grain1" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="1"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="brush1" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="pencil1"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="8"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+</defs><rect width="1600" height="1000" fill="#F3ECE2"/>
+<path d="M-100 640 Q800 470 1700 640 V1000 H-100Z" fill="#E7DFD2"/><path d="M-100 640 Q800 470 1700 640" fill="none" stroke="#BFB3A2" stroke-width="2"/><path d="M-100 649 Q800 479 1700 649" fill="none" stroke="#E9E1D4" stroke-width="6"/><path d="M-100 658 Q800 488 1700 658" fill="none" stroke="#CFC3B1" stroke-width="1.5"/><path d="M-100 667 Q800 497 1700 667" fill="none" stroke="#EDE6DA" stroke-width="7"/><path d="M-100 676 Q800 506 1700 676" fill="none" stroke="#B8AB98" stroke-width="1.5"/><path d="M-100 685 Q800 515 1700 685" fill="none" stroke="#E6DDCE" stroke-width="8"/><path d="M-100 694 Q800 524 1700 694" fill="none" stroke="#C4B7A4" stroke-width="1.5"/><path d="M-100 703 Q800 533 1700 703" fill="none" stroke="#EAE2D5" stroke-width="9"/><path d="M-100 712 Q800 542 1700 712" fill="none" stroke="#B3A692" stroke-width="2"/><path d="M-100 721 Q800 551 1700 721" fill="none" stroke="#E3DACB" stroke-width="10"/><path d="M-100 730 Q800 560 1700 730" fill="none" stroke="#BFB3A2" stroke-width="2"/><path d="M-100 739 Q800 569 1700 739" fill="none" stroke="#E9E1D4" stroke-width="6"/><path d="M-100 748 Q800 578 1700 748" fill="none" stroke="#CFC3B1" stroke-width="1.5"/><path d="M-100 757 Q800 587 1700 757" fill="none" stroke="#EDE6DA" stroke-width="7"/><path d="M-100 766 Q800 596 1700 766" fill="none" stroke="#B8AB98" stroke-width="1.5"/><path d="M-100 775 Q800 605 1700 775" fill="none" stroke="#E6DDCE" stroke-width="8"/><path d="M-100 784 Q800 614 1700 784" fill="none" stroke="#C4B7A4" stroke-width="1.5"/><path d="M-100 793 Q800 623 1700 793" fill="none" stroke="#EAE2D5" stroke-width="9"/><path d="M-100 802 Q800 632 1700 802" fill="none" stroke="#B3A692" stroke-width="2"/><path d="M-100 811 Q800 641 1700 811" fill="none" stroke="#E3DACB" stroke-width="10"/><path d="M-100 820 Q800 650 1700 820" fill="none" stroke="#BFB3A2" stroke-width="2"/><path d="M-100 829 Q800 659 1700 829" fill="none" stroke="#E9E1D4" stroke-width="6"/><path d="M-100 838 Q800 668 1700 838" fill="none" stroke="#CFC3B1" stroke-width="1.5"/><path d="M-100 847 Q800 677 1700 847" fill="none" stroke="#EDE6DA" stroke-width="7"/><path d="M-100 856 Q800 686 1700 856" fill="none" stroke="#B8AB98" stroke-width="1.5"/><path d="M-100 865 Q800 695 1700 865" fill="none" stroke="#E6DDCE" stroke-width="8"/><path d="M-100 874 Q800 704 1700 874" fill="none" stroke="#C4B7A4" stroke-width="1.5"/><path d="M-100 883 Q800 713 1700 883" fill="none" stroke="#EAE2D5" stroke-width="9"/><path d="M-100 892 Q800 722 1700 892" fill="none" stroke="#B3A692" stroke-width="2"/><path d="M-100 901 Q800 731 1700 901" fill="none" stroke="#E3DACB" stroke-width="10"/>
+<path d="M-100 640 Q800 470 1700 640" fill="none" stroke="#7A6E5E" stroke-width="1.2"/>
+<rect width="1600" height="1000" fill="#8a7a66" filter="url(#grain1)" opacity=".28"/>
+<path id="arc1" d="M100 640 Q800 470 1500 640" fill="none"/><text class="word" fill="#1D1B18" dy="-26"><textPath href="#arc1" startOffset="50%" text-anchor="middle">Den läser akten,</textPath></text></svg></div>
+      <div class="cut"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+  <filter id="grain2" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="2"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="brush2" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="pencil2"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+</defs><rect width="1600" height="1000" fill="#F8F6F0"/>
+<path class="draw" d="M60 700 C 420 470, 1180 470, 1540 700" fill="none" stroke="#2A2724" stroke-width="5" stroke-linecap="round" filter="url(#pencil2)"/>
+<path class="draw" d="M80 706 C 430 482, 1170 478, 1530 708" fill="none" stroke="#2A2724" stroke-width="1.6" opacity=".5" filter="url(#pencil2)"/>
+<rect width="1600" height="1000" fill="#6b6255" filter="url(#grain2)" opacity=".18"/>
+<path id="arc2" d="M60 700 C 420 470, 1180 470, 1540 700" fill="none"/><text class="word" fill="#1D1B18" dy="-26"><textPath href="#arc2" startOffset="50%" text-anchor="middle">skriver utkastet,</textPath></text></svg></div>
+      <div class="cut"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+  <filter id="grain3" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="3"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="brush3" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="6"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="pencil3"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="10"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+</defs><defs><radialGradient id="amb" cx="50%" cy="20%" r="80%"><stop offset="0" stop-color="#F7C46F"/><stop offset=".5" stop-color="#C9752E"/><stop offset="1" stop-color="#3B1A07"/></radialGradient></defs>
+<rect width="1600" height="1000" fill="#0B0A09"/>
+<circle cx="800" cy="1560" r="1000" fill="url(#amb)"/><circle cx="520" cy="700" r="26" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="510.9" cy="690.9" r="4.68" fill="#FFF3DA"/><circle cx="610" cy="780" r="14" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="605.1" cy="775.1" r="2.52" fill="#FFF3DA"/><circle cx="700" cy="660" r="38" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="686.7" cy="646.7" r="6.84" fill="#FFF3DA"/><circle cx="820" cy="740" r="18" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="813.7" cy="733.7" r="3.2399999999999998" fill="#FFF3DA"/><circle cx="900" cy="690" r="30" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="889.5" cy="679.5" r="5.3999999999999995" fill="#FFF3DA"/><circle cx="1010" cy="770" r="12" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="1005.8" cy="765.8" r="2.16" fill="#FFF3DA"/><circle cx="1080" cy="700" r="22" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="1072.3" cy="692.3" r="3.96" fill="#FFF3DA"/><circle cx="760" cy="860" r="10" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="756.5" cy="856.5" r="1.7999999999999998" fill="#FFF3DA"/><circle cx="950" cy="880" r="16" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="944.4" cy="874.4" r="2.88" fill="#FFF3DA"/><circle cx="640" cy="900" r="20" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="633.0" cy="893.0" r="3.5999999999999996" fill="#FFF3DA"/><circle cx="1150" cy="820" r="9" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="1146.85" cy="816.85" r="1.6199999999999999" fill="#FFF3DA"/><circle cx="440" cy="820" r="11" fill="none" stroke="#FFE2B0" stroke-opacity=".7" stroke-width="2"/><circle cx="436.15" cy="816.15" r="1.98" fill="#FFF3DA"/>
+<circle cx="800" cy="1560" r="1000" fill="none" stroke="#FFD9A0" stroke-width="3" opacity=".9"/>
+<circle cx="800" cy="1560" r="1012" fill="none" stroke="#F2A65A" stroke-width="16" opacity=".18"/>
+<rect width="1600" height="1000" fill="#000" filter="url(#grain3)" opacity=".35"/>
+<path id="arc3" d="M-200 1560 A1000 1000 0 0 1 1800 1560" fill="none"/><text class="word" fill="#F2EDE0" dy="-34"><textPath href="#arc3" startOffset="50%" text-anchor="middle">bokar mötet</textPath></text></svg></div>
+      <div class="cut"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+  <filter id="grain4" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="4"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="brush4" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="pencil4"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="11"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+</defs><defs><pattern id="vent" width="22" height="19" patternUnits="userSpaceOnUse"><circle cx="11" cy="9.5" r="5.2" fill="#050505"/><circle cx="0" cy="0" r="5.2" fill="#050505"/><circle cx="22" cy="0" r="5.2" fill="#050505"/><circle cx="0" cy="19" r="5.2" fill="#050505"/><circle cx="22" cy="19" r="5.2" fill="#050505"/></pattern>
+<linearGradient id="met" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A544D"/><stop offset=".25" stop-color="#2A2724"/><stop offset="1" stop-color="#121110"/></linearGradient>
+<radialGradient id="dusk" cx="50%" cy="78%" r="70%"><stop offset="0" stop-color="#E5501F"/><stop offset=".25" stop-color="#5C3A2A"/><stop offset=".6" stop-color="#14263A"/><stop offset="1" stop-color="#07090C"/></radialGradient></defs>
+<rect width="1600" height="1000" fill="url(#dusk)"/>
+<ellipse cx="800" cy="1900" rx="1500" ry="1320" fill="url(#met)"/>
+<ellipse cx="800" cy="1900" rx="1500" ry="1320" fill="#cfc6ba" filter="url(#brush4)" opacity=".22"/>
+<ellipse cx="800" cy="1990" rx="1500" ry="1320" fill="url(#vent)" opacity=".85"/>
+<ellipse cx="800" cy="1900" rx="1500" ry="1320" fill="none" stroke="#FFB46A" stroke-width="3"/>
+<ellipse cx="800" cy="1900" rx="1500" ry="1320" fill="none" stroke="#F2A65A" stroke-width="22" opacity=".16"/>
+<rect width="1600" height="1000" fill="#000" filter="url(#grain4)" opacity=".3"/>
+<path id="arc4" d="M-700 1900 A1500 1320 0 0 1 2300 1900" fill="none"/><text class="word" fill="#F2EDE0" dy="-32"><textPath href="#arc4" startOffset="50%" text-anchor="middle">och frågar först.</textPath></text></svg></div>
+      <div class="cut"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>
+  <filter id="grain5" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="5"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -.9 .62"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="brush5" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0015 .9" numOctaves="2" seed="8"/><feColorMatrix values="0 0 0 0 .9  0 0 0 0 .85  0 0 0 0 .8  0 0 0 -1.1 .75"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  <filter id="pencil5"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="12"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
+</defs><defs><linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4EEE4"/><stop offset=".55" stop-color="#EBC39B"/><stop offset=".62" stop-color="#E9A577"/></linearGradient>
+<radialGradient id="glow5" cx="50%" cy="60%" r="40%"><stop offset="0" stop-color="#F2A65A" stop-opacity=".55"/><stop offset="1" stop-color="#F2A65A" stop-opacity="0"/></radialGradient></defs>
+<rect width="1600" height="1000" fill="url(#sky5)"/><rect width="1600" height="1000" fill="url(#glow5)"/>
+<circle cx="800" cy="3240" r="2640" fill="#17130F"/>
+<circle cx="800" cy="3240" r="2640" fill="none" stroke="#FFC98A" stroke-width="2.5"/>
+<circle cx="800" cy="602" r="5" fill="#FFD9A0"/><circle cx="800" cy="602" r="22" fill="#F2A65A" opacity=".25"/>
+<rect width="1600" height="1000" fill="#8a7a66" filter="url(#grain5)" opacity=".2"/>
+<path id="arc5" d="M-1840 3240 A2640 2640 0 0 1 3440 3240" fill="none"/><text class="word" fill="#1D1B18" dy="-40"><textPath href="#arc5" startOffset="50%" text-anchor="middle">Hos er.</textPath></text></svg></div>
+    </div>
+    <div><p class="foot">Den kan göra allt ni kan göra på datorn: mejl, kalender, ärendesystem och ekonomiprogram. Ni bestämmer vad den får röra, och den frågar innan något skickas.</p><div class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
   </div>
-  <div class="three">
+</section>
+
+<section class="hz-dial" id="kostnad">
+  <div class="wrap">
     <div>
-      <span class="num">i.</span>
-      <h3>Inget lämnar huset</h3>
-      <p>Avtal, journaler, bokslut och ritningar stannar på boxen. Ingen molnleverantör läser med, och för AI:n behövs inget biträdesavtal.</p>
+      <p class="kicker">En kostnad</p>
+      <h2>Fråga tio gånger eller tiotusen. <em>Priset står still.</em></h2>
+      <p>Ni betalar för boxen en gång, inte per användare, per fråga eller per ord. Hela kontoret kan använda den varje dag, och uppdateringar i minst fem år gör den bättre med tiden.</p>
+      <div class="readout" data-locale="sv-SE"><div><b id="qcount">10</b><span>Frågor i dag</span></div><div><b>0 kr</b><span>Kostnad per fråga</span></div></div>
+      <p style="margin-top:28px"><a class="btn" style="color:#F2EDE0;border-color:rgba(242,237,224,.3)" href="#priser">Se priser <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
-    <div>
-      <span class="num">ii.</span>
-      <h3>Den gör jobbet</h3>
-      <p>Den kan göra allt ni kan göra på datorn: läsa in hela akten, skriva utkast i era mallar, sköta mejl och kalender. Ni bestämmer vad den får röra, och den frågar innan något skickas.</p>
-    </div>
-    <div>
-      <span class="num">iii.</span>
-      <h3>En kostnad för hela kontoret</h3>
-      <p>Ni betalar för boxen, inte per användare eller per fråga, så alla kan använda den varje dag. Uppdateringar i minst fem år gör den bättre med tiden.</p>
-    </div>
+    <div class="meter"><svg viewBox="0 0 800 550" aria-hidden="true">
+  <path d="M147.2 307.9 A330 330 0 0 1 652.8 307.9" fill="none" stroke="#1A120B" stroke-width="3"/>
+  <line x1="147.2" y1="307.9" x2="174.0" y2="330.4" stroke="#1A120B" stroke-width="3"/><line x1="156.7" y1="297.1" x2="170.0" y2="309.2" stroke="#1A120B" stroke-width="1.4"/><line x1="166.7" y1="286.7" x2="179.4" y2="299.4" stroke="#1A120B" stroke-width="1.4"/><line x1="177.1" y1="276.7" x2="189.2" y2="290.0" stroke="#1A120B" stroke-width="1.4"/><line x1="187.9" y1="267.2" x2="199.5" y2="281.0" stroke="#1A120B" stroke-width="1.4"/><line x1="199.1" y1="258.2" x2="210.1" y2="272.5" stroke="#1A120B" stroke-width="1.4"/><line x1="210.7" y1="249.7" x2="221.0" y2="264.4" stroke="#1A120B" stroke-width="1.4"/><line x1="222.7" y1="241.7" x2="232.4" y2="256.9" stroke="#1A120B" stroke-width="1.4"/><line x1="235.0" y1="234.2" x2="244.0" y2="249.8" stroke="#1A120B" stroke-width="1.4"/><line x1="247.6" y1="227.3" x2="255.9" y2="243.3" stroke="#1A120B" stroke-width="1.4"/><line x1="260.5" y1="220.9" x2="275.3" y2="252.6" stroke="#1A120B" stroke-width="3"/><line x1="273.7" y1="215.1" x2="280.6" y2="231.7" stroke="#1A120B" stroke-width="1.4"/><line x1="287.1" y1="209.9" x2="293.3" y2="226.8" stroke="#1A120B" stroke-width="1.4"/><line x1="300.8" y1="205.3" x2="306.2" y2="222.4" stroke="#1A120B" stroke-width="1.4"/><line x1="314.6" y1="201.2" x2="319.2" y2="218.6" stroke="#1A120B" stroke-width="1.4"/><line x1="328.6" y1="197.8" x2="332.5" y2="215.4" stroke="#1A120B" stroke-width="1.4"/><line x1="342.7" y1="195.0" x2="345.8" y2="212.7" stroke="#1A120B" stroke-width="1.4"/><line x1="356.9" y1="192.8" x2="359.3" y2="210.7" stroke="#1A120B" stroke-width="1.4"/><line x1="371.2" y1="191.3" x2="372.8" y2="209.2" stroke="#1A120B" stroke-width="1.4"/><line x1="385.6" y1="190.3" x2="386.4" y2="208.3" stroke="#1A120B" stroke-width="1.4"/><line x1="400.0" y1="190.0" x2="400.0" y2="225.0" stroke="#1A120B" stroke-width="3"/><line x1="414.4" y1="190.3" x2="413.6" y2="208.3" stroke="#1A120B" stroke-width="1.4"/><line x1="428.8" y1="191.3" x2="427.2" y2="209.2" stroke="#1A120B" stroke-width="1.4"/><line x1="443.1" y1="192.8" x2="440.7" y2="210.7" stroke="#1A120B" stroke-width="1.4"/><line x1="457.3" y1="195.0" x2="454.2" y2="212.7" stroke="#1A120B" stroke-width="1.4"/><line x1="471.4" y1="197.8" x2="467.5" y2="215.4" stroke="#1A120B" stroke-width="1.4"/><line x1="485.4" y1="201.2" x2="480.8" y2="218.6" stroke="#1A120B" stroke-width="1.4"/><line x1="499.2" y1="205.3" x2="493.8" y2="222.4" stroke="#1A120B" stroke-width="1.4"/><line x1="512.9" y1="209.9" x2="506.7" y2="226.8" stroke="#1A120B" stroke-width="1.4"/><line x1="526.3" y1="215.1" x2="519.4" y2="231.7" stroke="#1A120B" stroke-width="1.4"/><line x1="539.5" y1="220.9" x2="524.7" y2="252.6" stroke="#1A120B" stroke-width="3"/><line x1="552.4" y1="227.3" x2="544.1" y2="243.3" stroke="#1A120B" stroke-width="1.4"/><line x1="565.0" y1="234.2" x2="556.0" y2="249.8" stroke="#1A120B" stroke-width="1.4"/><line x1="577.3" y1="241.7" x2="567.6" y2="256.9" stroke="#1A120B" stroke-width="1.4"/><line x1="589.3" y1="249.7" x2="579.0" y2="264.4" stroke="#1A120B" stroke-width="1.4"/><line x1="600.9" y1="258.2" x2="589.9" y2="272.5" stroke="#1A120B" stroke-width="1.4"/><line x1="612.1" y1="267.2" x2="600.5" y2="281.0" stroke="#1A120B" stroke-width="1.4"/><line x1="622.9" y1="276.7" x2="610.8" y2="290.0" stroke="#1A120B" stroke-width="1.4"/><line x1="633.3" y1="286.7" x2="620.6" y2="299.4" stroke="#1A120B" stroke-width="1.4"/><line x1="643.3" y1="297.1" x2="630.0" y2="309.2" stroke="#1A120B" stroke-width="1.4"/><line x1="652.8" y1="307.9" x2="626.0" y2="330.4" stroke="#1A120B" stroke-width="3"/><text x="199.3" y="351.6" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">10</text><text x="289.3" y="282.5" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">100</text><text x="400.0" y="258.0" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">1 000</text><text x="510.7" y="282.5" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">10 000</text><text x="600.7" y="351.6" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="26" font-weight="600" fill="#1A120B">∞</text>
+  <text x="400" y="400" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="18" letter-spacing="4" fill="#1A120B" opacity=".75">FRÅGOR PER DAG</text>
+  <g class="needle" id="needle"><line x1="400" y1="520" x2="400" y2="168" stroke="#1A120B" stroke-width="3" stroke-linecap="round"/></g>
+  <circle cx="400" cy="520" r="34" fill="#141110"/><circle cx="392" cy="512" r="8" fill="#3A332D"/>
+</svg></div>
   </div>
 </section>
 
@@ -129,24 +194,28 @@ a.use:hover { border-color: var(--line2); }
   </div>
   <div class="uses">
     <a class="use" href="advokat/">
+      <span class="tile t1" aria-hidden="true"></span>
       <span class="tag">Advokatbyråer</span>
       <h3>Akten stannar på byrån.</h3>
       <p class="ask">Sammanfatta akten och lista det motparten inte bemött.</p>
       <span class="go">Så arbetar den på en byrå <span aria-hidden="true">→</span></span>
     </a>
     <a class="use" href="revision/">
+      <span class="tile t2" aria-hidden="true"></span>
       <span class="tag">Revisions- och redovisningsbyråer</span>
       <h3>Hela underlaget, inte ett stickprov.</h3>
       <p class="ask">Gå igenom alla verifikationer och flagga det som avviker.</p>
       <span class="go">Så arbetar den på en revisionsbyrå <span aria-hidden="true">→</span></span>
     </a>
     <a class="use" href="patent/">
+      <span class="tile t3" aria-hidden="true"></span>
       <span class="tag">Patentbyråer</span>
       <h3>Uppfinningen stannar hos er.</h3>
       <p class="ask">Jämför uppfinningen med tidigare teknik och skriv ett första utkast.</p>
       <span class="go">Så arbetar den på en patentbyrå <span aria-hidden="true">→</span></span>
     </a>
     <a class="use" href="#kontakt">
+      <span class="tile t4" aria-hidden="true"></span>
       <span class="tag">Vård, konsulter, industri</span>
       <h3>Har ni något att skydda?</h3>
       <p class="ask">Journaler, kundregister, ritningar och källkod.</p>
@@ -216,8 +285,9 @@ a.use:hover { border-color: var(--line2); }
   </nav>
 </section>
 
-<section class="sec rule closing" id="kontakt">
+<section class="sec closing" id="kontakt">
   <div class="wrap">
+    <svg class="arc-head" viewBox="0 0 520 34" aria-hidden="true"><path d="M4 31 Q260 -10 516 31" fill="none" stroke="#2A2724" stroke-width="1.6" stroke-linecap="round"/></svg>
     <h2>Se den på <em>ert eget arbete.</em></h2>
     <p class="lead muted">Vi kommer till er och visar boxen på ett avidentifierat dokument från er vardag, var ni än finns i Sverige.</p>
     <form id="kontaktform" class="formbox contact" novalidate>
