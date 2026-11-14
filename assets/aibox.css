@@ -192,7 +192,7 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--amber)}
 .spec b{display:block;font:400 26px/1.1 var(--serif);margin-bottom:8px;color:var(--ink)}
 .spec p{margin:0;font-size:15px;line-height:1.5;color:var(--ink-2)}
 .spec::before{content:"";display:block;width:28px;height:1px;background:var(--amber);margin-bottom:14px}
-.spec.l{right:calc(50% + 270px)}.spec.r{left:calc(50% + 270px)}
+.spec.l{right:calc(50% + var(--bw,540px)/2 + 48px)}.spec.r{left:calc(50% + var(--bw,540px)/2 + 48px)}
 .spec.t1{top:34vh}.spec.t2{top:54vh}
 .reveal .under{position:absolute;z-index:6;left:0;right:0;top:calc(var(--hz) + 4.5vh);text-align:center;opacity:0;transition:opacity .6s}
 .reveal .under.on{opacity:1}
@@ -427,3 +427,45 @@ details > div{padding:0 0 20px;color:var(--ink-2);max-width:680px}
   .reveal .spec{top:calc(var(--hz) + 3vh)!important;bottom:auto;background:none;border:0;padding:0 4px;text-align:center}
   .reveal .under{top:calc(var(--hz) + 15vh)}
 }
+
+/* ---- "Den gör jobbet": the montage (homepage). Five cuts, one sentence on their edges. ---- */
+.mont{height:620vh;position:relative;background:var(--paper)}
+.mont .pin{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding:86px var(--gut) 22px;gap:16px}
+.mont .head .eyebrow{margin-bottom:10px}
+.mont .head .headline{font-size:clamp(30px,4vw,52px);margin:0}
+.mont .stage{position:relative;justify-self:center;align-self:center;height:100%;max-height:calc((100vw - 2*var(--gut))/1.6);aspect-ratio:1.6;max-width:100%;border-radius:24px;overflow:hidden;background:#111;box-shadow:0 50px 90px -60px rgba(27,25,20,.6)}
+.mont .cut{position:absolute;inset:0;opacity:0;transition:opacity .45s linear}
+.mont .cut.on{opacity:1}
+.mont .cut svg{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.mont .word{font:400 74px/1 var(--serif)}
+.mont .mono{font:500 13px var(--sans);letter-spacing:.12em;fill:#8A8173}
+.mont .ln{fill:#D9D0C1}.mont .ln2{fill:#E3DBCD}
+.mont .hlr{fill:#F2B152;opacity:.55;transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}
+.mont .tag{font:600 14px var(--sans);letter-spacing:.16em;fill:#8A8173}
+.mont .lt{font:400 34px var(--serif);fill:#2A2724}
+.mont .lt:first-of-type{font-style:italic}
+.mont .cal line{stroke:#FFE2B0;stroke-opacity:.2;stroke-width:1.5}
+.mont .cday{font:500 18px var(--sans);fill:#F2EDE0;fill-opacity:.7;letter-spacing:.06em}
+.mont .ctime{font:500 15px var(--sans);fill:#F2EDE0;fill-opacity:.45}
+.mont .busy{fill:#FFE2B0;fill-opacity:.09}
+.mont .slot{opacity:0}
+.mont .st1{font:600 17px var(--sans);fill:#2B1606}.mont .st2{font:400 16px var(--sans);fill:#3B1F0A}
+.mont .q{font:400 33px var(--serif);fill:#1B1914}
+.mont .bt{font:500 19px var(--sans)}
+.mont .sm{font:400 17px var(--sans);fill:#8A8173}
+.mont .ok{transform-box:fill-box;transform-origin:center}
+.mont .done{opacity:0}
+.mont .mfoot{text-align:center}
+.mont .mfoot p{color:var(--ink-2);max-width:40em;margin:0 auto;font-size:15.5px}
+.mont .ticks{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.mont .ticks i{width:22px;height:2px;background:var(--line-2);transition:background .3s}
+.mont .ticks i.on{background:var(--ink)}
+.mont .cut .draw{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1)}
+.mont .cut.on .draw{stroke-dashoffset:0}
+@media (max-width:760px){
+  .mont{height:560vh}
+  .mont .pin{padding-top:74px}
+  .mont .stage{aspect-ratio:.8;max-height:none;width:100%;height:auto;align-self:center}
+  .mont .mfoot p{font-size:14.5px}
+}
+@media (prefers-reduced-motion:reduce){.mont .cut{transition:none}}
