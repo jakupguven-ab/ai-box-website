@@ -357,7 +357,7 @@
           tx0 = m0.x * Hd; ty0 = (1 - m0.y) * Hd;
           var room = Math.max(120, ty0 - textBottom - 40);
           sw = narrow ? Math.min(150, Wd * .4) : Math.max(120, Math.min(270, Wd * .52, room / 1.36));
-          bx = Wd / 2 + (narrow ? 0 : Math.min(260, Wd * .2)); by = narrow ? textBottom + 22 + sw * 1.36 : Math.min(ty0 - 18, textBottom + 26 + sw * 1.36);
+          bx = Wd / 2 + (narrow ? 0 : Math.min(340, Wd * .24)); by = narrow ? textBottom + 22 + sw * 1.36 : Math.min(ty0 - 18, textBottom + 26 + sw * 1.36);
         }
         var mi = sm(0, 1, P.mini), sc = mix(1, .03, mi), x = mix(bx, tx0, mi), y = mix(by, ty0, mi);
         sheet.style.width = sw + 'px';
