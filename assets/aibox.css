@@ -591,3 +591,34 @@ html.no-gl .world .pin{background:#F7F0E5;background:color-mix(in srgb,#0C0F14 c
 @media (min-width:700px){html[lang=en] .world-hero .in{padding-top:calc(64px + 8vh)}html[lang=en] .world-hero h1{font-size:clamp(44px,6.3vw,90px)}html[lang=en] .world-hero .lede{max-width:600px}}
 /* the arc words ride the horizon, which is fixed to the screen, so they are too */
 .world-hero .arc-words{position:fixed;inset:0;height:100vh;height:100svh}
+
+/* ---- the world, second cut (14 Nov, late): real Earth, hop cards, the office in light ---- */
+.world .hops{position:absolute;inset:0;pointer-events:none}
+.world .hopc{position:absolute;left:0;top:0;opacity:0;white-space:nowrap;text-align:right;color:#E6EEF8;text-shadow:0 1px 14px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,.8);will-change:transform,opacity}
+.world .hopc.r{text-align:left}
+.world .hopc b{display:block;font:600 10.5px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#9CC0EC}
+.world .hopc.h0 b{color:#F3B862}
+.world .hopc span{display:block;font:italic 400 23px/1.15 var(--serif);color:#F4F6FA;margin-top:2px}
+.world .hopc i{display:block;font:400 13.5px/1.4 var(--sans);font-style:normal;color:rgba(226,234,246,.78);width:16em;white-space:normal;margin-top:4px;opacity:var(--cur,0);max-height:calc(var(--cur,0) * 3.2em);overflow:hidden}
+.world .hopc.r i{margin-right:auto}.world .hopc:not(.r) i{margin-left:auto}
+.world .bk{position:absolute;left:0;top:0;opacity:0;font:italic 400 17px/1 var(--serif);color:#FFE2B0;white-space:nowrap;text-shadow:0 1px 12px rgba(0,0,0,.9)}
+.world .kmc{text-shadow:0 0 18px rgba(120,170,255,.5),0 1px 10px rgba(0,0,0,.9)}
+.world .office-wrap{position:absolute;left:50%;bottom:3vh;width:min(1000px,96vw);transform:translateX(-50%) perspective(1500px) rotateX(50deg);transform-origin:50% 100%;opacity:0;pointer-events:none}
+.world .office{display:block;width:100%;height:auto;overflow:visible}
+.world .office .w path,.world .office .dk,.world .office .sc{fill:none;stroke:#FFD9A0;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:calc(1 - var(--draw,0));filter:drop-shadow(0 0 5px rgba(255,186,100,.85))}
+.world .office .dk,.world .office .sc{stroke:rgba(255,217,160,.55);stroke-width:1.5;filter:none}
+.world .office .rl{font:600 15px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;fill:rgba(255,226,180,.7);text-anchor:middle;opacity:var(--draw,0)}
+.world .office .trip{fill:none;stroke:rgba(255,226,180,.22);stroke-width:2;stroke-dasharray:2 8;stroke-linecap:round;opacity:var(--draw,0)}
+.world .office .trail{fill:none;stroke:#FFE7B8;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:calc(1 - var(--tr,0));filter:drop-shadow(0 0 7px #F3B862)}
+.world .office .pk{fill:#FFF3DC;filter:drop-shadow(0 0 8px #F3B862) drop-shadow(0 0 20px #F3B862);opacity:0}
+.world .office .box rect{fill:#120F0C;stroke:#F3B862;stroke-width:2.2}
+.world .office .box .led{fill:#FFD08A;filter:drop-shadow(0 0 4px #F3B862)}
+.world .office .box .glow{fill:rgba(255,196,110,.45);opacity:var(--lit,0);filter:blur(16px)}
+.world .office .mc{font:italic 400 34px/1 var(--serif);fill:#FFE6BC;opacity:0}
+.world .office .desk{fill:none}
+.world .sheet-wrap{left:0}
+@media (max-width:700px){.world .hopc span{font-size:18px}.world .hopc i{font-size:12px;width:13em}.world .hopc b{font-size:9.5px}.world .office-wrap{bottom:9vh;width:100vw;transform:translateX(-50%) perspective(900px) rotateX(36deg)}}
+@media (prefers-reduced-motion:reduce){.world{height:auto!important}.world .hops,.world .office-wrap{display:none}}
+html.no-gl .world .hops{display:none}
+.world .sheet-wrap{transform-origin:50% 100%}
+.world .sheet-wrap .sheet{position:relative;inset:auto;box-shadow:none;background:none}
