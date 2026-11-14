@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Box – lokal AI för känsliga uppgifter, utan moln</title>
-<meta name="description" content="AI Box är en lokal AI-server hos er: en AI i klass med de marknadsledande molntjänsterna, men patientdata, avtal och kunduppgifter lämnar aldrig lokalen. GDPR utan molnleverantör. Från 49 000 kr exkl. moms. Prova den själv.">
+<meta name="description" content="AI Box är er egen AI, i en box hos er: i klass med de marknadsledande molntjänsterna, och patientdata, avtal och kunduppgifter stannar i lokalen. GDPR utan molnleverantör. Från 49 000 kr exkl. moms. Prova den själv.">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css?v=3">
@@ -33,11 +33,11 @@
     { "@type": "Organization", "name": "Jakup Güven AB", "url": "https://ai-box.se/", "email": "info@ai-box.se",
       "address": { "@type": "PostalAddress", "addressLocality": "Malmö", "addressCountry": "SE" }, "vatID": "SE559582892101" },
     { "@type": "Product", "name": "AI Box S", "brand": "AI Box",
-      "description": "Lokal AI-server för en person eller ett litet team. Språkmodellen körs hos er; inget lämnar boxen.",
+      "description": "Egen AI i en box hos er, för en person eller ett litet team. Allt stannar på boxen.",
       "offers": { "@type": "Offer", "price": "49000", "priceCurrency": "SEK", "availability": "https://schema.org/InStock",
         "priceSpecification": { "@type": "UnitPriceSpecification", "price": "49000", "priceCurrency": "SEK", "valueAddedTaxIncluded": false } } },
     { "@type": "Product", "name": "AI Box M", "brand": "AI Box",
-      "description": "Lokal AI-server för upp till åtta personer samtidigt och AI-agenter. Språkmodellen körs hos er; inget lämnar boxen.",
+      "description": "Egen AI i en box hos er, för upp till åtta personer samtidigt och AI-agenter. Allt stannar på boxen.",
       "offers": { "@type": "Offer", "price": "89000", "priceCurrency": "SEK", "availability": "https://schema.org/InStock",
         "priceSpecification": { "@type": "UnitPriceSpecification", "price": "89000", "priceCurrency": "SEK", "valueAddedTaxIncluded": false } } }
   ]
@@ -108,8 +108,8 @@
     <div>
       <span class="num">i.</span>
       <h3>Det stannar hos er</h3>
-      <p>Språkmodellen körs på boxen. Dokument, frågor, svar och historik sparas på boxen och skickas inte till något moln,
-        någon leverantör eller någon tredje part. Inte heller till oss.</p>
+      <p>Språkmodellen körs på boxen. Dokument, frågor, svar och historik sparas där och
+        ingen annanstans, inte ens hos oss.</p>
     </div>
     <div>
       <span class="num">ii.</span>
@@ -120,8 +120,8 @@
     <div>
       <span class="num">iii.</span>
       <h3>Ni äger den</h3>
-      <p>När ni köper boxen är den er. Den behöver inget konto hos oss och ingen licensserver, och den kör vidare även
-        om vi skulle försvinna. Uppdateringar i minst fem år, installerade när ni vill, och med dem blir den bättre.</p>
+      <p>När ni köper boxen är den er. Den behöver inget konto hos oss och ingen licensserver: den fungerar helt
+        på egen hand. Uppdateringar i minst fem år, installerade när ni vill, och med dem blir den bättre.</p>
     </div>
   </div>
 </section>
@@ -231,8 +231,8 @@
       <span class="tag">Kopplas in i era system</span>
       <p class="ask">Gå igenom morgondagens bokningar och skriv ett påminnelsemejl till varje klient. Jag skickar dem själv.</p>
       <p>Den kan göra allt ni kan göra vid datorn: i e-posten, kalendern, ärende- eller journalsystemet och ekonomiprogrammet.
-        Har systemet ett API använder den det, annars klickar den sig fram som en anställd. Ni bestämmer vilka system den får
-        röra och vad den får göra där, och ni kan låta den förbereda så att ni själva godkänner och skickar. Allt sker på boxen.</p>
+        Har systemet ett API använder den det, annars klickar den sig fram som en anställd. Ni väljer vilka system den arbetar i
+        och vad den får göra där. Allt sker på boxen.</p>
     </div>
   </div>
   <ul class="also" aria-label="Mer i chatten">
@@ -304,9 +304,9 @@
       <div>
         <p class="kicker">Prova själv</p>
         <h2 id="prova-h">Chatta med en <em>riktig box.</em></h2>
-        <p class="lead muted">Ingen demofilm och inget säljsamtal. Berätta vem du är, så läser vi
-          förfrågan och mejlar en kod. Sedan chattar du med en av våra egna boxar, här på sidan.</p>
-        <p class="fine">Skriv inga riktiga patient- eller kunduppgifter i provet: det är vår box, inte er egen.
+        <p class="lead muted">Berätta vem du är, så mejlar vi en kod. Sedan chattar du med en av
+          våra egna boxar, direkt här på sidan.</p>
+        <p class="fine">Provet körs på vår box, så använd påhittade exempel i stället för riktiga patient- eller kunduppgifter.
           Mer om hur vi hanterar uppgifterna i vår
           <a href="integritet/">integritetspolicy</a>.</p>
       </div>
@@ -362,8 +362,7 @@
   <aside class="notfor" aria-labelledby="notfor-h">
     <h3 id="notfor-h">Vem ska <em>inte</em> köpa AI Box?</h3>
     <p>Får era uppgifter ligga i en molntjänst, och använder ni AI bara då och då? Då räcker molnet, och det blir
-      billigare. AI Box lönar sig när uppgifterna inte får lämna lokalen, eller när hela kontoret använder AI varje dag.
-      Det säger vi hellre nu än efteråt.</p>
+      billigare. AI Box lönar sig när uppgifterna ska stanna i lokalen, eller när hela kontoret använder AI varje dag.</p>
   </aside>
 </section>
 
@@ -414,20 +413,19 @@
       <div class="a"><p>Ja. PDF- och Word-filer och andra textfiler, direkt i chatten. Följdfrågor om samma dokument besvaras utan att det läses om.</p></div></details>
     <details><summary>Fungerar den hemifrån?</summary>
       <div class="a"><p>Ja. På kontoret går trafiken direkt till boxen. Hemifrån går den krypterad hela vägen från appen till
-        boxen: direkt när det går, annars via en förmedlingsserver som inte kan läsa innehållet.</p></div></details>
+        boxen: direkt när det går, annars via en krypterad förmedling som inte kan läsa innehållet.</p></div></details>
     <details><summary>Kan jag lita på svaren?</summary>
-      <div class="a"><p>Behandla det den skriver som ett utkast från en duktig kollega: läs igenom innan du använder det. Den fattar
-        inga beslut och ställer inga diagnoser.</p></div></details>
+      <div class="a"><p>Se det som ett utkast från en duktig kollega: den gör grovjobbet, du läser igenom och bestämmer.</p></div></details>
   </div>
 
   <div class="qgroup" id="q-it" role="tabpanel" aria-labelledby="t-it" hidden>
     <h3 class="gh">IT</h3>
     <details><summary>Vad behöver boxen?</summary>
-      <div class="a"><p>Ström och en nätverkskabel. Det är en tornarbetsstation som står på golvet eller i ett serverskåp. Ingen skärm
+      <div class="a"><p>Ström och en nätverkskabel. Den står på golvet eller i ett datorskåp, ungefär som en stationär dator. Ingen skärm
         behövs.</p></div></details>
     <details><summary>Vilka portar och vilken trafik?</summary>
       <div class="a"><p>Inga inkommande portar och ingen portöppning. Boxen hämtar adress med DHCP och öppnar bara utgående krypterade
-        förbindelser: för appar som når boxen hemifrån (via en förmedlingsserver som inte kan läsa innehållet), för uppdateringar när ni installerar dem och för webbsökning om ni har
+        förbindelser: för appar som når boxen hemifrån (via en krypterad förmedling som inte kan läsa innehållet), för uppdateringar när ni installerar dem och för webbsökning om ni har
         den påslagen. Inget av era dokument eller samtal skickas ut.</p></div></details>
     <details><summary>Kan våra egna program använda den?</summary>
       <div class="a"><p>Ja. Boxen har OpenAI- och Anthropic-kompatibla API:er, så de flesta program och AI-verktyg
