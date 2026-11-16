@@ -667,3 +667,17 @@ html.no-gl .world .hops{display:none}
 @media (max-width:699px){
   .price .tag{position:static;display:inline-block;margin:0 0 12px}
 }
+
+/* desktop and tablet (16 Nov): the arc words sit on the horizon at about two thirds of the screen height, so the hero's
+   text is sized by height as well as width and always ends above them (both languages, landing pages too) */
+@media (min-width:700px){
+  html .hero:not(.sub) .in{padding-top:calc(64px + 5svh)}
+  html .hero:not(.sub) .eyebrow{margin-bottom:1.6svh}
+  html .hero:not(.sub) h1{font-size:clamp(38px,min(6.2vw,8.6svh),104px);margin-bottom:2.4svh}
+  html .hero:not(.sub) .lede{max-width:600px;margin-bottom:3svh;font-size:clamp(15px,2.4svh,18px)}
+  html .hero:not(.sub) .fine{margin-top:1.8svh}
+}
+@media (min-width:700px) and (max-height:700px){
+  html .hero:not(.sub) .in{padding-top:calc(64px + 2svh)}
+  html .hero:not(.sub) .btn{height:42px}
+}
