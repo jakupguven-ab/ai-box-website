@@ -465,7 +465,8 @@ details > div{padding:0 0 20px;color:var(--ink-2);max-width:680px}
 @media (max-width:760px){
   .mont{height:560vh}
   .mont .pin{padding-top:74px}
-  .mont .stage{aspect-ratio:.8;max-height:none;width:100%;height:auto;align-self:center}
+  .mont .pin{grid-template-rows:auto minmax(0,1fr) auto}
+  .mont .stage{aspect-ratio:.8;max-height:100%;height:100%;width:auto;max-width:100%;min-height:0;align-self:center}
   .mont .mfoot p{font-size:14.5px}
 }
 @media (prefers-reduced-motion:reduce){.mont .cut{transition:none}}
@@ -622,3 +623,47 @@ html.no-gl .world .pin{background:#F7F0E5;background:color-mix(in srgb,#0C0F14 c
 html.no-gl .world .hops{display:none}
 .world .sheet-wrap{transform-origin:50% 100%}
 .world .sheet-wrap .sheet{position:relative;inset:auto;box-shadow:none;background:none}
+
+/* phones: the hero's text sits higher and tighter, so the arc words on the horizon keep clear of the buttons (16 Nov) */
+@media (max-width:699px){
+  .hero:not(.sub) .in{padding-top:calc(64px + 3svh)}
+  .hero:not(.sub) h1{font-size:clamp(34px,10vw,44px);margin-bottom:12px}
+  .hero:not(.sub) .eyebrow{margin-bottom:10px}
+  .hero:not(.sub) .lede{font-size:15px;line-height:1.48;margin-bottom:18px}
+  .hero:not(.sub) .fine{margin-top:10px;font-size:13px}
+}
+/* short phones (iPhone SE, or any phone with Safari's toolbars showing): smaller still */
+@media (max-width:699px) and (max-height:620px){
+  .hero:not(.sub) .in{padding-top:calc(60px + 1svh)}
+  .hero:not(.sub) .eyebrow{display:none}
+  .hero:not(.sub) h1{font-size:clamp(30px,9vw,38px);margin-bottom:10px}
+  .hero:not(.sub) .lede{font-size:14px;margin-bottom:14px}
+  .hero:not(.sub) .btn{height:42px}
+}
+
+/* ---- phones (16 Nov): iOS Safari's toolbars make vh taller than what shows, so the story's horizon,
+   its page counter and the source lines are measured in svh; on phones the facts get their own band
+   below the counter, the header menu sits at the right edge, and card labels stack. Desktop untouched. ---- */
+@media (max-width:920px){
+  .top .wrap>.logo{margin-right:auto}
+  .lang{margin-left:0}
+}
+@media (max-width:699px){
+  .story-stage{--hz:66svh!important}
+  .meter{top:calc(var(--hz) + 2.5svh)}
+  .meter b{font-size:26px}
+  .meter em{font-size:15px;margin-top:4px}
+  .meter .bar{margin-top:8px}
+  .fact{bottom:calc(2svh + env(safe-area-inset-bottom,0px));font-size:14.5px;line-height:1.35}
+  .fact small{font-size:11px;margin-top:3px}
+  .wc .lab{flex-direction:column;align-items:flex-start;gap:5px;line-height:1.2}
+  .wc .lab span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+@media (max-width:699px){
+  .hero:not(.sub) .fine{color:var(--ink-2);text-shadow:0 0 12px rgba(247,244,236,.9)}
+  .mont .pin{gap:26px;padding-bottom:28px}
+  .mont .head .eyebrow{margin-bottom:8px}
+}
+@media (max-width:699px){
+  .price .tag{position:static;display:inline-block;margin:0 0 12px}
+}
