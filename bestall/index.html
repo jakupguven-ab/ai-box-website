@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beställ AI Box</title>
-<meta name="description" content="Beställ AI Box S eller M. Köp en gång från 49 000 kr exkl. moms, eller leasa i 12, 24 eller 36 månader. Installation i hela Sverige inom två veckor, betalning mot faktura.">
+<title>Beställ AI-Box</title>
+<meta name="description" content="Beställ AI-Box S eller M. Köp en gång från 49 000 kr exkl. moms, eller leasa i 12, 24 eller 36 månader. Installation i hela Sverige inom två veckor, betalning mot faktura.">
 <link rel="stylesheet" href="../assets/site.css?v=3">
 <link rel="stylesheet" href="../assets/light.css">
 <script>if (/[?&](tema=mork|theme=dark)/.test(location.search)) document.documentElement.setAttribute("data-theme", "dark");</script>
@@ -17,10 +17,8 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="../" aria-label="AI Box, till startsidan">AI <span>Box</span></a>
-    <nav class="nav" id="nav" aria-label="Huvudmeny">
-      <a href="../hastighet/">Hastighet</a><a href="../#priser">Priser</a><a href="../fragor/">Frågor</a><a href="../fragor/#dataskydd">Dataskydd</a><a href="../fragor/#om">Om oss</a><a href="../#kontakt">Kontakt</a>
-    </nav>
+    <a class="logo" href="/" aria-label="AI-Box, startsidan">AI-<span>Box</span></a>
+    <nav class="nav" id="nav" aria-label="Huvudmeny"><a href="/produkt/">Produkt</a><a href="/box-eller-moln/">Box eller moln</a><a href="/priser/">Priser och pilot</a><a href="/fragor/">Frågor</a><a href="/om-oss/">Om oss</a><a href="/kontakt/">Kontakt</a></nav>
     <div class="acts">
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Meny</button>
       <a class="lang" href="../en/order/" hreflang="en" lang="en" title="In English">EN</a>
@@ -31,7 +29,7 @@
 
 <main class="wrap page" id="main">
   <p class="kicker">Beställning</p>
-  <h1>Beställ <em>AI Box.</em></h1>
+  <h1>Beställ <em>AI-Box.</em></h1>
   <p class="lead">Välj box, köp eller leasing, och fyll i uppgifterna om er verksamhet. Vi bekräftar pris och installationsdag
     innan något är bindande.</p>
 
@@ -39,11 +37,11 @@
     <form id="order" class="formbox" novalidate>
       <fieldset>
         <legend>1. Välj box</legend>
-        <label class="choice"><input type="radio" name="box" value="AI Box S" checked>
-          <span><b>AI Box S</b><small>För en person, eller ett litet team som turas om</small></span>
+        <label class="choice"><input type="radio" name="box" value="AI-Box S" checked>
+          <span><b>AI-Box S</b><small>För en person, eller ett litet team som turas om</small></span>
           <span class="pr">49 000 kr</span></label>
-        <label class="choice"><input type="radio" name="box" value="AI Box M">
-          <span><b>AI Box M</b><small>Upp till åtta personer samtidigt, plus AI-agenter</small></span>
+        <label class="choice"><input type="radio" name="box" value="AI-Box M">
+          <span><b>AI-Box M</b><small>Upp till åtta personer samtidigt, plus AI-agenter</small></span>
           <span class="pr">89 000 kr</span></label>
         <label class="short">Antal boxar<input type="text" name="antal" inputmode="numeric" value="1"></label>
       </fieldset>
@@ -92,7 +90,7 @@
     <aside class="summary" aria-label="Sammanställning">
       <h2>Er beställning</h2>
       <dl>
-        <dt>Box</dt><dd id="s-box">AI Box S</dd>
+        <dt>Box</dt><dd id="s-box">AI-Box S</dd>
         <dt>Antal</dt><dd id="s-antal">1</dd>
         <dt id="s-pris-t">Pris</dt><dd id="s-pris">49 000 kr</dd>
         <dt>Installation</dt><dd>Hos er, inom två veckor</dd>
@@ -127,7 +125,7 @@
 
 <script>
 (function () {
-  var PRICE = { "AI Box S": { kop: 49000, lease: { 36: 1950, 24: 2600, 12: 4700 } }, "AI Box M": { kop: 89000, lease: { 36: 3500, 24: 4700, 12: 8500 } } };
+  var PRICE = { "AI-Box S": { kop: 49000, lease: { 36: 1950, 24: 2600, 12: 4700 } }, "AI-Box M": { kop: 89000, lease: { 36: 3500, 24: 4700, 12: 8500 } } };
   var f = document.getElementById("order"), msg = document.getElementById("msg");
   function val(n) { var e = f.elements[n]; return e ? (e.value || "").trim() : ""; }
   function kr(n) { return n.toLocaleString("sv-SE") + " kr"; }
@@ -151,7 +149,7 @@
   }
   f.addEventListener("input", summary); f.addEventListener("change", summary);
   var q = new URLSearchParams(location.search);
-  if (q.get("box") === "m") f.elements.box.value = "AI Box M";
+  if (q.get("box") === "m") f.elements.box.value = "AI-Box M";
   if (q.get("satt") === "leasa" || q.get("satt") === "hyra") f.elements.satt.value = "Leasa";
   if (["12", "24", "36"].indexOf(q.get("tid")) >= 0) f.elements.tid.value = q.get("tid");
   summary();
@@ -163,7 +161,7 @@
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val("epost"))) { msg.className = "msg err"; msg.textContent = "E-postadressen ser inte rätt ut."; f.elements.epost.focus(); return; }
     if (!f.elements.ok.checked) { msg.className = "msg err"; msg.textContent = "Kryssa i att ni beställer för verksamhetens räkning."; return; }
     var lines = [
-      "Beställning av AI Box", "",
+      "Beställning av AI-Box", "",
       "Box: " + val("box"), "Antal: " + count(), "Köpa eller leasa: " + val("satt") + (val("satt") === "Leasa" ? ", " + val("tid") + " månader" : ""), "Pris exkl. moms: " + priceText(), "",
       "Företag: " + val("foretag"), "Org.nr: " + val("orgnr"), "Kontaktperson: " + val("kontakt"),
       "E-post för faktura: " + val("epost"), "Telefon: " + (val("telefon") || "-"), "",
