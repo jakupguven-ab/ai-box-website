@@ -386,6 +386,8 @@
       gl.uniform1f(U.uPN, P.plan > .5 ? pn : 0);
       if (P.plan > .01) { gl.uniform3fv(U.uP, PBUF); gl.uniform3fv(U.uN, NBUF); gl.uniform3f(U.uPk, pk[0], pk[1], pk[2]); }
       gl.drawArrays(gl.TRIANGLES, 0, 3);
+      /* tell the loader the earth is on screen (first frame drawn with its texture) */
+      if (texOn && !window.__aiboxReady) { window.__aiboxReady = 1; requestAnimationFrame(function () { document.dispatchEvent(new Event('aibox:ready')); }); }
     }
     if (!reduce) raf = requestAnimationFrame(frame);
   }

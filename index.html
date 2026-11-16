@@ -4,23 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-/* loader A: the horizon at dawn while the earth loads. Shown once per session; never with reduced motion. */
+/* loader A: the horizon at dawn while the earth loads. Everything is inline (the wordmark is SVG paths cut from
+   Newsreader), so its first frame is complete. Its paper ground is there from the first frame; the horizon, sun and wordmark appear only if the page is not ready within 300 ms, stays at
+   least 600 ms once seen, at most 2.5 s, then crossfades into the hero. Once per session; never with reduced motion. */
 #ld{display:none}
 html.ld{overflow:hidden}
-html.ld #ld,#ld.out{display:block;position:fixed;inset:0;z-index:9999;background:#F7F4EC;overflow:hidden;transition:opacity .4s ease}
+html.ld #ld,#ld.out{display:block;position:fixed;inset:0;z-index:9999;background:#F7F4EC;transition:opacity .45s ease}
 #ld.out{opacity:0;pointer-events:none}
+#ld .in{position:absolute;inset:0;background:#F7F4EC;overflow:hidden;opacity:0;animation:ld-in .16s linear .3s forwards}
 #ld .sky{position:absolute;left:0;right:0;bottom:0;height:60%;background:radial-gradient(120% 90% at 50% 100%,rgba(243,184,98,.28),rgba(243,184,98,0) 70%)}
 #ld .arc{position:absolute;left:-60%;right:-60%;top:62%;height:200vh;border-radius:50%;border-top:1px solid rgba(29,28,25,.35)}
 #ld .sun{position:absolute;left:50%;top:62%;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;background:radial-gradient(circle,rgba(232,163,61,.55),rgba(232,163,61,0) 70%);animation:ld-rise 2.4s ease-in-out infinite alternate}
-#ld .mark{position:absolute;left:0;right:0;top:62%;transform:translateY(calc(-100% - 22px));text-align:center;font:400 30px/1 "Newsreader",Georgia,serif;letter-spacing:-.01em;color:#1B1914}
-#ld .mark i{font-style:italic;color:#B8661F}
+#ld .mark{position:absolute;left:50%;top:62%;transform:translate(-50%,calc(-100% - 22px));display:block}
+@keyframes ld-in{to{opacity:1}}
 @keyframes ld-rise{from{transform:translateY(40px);opacity:.3}to{transform:none;opacity:1}}
 </style>
 <script>
-(function(){var d=document.documentElement,k='aibox-ld';try{if(sessionStorage.getItem(k)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;sessionStorage.setItem(k,'1')}catch(e){}
-d.classList.add('ld');var t0=Date.now(),done=0;
-function go(){if(done)return;done=1;setTimeout(function(){var el=document.getElementById('ld');if(!el){d.classList.remove('ld');return}el.classList.add('out');setTimeout(function(){d.classList.remove('ld');el.parentNode&&el.parentNode.removeChild(el)},420)},Math.max(0,600-(Date.now()-t0)))}
-addEventListener('load',go);setTimeout(go,2500)})();
+(function(){var d=document.documentElement,k='aibox-ld',t0=performance.now(),done=0;try{if(sessionStorage.getItem(k)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;sessionStorage.setItem(k,'1')}catch(e){}
+d.classList.add('ld');
+function end(fade){var el=document.getElementById('ld');if(!el||!fade){d.classList.remove('ld');el&&el.parentNode.removeChild(el);return}
+el.classList.add('out');setTimeout(function(){d.classList.remove('ld');el.parentNode&&el.parentNode.removeChild(el)},470)}
+function go(){if(done)return;done=1;var e=performance.now()-t0;if(e<300)return end(1);setTimeout(function(){end(1)},Math.max(0,900-e))}
+document.addEventListener('aibox:ready',go);addEventListener('load',function(){if(d.classList.contains('no-gl')||window.__aiboxReady)go()});setTimeout(go,2500)})();
 </script>
 <title>AI-Box – AI i toppklass, under ditt skrivbord</title>
 <meta name="description" content="AI-Box är er egen AI i en box på kontoret. Den läser, skriver och arbetar i era program, och allt ni visar den stannar hos er. Från 49 000 kr exkl. moms, eller en pilot i 60 dagar från 3 000 kr.">
@@ -37,13 +42,13 @@ addEventListener('load',go);setTimeout(go,2500)})();
 <script>
 /* the page's scripts start after the first frame is on screen, so the loader (or the hero) paints first;
    three.js and the WebGL setup then run while the loader's sun keeps rising on the compositor */
-(function(){var S=["/assets/vendor/three-r128.min.js", "/assets/world.js?v=10", "/assets/montage.js?v=10", "/assets/reveal.js?v=10", "/assets/dial.js?v=10", "/assets/contact.js?v=10", "/assets/work.js?v=10"];
+(function(){var S=["/assets/vendor/three-r128.min.js", "/assets/world.js?v=11", "/assets/montage.js?v=10", "/assets/reveal.js?v=10", "/assets/dial.js?v=10", "/assets/contact.js?v=10", "/assets/work.js?v=10"];
 function boot(){S.forEach(function(u){var s=document.createElement("script");s.src=u;s.async=false;document.head.appendChild(s)})}
 document.addEventListener("DOMContentLoaded",function(){requestAnimationFrame(function(){setTimeout(boot,0)})})})();
 </script>
 </head>
 <body>
-<div id="ld" aria-hidden="true"><div class="sky"></div><div class="arc"></div><div class="sun"></div><div class="mark">AI-<i>Box</i></div></div>
+<div id="ld" aria-hidden="true"><div class="in"><div class="sky"></div><div class="arc"></div><div class="sun"></div><svg class="mark" viewBox="0 0 83.56 30" width="83.56" height="30" aria-hidden="true"><path fill="#1B1914" d="M5.24 14.35V13.09H15.31V14.35ZM18.95 20.73 21.19 21.5V22.05H13.63V21.5L16.25 20.76L9.2 4.1H10.06L3.52 20.73L6.06 21.5V22.05H-0.23V21.5L2.07 20.72L9.95 1.35H10.63ZM29.25 21.5V22.05H21.81V21.5L24.25 20.75V2.94L21.81 2.2V1.65H29.25V2.2L26.81 2.94V20.75ZM31.18 14.29H37.68V16.19H31.18Z"/><path fill="#B8661F" d="M47.74 2.84 48.44 1.65H52.6Q54.42 1.65 55.55 2.19Q56.68 2.72 57.19 3.62Q57.71 4.51 57.71 5.58Q57.71 6.98 57.02 8.21Q56.33 9.43 54.98 10.25Q53.64 11.06 51.66 11.24L51.62 11.02Q53.85 11.18 55 12.35Q56.15 13.51 56.15 15.15Q56.15 16.89 55.16 18.48Q54.17 20.06 52.21 21.05Q50.26 22.05 47.36 22.05H42.21L42.38 20.86H46.89Q49.02 20.86 50.51 20.12Q51.99 19.39 52.77 18.04Q53.56 16.69 53.56 14.89Q53.56 13.48 52.66 12.64Q51.77 11.81 49.76 11.81H45.08L45.4 10.62H50.17Q51.76 10.62 52.92 9.96Q54.09 9.3 54.73 8.17Q55.37 7.03 55.37 5.61Q55.37 4.71 54.98 4.09Q54.6 3.47 53.81 3.16Q53.03 2.84 51.84 2.84ZM46.67 2.91 44.56 2.17 44.72 1.65H49.48L43.24 22.05H38.52L38.68 21.53L41.21 20.79ZM65.54 8.4Q66.75 8.4 67.61 8.91Q68.46 9.43 68.92 10.41Q69.39 11.38 69.39 12.78Q69.39 14.61 68.81 16.32Q68.24 18.03 67.23 19.39Q66.22 20.74 64.88 21.55Q63.54 22.35 62 22.35Q60.8 22.35 59.94 21.83Q59.08 21.32 58.61 20.33Q58.15 19.35 58.15 17.96Q58.15 16.14 58.73 14.43Q59.3 12.72 60.31 11.36Q61.32 10 62.66 9.2Q64 8.4 65.54 8.4ZM62.03 21.46Q62.83 21.46 63.58 20.89Q64.34 20.33 65 19.37Q65.66 18.4 66.15 17.18Q66.65 15.96 66.94 14.63Q67.22 13.3 67.22 12.02Q67.22 10.62 66.81 9.96Q66.4 9.29 65.51 9.29Q64.71 9.29 63.95 9.85Q63.2 10.41 62.54 11.38Q61.88 12.34 61.38 13.56Q60.89 14.78 60.6 16.11Q60.32 17.45 60.32 18.73Q60.32 20.11 60.73 20.78Q61.14 21.46 62.03 21.46ZM77.46 15.52 76.68 16.08 74.13 19.79Q73.47 20.76 72.89 21.32Q72.32 21.87 71.75 22.11Q71.19 22.35 70.56 22.35Q69.75 22.35 69.32 21.89Q68.9 21.44 68.9 20.79Q68.9 20.27 69.13 19.86Q69.36 19.46 69.73 19.23Q70.11 19 70.55 19Q70.83 19 70.98 19.15Q71.13 19.31 71.25 19.61Q71.37 19.91 71.51 20.03Q71.65 20.15 71.86 20.15Q72.16 20.15 72.53 19.94Q72.91 19.74 73.39 19.24Q73.88 18.73 74.5 17.85L76.41 15.11L77.19 14.55L79.69 10.87Q80.33 9.94 80.89 9.4Q81.45 8.86 82 8.63Q82.56 8.4 83.19 8.4Q83.99 8.4 84.42 8.85Q84.85 9.31 84.85 9.95Q84.85 10.45 84.62 10.87Q84.39 11.28 84.02 11.51Q83.65 11.74 83.2 11.74Q82.94 11.74 82.8 11.62Q82.66 11.49 82.51 11.16Q82.37 10.83 82.23 10.71Q82.09 10.59 81.88 10.59Q81.56 10.59 81.18 10.8Q80.8 11.01 80.32 11.53Q79.83 12.06 79.19 13ZM82.92 16.92Q82.07 19.16 81.38 20.33Q80.7 21.5 80.04 21.93Q79.39 22.35 78.59 22.35Q78.25 22.35 77.99 22.24Q77.74 22.13 77.56 21.86Q77.39 21.58 77.28 21.11L75.07 10.87Q74.99 10.51 74.91 10.39Q74.83 10.26 74.67 10.26Q74.14 10.26 73.53 11Q72.91 11.74 72.28 13.65H71.72Q72.21 11.58 72.8 10.44Q73.39 9.3 74.07 8.85Q74.76 8.4 75.55 8.4Q75.89 8.4 76.13 8.51Q76.37 8.63 76.53 8.9Q76.7 9.17 76.8 9.65L78.94 19.7Q79.05 20.22 79.15 20.35Q79.24 20.49 79.45 20.49Q79.81 20.49 80.19 20.21Q80.57 19.94 81.09 19.17Q81.6 18.39 82.36 16.92Z"/></svg></div></div>
 <a class="skip" href="#main">Hoppa till innehållet</a>
 <header class="top">
   <div class="wrap">
